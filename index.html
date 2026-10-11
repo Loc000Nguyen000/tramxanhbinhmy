@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Trạm Xanh Bình Mỹ – đăng ký lưu trú và đặt lịch tư vấn từ xa">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Trạm Xanh Bình Mỹ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,600;0,700;1,500;1,600&display=swap">
+<style>
+/* Layout: một trang dài, căn trái; hành trình 5 khu là một đường đi ngang (dọc trên điện thoại); hai biểu mẫu đặt cạnh phần giải thích */
+:root {
+  --bg: #f3f6f1;
+  --surface: #ffffff;
+  --surface-2: #e6eee3;
+  --ink: #18291f;
+  --ink-soft: #4b5d51;
+  --line: #cfdcca;
+  --forest: #1f5b3a;
+  --forest-ink: #ffffff;
+  --leaf: #4f9a4a;
+  --ember: #c7782a;
+  --tier-light: #3f9a55;
+  --tier-mid: #d9a21f;
+  --tier-heavy: #c2463a;
+  --danger: #b23a2e;
+  --shadow: 0 1px 2px rgba(24,41,31,.06), 0 8px 24px rgba(24,41,31,.06);
+  --f-display: "Lora", Georgia, "Times New Roman", serif;
+  --f-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1a14; --surface: #16251c; --surface-2: #1d3025; --ink: #e5eee6; --ink-soft: #a7b9ac;
+    --line: #2b4234; --forest: #6cc08a; --forest-ink: #0d1a12; --leaf: #7fc77a; --ember: #e39a4f;
+    --tier-light: #62bf78; --tier-mid: #e8b947; --tier-heavy: #e06a5c; --danger: #ef7d70;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1a14; --surface: #16251c; --surface-2: #1d3025; --ink: #e5eee6; --ink-soft: #a7b9ac;
+  --line: #2b4234; --forest: #6cc08a; --forest-ink: #0d1a12; --leaf: #7fc77a; --ember: #e39a4f;
+  --tier-light: #62bf78; --tier-mid: #e8b947; --tier-heavy: #e06a5c; --danger: #ef7d70;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.2; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+h3 { font-size: 1.2rem; }
+p { margin: 0; }
+a { color: var(--forest); }
+:focus-visible { outline: 3px solid var(--ember); outline-offset: 2px; border-radius: 6px; }
+.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--leaf); }
+.lead { color: var(--ink-soft); max-width: 62ch; }
+
+/* Header */
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand b { font-family: var(--f-display); font-size: 1.15rem; }
+.brand svg { width: 34px; height: 34px; flex: none; }
+nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+nav a { display: block; padding: 6px 12px; border-radius: 999px; text-decoration: none; color: var(--ink-soft); font-size: .92rem; font-weight: 500; }
+nav a:hover { background: var(--surface-2); color: var(--ink); }
+nav a.cta { background: var(--forest); color: var(--forest-ink); }
+@media (max-width: 860px) { nav li:not(.keep) { display: none; } }
+
+/* Hero */
+.hero { padding-block: 56px 40px; }
+.hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(2.3rem, 6vw, 3.9rem); color: var(--forest); letter-spacing: -.01em; }
+.hero .slogan { font-family: var(--f-display); font-style: italic; font-size: clamp(1.2rem, 2.4vw, 1.55rem); color: var(--ink); margin-top: 8px; }
+.hero .lead { margin-top: 18px; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 12px 22px; font: 600 1rem var(--f-body); cursor: pointer; text-decoration: none; transition: transform .15s, background .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--forest); color: var(--forest-ink); }
+.btn-ghost { background: transparent; color: var(--forest); box-shadow: inset 0 0 0 1.5px var(--forest); }
+.btn-ember { background: var(--ember); color: #fff; }
+.hero-art { position: relative; aspect-ratio: 1 / 1; max-width: 100%; }
+.hero-art svg { width: 100%; height: 100%; }
+.facts { display: flex; flex-wrap: wrap; gap: 24px 36px; margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); }
+.facts div { display: grid; }
+.facts strong { font-family: var(--f-display); font-size: 1.7rem; color: var(--forest); font-variant-numeric: tabular-nums; }
+.facts span { font-size: .88rem; color: var(--ink-soft); }
+@media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; } .hero-art { max-width: 300px; } }
+
+section.block { padding-block: 64px; }
+.sec-head { display: grid; gap: 10px; margin-bottom: 32px; }
+
+/* Journey */
+.journey { background: var(--surface); border-block: 1px solid var(--line); }
+.path { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; position: relative; }
+.path::before { content: ""; position: absolute; left: 6%; right: 6%; top: 27px; height: 2px; background: repeating-linear-gradient(90deg, var(--leaf) 0 10px, transparent 10px 18px); }
+.zone { position: relative; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.zone .num { width: 56px; height: 56px; border-radius: 50%; background: var(--forest); color: var(--forest-ink); display: grid; place-items: center; font-family: var(--f-display); font-size: 1.5rem; font-weight: 700; box-shadow: 0 0 0 6px var(--surface); }
+.zone h3 { font-size: 1.08rem; }
+.zone ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: .92rem; display: grid; gap: 4px; }
+.zone .tag { font-size: .78rem; font-weight: 600; color: var(--ember); }
+@media (max-width: 900px) {
+  .path { grid-template-columns: 1fr; gap: 26px; }
+  .path::before { left: 27px; right: auto; top: 10px; bottom: 10px; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--leaf) 0 10px, transparent 10px 18px); }
+  .zone { grid-template-columns: 56px 1fr; column-gap: 16px; }
+  .zone .num { grid-row: span 3; }
+}
+.steps-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; align-items: center; font-size: .88rem; font-weight: 600; color: var(--forest); }
+.steps-bar span { background: var(--surface-2); padding: 6px 14px; border-radius: 999px; }
+.steps-bar i { font-style: normal; color: var(--ink-soft); }
+
+/* Tiers */
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tier { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; }
+.tier header { display: flex; align-items: center; gap: 10px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+.dot.light { background: var(--tier-light); } .dot.mid { background: var(--tier-mid); } .dot.heavy { background: var(--tier-heavy); }
+.tier p { color: var(--ink-soft); font-size: .95rem; }
+.tier .score { font-size: .82rem; font-weight: 600; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+@media (max-width: 820px) { .tiers { grid-template-columns: 1fr; } }
+
+/* Quiz */
+.quiz-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
+.q { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; display: grid; gap: 12px; }
+.q + .q { margin-top: 12px; }
+.q legend { font-weight: 600; padding: 0; }
+.q fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts label { position: relative; }
+.opts input { position: absolute; opacity: 0; pointer-events: none; }
+.opts span { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1.5px solid var(--line); font-size: .9rem; cursor: pointer; color: var(--ink-soft); }
+.opts input:checked + span { background: var(--forest); border-color: var(--forest); color: var(--forest-ink); }
+.opts input:focus-visible + span { outline: 3px solid var(--ember); outline-offset: 2px; }
+.result { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; box-shadow: var(--shadow); display: grid; gap: 14px; }
+.meter { height: 12px; border-radius: 999px; background: linear-gradient(90deg, var(--tier-light) 0 33.3%, var(--tier-mid) 33.3% 66.6%, var(--tier-heavy) 66.6%); position: relative; }
+.meter i { position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%; background: var(--surface); border: 3px solid var(--ink); transform: translate(-50%, -50%); transition: left .35s; }
+.meter-scale { display: flex; justify-content: space-between; font-size: .75rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.result .big { font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; }
+.result small { color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
+.answered { font-size: .85rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .quiz-grid { grid-template-columns: 1fr; } .result { position: static; } }
+
+/* Forms */
+.forms { background: var(--surface-2); }
+.form-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 36px; align-items: start; }
+.form-grid + .form-grid { margin-top: 72px; padding-top: 64px; border-top: 1px solid var(--line); }
+.side { display: grid; gap: 16px; }
+.side ol, .side ul { margin: 0; padding-left: 20px; color: var(--ink-soft); display: grid; gap: 6px; }
+.card { background: var(--surface); border-radius: var(--r); padding: 26px; box-shadow: var(--shadow); }
+form { display: grid; gap: 16px; }
+.row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .form-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .row { grid-template-columns: 1fr; } .card { padding: 20px; } }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label, .field .lbl { font-size: .88rem; font-weight: 600; }
+.field label em { color: var(--danger); font-style: normal; }
+input[type=text], input[type=tel], input[type=email], input[type=date], select, textarea {
+  width: 100%; font: inherit; font-size: .97rem; color: var(--ink); background: var(--bg);
+  border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px;
+}
+textarea { min-height: 92px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 3px color-mix(in srgb, var(--forest) 22%, transparent); }
+.err { color: var(--danger); font-size: .82rem; min-height: 0; }
+.field.bad input, .field.bad select, .field.bad textarea { border-color: var(--danger); }
+.hint { font-size: .8rem; color: var(--ink-soft); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip span { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--bg); cursor: pointer; font-size: .93rem; }
+.chip input:checked + span { border-color: var(--forest); background: color-mix(in srgb, var(--forest) 12%, var(--bg)); font-weight: 600; }
+.chip input:focus-visible + span { outline: 3px solid var(--ember); outline-offset: 2px; }
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 8px; }
+.slot { font: 600 .9rem var(--f-body); font-variant-numeric: tabular-nums; padding: 9px 0; border-radius: 10px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.slot[aria-pressed="true"] { background: var(--forest); color: var(--forest-ink); border-color: var(--forest); }
+.slot:disabled { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--ink-soft); }
+.check input { margin-top: 4px; accent-color: var(--forest); }
+.success { display: grid; gap: 12px; text-align: left; }
+.success .code { font-family: var(--f-display); font-size: 1.9rem; color: var(--forest); letter-spacing: .04em; }
+.success dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; font-size: .94rem; }
+.success dt { color: var(--ink-soft); }
+.success dd { margin: 0; font-weight: 500; min-width: 0; overflow-wrap: anywhere; }
+
+/* Bookings list */
+.mine { margin-top: 18px; display: grid; gap: 8px; }
+.mine h3 { font-size: 1rem; font-family: var(--f-body); font-weight: 600; }
+.mine li { list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: .9rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.mine ul { margin: 0; padding: 0; display: grid; gap: 8px; }
+.mine .meta { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+/* FAQ + footer */
+details { border-bottom: 1px solid var(--line); padding-block: 16px; }
+details summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+details summary::after { content: "+"; font-size: 1.3rem; line-height: 1; color: var(--leaf); }
+details[open] summary::after { content: "–"; }
+details p { margin-top: 10px; color: var(--ink-soft); max-width: 70ch; }
+footer { background: var(--forest); color: var(--forest-ink); padding-block: 44px 32px; }
+footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 28px; }
+footer h3 { font-size: 1.1rem; margin-bottom: 8px; }
+footer p, footer li { opacity: .88; font-size: .93rem; }
+footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var(--forest-ink) 25%, transparent); padding-top: 16px; font-size: .82rem; opacity: .75; }
+@media (max-width: 760px) { footer .wrap { grid-template-columns: 1fr; } }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 140%); background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 12px; font-weight: 500; transition: transform .3s; z-index: 40; max-width: calc(100% - 32px); }
+.toast.show { transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Trạm Xanh Bình Mỹ – về đầu trang">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="var(--forest)"/><path d="M12 28c0-9 6-15 17-16-1 10-7 16-17 16z" fill="var(--forest-ink)"/><path d="M12 28c4-5 8-8 13-11" stroke="var(--forest)" stroke-width="1.6" fill="none"/></svg>
+      <b>Trạm Xanh Bình Mỹ</b>
+    </a>
+    <nav aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="#hanh-trinh">Hành trình</a></li>
+        <li><a href="#tu-danh-gia">Tự đánh giá</a></li>
+        <li><a href="#tu-van">Tư vấn từ xa</a></li>
+        <li><a href="#hoi-dap">Hỏi đáp</a></li>
+        <li class="keep"><a class="cta" href="#dang-ky">Đăng ký</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Trung tâm cân bằng số tại Bình Mỹ</p>
+        <h1>Trạm Xanh Bình Mỹ</h1>
+        <p class="slogan">Gác sóng số, dưỡng nhịp lành.</p>
+        <p class="lead">Chương trình lưu trú 21 ngày giúp bạn giảm phụ thuộc vào điện thoại và mạng xã hội: ngủ lại đúng giờ, vận động ngoài trời, làm vườn cùng bà con và tự đặt lại thói quen dùng thiết bị trước khi trở về cuộc sống thường ngày.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#tu-danh-gia">Làm bài tự đánh giá</a>
+          <a class="btn btn-ghost" href="#tu-van">Đặt lịch tư vấn từ xa</a>
+        </div>
+        <div class="facts">
+          <div><strong>21 ngày</strong><span>Ký ước tự quản lý</span></div>
+          <div><strong>5 khu</strong><span>Từ tiếp nhận đến kết nối</span></div>
+          <div><strong>3 mức</strong><span>Phòng lưu trú phân tầng</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="140" fill="var(--surface-2)"/>
+          <!-- sóng wifi mờ dần -->
+          <g fill="none" stroke-linecap="round" stroke-width="10">
+            <path d="M70 120a112 112 0 0 1 160 0" stroke="var(--line)"/>
+            <path d="M95 145a78 78 0 0 1 110 0" stroke="var(--line)" opacity=".85"/>
+            <path d="M120 170a42 42 0 0 1 60 0" stroke="var(--ink-soft)" opacity=".35"/>
+          </g>
+          <!-- mầm lá mọc từ điểm sóng -->
+          <path d="M150 250V188" stroke="var(--forest)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M150 205c-4-26-24-38-48-36 2 24 20 38 48 36z" fill="var(--leaf)"/>
+          <path d="M150 196c6-30 30-44 58-40-4 28-26 44-58 40z" fill="var(--forest)"/>
+          <ellipse cx="150" cy="252" rx="58" ry="9" fill="var(--line)"/>
+          <circle cx="224" cy="86" r="16" fill="var(--ember)" opacity=".9"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="block journey" id="hanh-trinh">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Hành trình cân bằng số – sống thật</p>
+        <h2>5 khu, đi lần lượt trong suốt thời gian lưu trú</h2>
+        <p class="lead">Mỗi học viên bắt đầu ở Khu 1 và kết thúc ở Khu 5. Lịch sinh hoạt cụ thể được điều chỉnh theo mức độ đánh giá ban đầu.</p>
+      </div>
+      <div class="path">
+        <article class="zone">
+          <div class="num">1</div>
+          <h3>Tiếp nhận &amp; cắt cơn kỹ thuật số</h3>
+          <ul>
+            <li>Đánh giá chỉ số sức khỏe, thể trạng</li>
+            <li>Gửi thiết bị, theo dõi và hỗ trợ cắt cơn</li>
+            <li>Cấp đồng phục, đồng hồ GPS theo dõi sức khỏe</li>
+          </ul>
+        </article>
+        <article class="zone">
+          <div class="num">2</div>
+          <h3>Khu lưu trú</h3>
+          <ul>
+            <li>Phòng ngủ phân tầng: nhẹ, trung bình, nặng</li>
+            <li>Nhiều cây xanh, ánh sáng tự nhiên</li>
+            <li>Tái tạo chu kỳ giấc ngủ tự nhiên</li>
+          </ul>
+        </article>
+        <article class="zone">
+          <div class="num">3</div>
+          <h3>Vui khỏe &amp; thảo mộc Bình Mỹ</h3>
+          <ul>
+            <li>Vận động nhẹ, yoga ngoài trời</li>
+            <li>Ngâm chân thảo mộc Bình Mỹ</li>
+            <li>Tìm hiểu đặc sản địa phương qua mã QR</li>
+          </ul>
+        </article>
+        <article class="zone">
+          <div class="num">4</div>
+          <h3>Vườn kết nối</h3>
+          <p class="tag">Green Reconnect</p>
+          <ul>
+            <li>Làm nông cùng hộ dân</li>
+            <li>Trò chuyện, tháo gỡ áp lực</li>
+            <li>Tự hái nguyên liệu cho bữa tối dã ngoại</li>
+          </ul>
+        </article>
+        <article class="zone">
+          <div class="num">5</div>
+          <h3>Bản lĩnh số &amp; gắn kết đêm</h3>
+          <ul>
+            <li>Tự cài Focus Mode, màn hình xám</li>
+            <li>Viết Ký ước 21 ngày cùng bạn đồng hành</li>
+            <li>Ăn tối, trà thảo mộc, ngủ trong tĩnh lặng</li>
+          </ul>
+        </article>
+      </div>
+      <div class="steps-bar" aria-label="Các bước của chương trình">
+        <span>Tiếp nhận</span><i>›</i><span>Chẩn đoán</span><i>›</i><span>Điều trị</span><i>›</i><span>Vận động</span><i>›</i><span>Kết nối cộng đồng</span><i>›</i><span>Trở lại cuộc sống thật</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="phong">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Phòng lưu trú phân tầng</p>
+        <h2>Ba mức độ, ba cách sắp xếp phòng</h2>
+      </div>
+      <div class="tiers">
+        <article class="tier">
+          <header><span class="dot light"></span><h3>Mức nhẹ</h3></header>
+          <p class="score">Điểm tự đánh giá 0 – 6</p>
+          <p>Phòng nhiều người, sinh hoạt chung. Được giữ điện thoại theo khung giờ quy định, tập trung vào vận động và làm vườn.</p>
+        </article>
+        <article class="tier">
+          <header><span class="dot mid"></span><h3>Mức trung bình</h3></header>
+          <p class="score">Điểm tự đánh giá 7 – 12</p>
+          <p>Phòng 2–4 người. Gửi thiết bị tại quầy, chuyên viên theo dõi giấc ngủ và có buổi trò chuyện nhóm mỗi tối.</p>
+        </article>
+        <article class="tier">
+          <header><span class="dot heavy"></span><h3>Mức nặng</h3></header>
+          <p class="score">Điểm tự đánh giá 13 – 18</p>
+          <p>Phòng riêng yên tĩnh. Cắt cơn có theo dõi sát, tư vấn cá nhân hằng ngày và lộ trình riêng trước khi vào sinh hoạt chung.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="tu-danh-gia" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Tự đánh giá · 6 câu · khoảng 2 phút</p>
+        <h2>Bạn đang phụ thuộc thiết bị số ở mức nào?</h2>
+        <p class="lead">Chọn đáp án gần nhất với bạn trong 2 tuần gần đây. Kết quả sẽ được điền sẵn vào phiếu đăng ký.</p>
+      </div>
+      <div class="quiz-grid">
+        <form id="quiz" onsubmit="return false">
+          <div id="qs"></div>
+        </form>
+        <aside class="result" aria-live="polite">
+          <p class="answered" id="answered">Đã trả lời 0/6 câu</p>
+          <div>
+            <div class="meter"><i id="needle" style="left:0%"></i></div>
+            <div class="meter-scale"><span>0</span><span>6</span><span>12</span><span>18</span></div>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:var(--ink-soft)">Kết quả</p>
+            <p class="big" id="tierName">Chưa đủ câu trả lời</p>
+            <p id="tierText" style="color:var(--ink-soft);margin-top:6px">Trả lời đủ 6 câu để xem mức độ gợi ý.</p>
+          </div>
+          <button class="btn btn-primary" id="useResult" type="button" disabled>Dùng kết quả để đăng ký</button>
+          <small>Bài tự đánh giá chỉ mang tính tham khảo, không thay cho chẩn đoán của chuyên viên. Mức độ chính thức được xác định tại Khu 1.</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block forms">
+    <div class="wrap">
+      <div class="form-grid" id="dang-ky">
+        <div class="side">
+          <p class="eyebrow">Đăng ký lưu trú</p>
+          <h2>Giữ chỗ cho chương trình 21 ngày</h2>
+          <p class="lead">Sau khi gửi phiếu, trung tâm sẽ gọi lại trong vòng 24 giờ để xác nhận lịch nhận phòng.</p>
+          <ol>
+            <li>Gửi phiếu đăng ký</li>
+            <li>Nhận cuộc gọi xác nhận</li>
+            <li>Đến Khu 1 làm thủ tục và đánh giá sức khỏe</li>
+          </ol>
+          <p class="hint">Học viên dưới 18 tuổi cần có thông tin người giám hộ.</p>
+        </div>
+        <div class="card" id="regCard">
+          <form id="regForm" novalidate>
+            <div class="row">
+              <div class="field"><label for="r-name">Họ và tên <em>*</em></label><input id="r-name" type="text" autocomplete="name" placeholder="Nguyễn Văn An"><span class="err"></span></div>
+              <div class="field"><label for="r-dob">Ngày sinh <em>*</em></label><input id="r-dob" type="date"><span class="err"></span></div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="r-phone">Số điện thoại <em>*</em></label><input id="r-phone" type="tel" inputmode="tel" placeholder="0901 234 567"><span class="err"></span></div>
+              <div class="field"><label for="r-email">Email</label><input id="r-email" type="email" placeholder="ban@email.com"><span class="err"></span></div>
+            </div>
+            <div class="row" id="guardianRow" hidden>
+              <div class="field"><label for="r-gname">Họ tên người giám hộ <em>*</em></label><input id="r-gname" type="text"><span class="err"></span></div>
+              <div class="field"><label for="r-gphone">SĐT người giám hộ <em>*</em></label><input id="r-gphone" type="tel" inputmode="tel"><span class="err"></span></div>
+            </div>
+            <div class="field">
+              <span class="lbl">Mức độ (theo bài tự đánh giá) <em style="color:var(--danger);font-style:normal">*</em></span>
+              <div class="chips" role="radiogroup" aria-label="Mức độ">
+                <label class="chip"><input type="radio" name="tier" id="t-light" value="Nhẹ"><span><i class="dot light"></i>Nhẹ</span></label>
+                <label class="chip"><input type="radio" name="tier" id="t-mid" value="Trung bình"><span><i class="dot mid"></i>Trung bình</span></label>
+                <label class="chip"><input type="radio" name="tier" id="t-heavy" value="Nặng"><span><i class="dot heavy"></i>Nặng</span></label>
+                <label class="chip"><input type="radio" name="tier" id="t-unknown" value="Chưa rõ"><span>Chưa rõ</span></label>
+              </div>
+              <span class="err" id="tierErr"></span>
+            </div>
+            <div class="row">
+              <div class="field"><label for="r-date">Ngày dự kiến nhận phòng <em>*</em></label><input id="r-date" type="date"><span class="err"></span></div>
+              <div class="field"><label for="r-source">Bạn biết đến trung tâm qua</label>
+                <select id="r-source"><option>Trường học</option><option>Gia đình, bạn bè</option><option>Mạng xã hội</option><option>Bác sĩ, chuyên viên giới thiệu</option><option>Khác</option></select>
+              </div>
+            </div>
+            <div class="field"><label for="r-note">Ghi chú sức khỏe, ăn uống</label><textarea id="r-note" placeholder="Ví dụ: dị ứng hải sản, đang dùng thuốc, cần ăn chay…"></textarea></div>
+            <label class="check"><input type="checkbox" id="r-agree"><span>Tôi đồng ý gửi thiết bị số theo quy định của từng khu và tuân thủ nội quy trung tâm trong 21 ngày.</span></label>
+            <span class="err" id="agreeErr"></span>
+            <button class="btn btn-primary" type="submit">Gửi phiếu đăng ký</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="form-grid" id="tu-van">
+        <div class="side">
+          <p class="eyebrow">Tư vấn từ xa · miễn phí</p>
+          <h2>Nói chuyện với chuyên viên trước khi quyết định</h2>
+          <p class="lead">Buổi tư vấn kéo dài khoảng 30 phút. Phụ huynh có thể đặt lịch thay cho con em.</p>
+          <ul>
+            <li>Giải thích kết quả tự đánh giá</li>
+            <li>Gợi ý thay đổi nhỏ có thể làm ngay tại nhà</li>
+            <li>Trả lời câu hỏi về lưu trú, chi phí, nội quy</li>
+          </ul>
+          <div class="mine" id="mine" hidden>
+            <h3>Lịch bạn đã đặt</h3>
+            <ul id="mineList"></ul>
+          </div>
+        </div>
+        <div class="card" id="conCard">
+          <form id="conForm" novalidate>
+            <div class="field">
+              <span class="lbl">Hình thức tư vấn</span>
+              <div class="chips" role="radiogroup" aria-label="Hình thức tư vấn">
+                <label class="chip"><input type="radio" name="mode" id="m-video" value="Gọi video" checked><span>Gọi video</span></label>
+                <label class="chip"><input type="radio" name="mode" id="m-phone" value="Gọi điện thoại"><span>Gọi điện thoại</span></label>
+                <label class="chip"><input type="radio" name="mode" id="m-chat" value="Nhắn tin"><span>Nhắn tin</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="c-name">Họ và tên <em>*</em></label><input id="c-name" type="text" autocomplete="name"><span class="err"></span></div>
+              <div class="field"><label for="c-phone">Số điện thoại <em>*</em></label><input id="c-phone" type="tel" inputmode="tel"><span class="err"></span></div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="c-who">Người cần tư vấn</label>
+                <select id="c-who"><option>Bản thân tôi</option><option>Con em tôi</option><option>Học sinh, sinh viên tôi phụ trách</option><option>Người thân khác</option></select>
+              </div>
+              <div class="field"><label for="c-staff">Chuyên viên</label>
+                <select id="c-staff"><option>Bất kỳ chuyên viên nào</option><option>Chuyên viên tâm lý</option><option>Chuyên viên giấc ngủ, sức khỏe</option><option>Tư vấn thủ tục lưu trú</option></select>
+              </div>
+            </div>
+            <div class="field"><label for="c-date">Ngày tư vấn <em>*</em></label><input id="c-date" type="date"><span class="err"></span></div>
+            <div class="field">
+              <span class="lbl">Khung giờ <em style="color:var(--danger);font-style:normal">*</em></span>
+              <div class="slots" id="slots"></div>
+              <span class="hint" id="slotHint">Chọn ngày để xem khung giờ còn trống.</span>
+              <span class="err" id="slotErr"></span>
+            </div>
+            <div class="field"><label for="c-issue">Điều bạn muốn trao đổi</label><textarea id="c-issue" placeholder="Ví dụ: con tôi thức khuya chơi game, không chịu đi học…"></textarea></div>
+            <button class="btn btn-ember" type="submit">Đặt lịch tư vấn</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="hoi-dap">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Hỏi đáp</p><h2>Câu hỏi thường gặp</h2></div>
+      <div style="max-width:780px">
+        <details><summary>Tôi có bị thu điện thoại suốt 21 ngày không?</summary><p>Tùy mức độ. Mức nhẹ được dùng điện thoại theo khung giờ; mức trung bình và nặng gửi thiết bị tại quầy, liên lạc với gia đình qua điện thoại của trung tâm vào giờ cố định.</p></details>
+        <details><summary>Gia đình liên lạc với học viên bằng cách nào?</summary><p>Mỗi học viên đeo đồng hồ GPS theo dõi sức khỏe và vị trí. Gia đình được cập nhật tình hình định kỳ và có thể gọi đến số tổng đài của trung tâm.</p></details>
+        <details><summary>Ký ước 21 ngày là gì?</summary><p>Ở Khu 5, học viên tự viết cam kết cách dùng thiết bị sau khi về nhà, có một bạn đồng hành cùng theo dõi và nhắc nhở.</p></details>
+        <details><summary>Tư vấn từ xa có mất phí không?</summary><p>Buổi tư vấn đầu tiên miễn phí. Bạn có thể đặt lịch ngay ở phần Tư vấn từ xa phía trên.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>Trạm Xanh Bình Mỹ</h3>
+      <p>Hành trình cân bằng số – sống thật.</p>
+    </div>
+    <div>
+      <h3>Liên hệ</h3>
+      <ul>
+        <li>Xã Bình Mỹ, TP. Hồ Chí Minh</li>
+        <li>Tổng đài: 0900 000 000</li>
+        <li>Email: lienhe@tramxanhbinhmy.vn</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Giờ làm việc</h3>
+      <ul>
+        <li>Tư vấn từ xa: 8:00 – 17:00, thứ 2 – thứ 7</li>
+        <li>Tiếp nhận học viên: 7:30 – 16:00 hằng ngày</li>
+      </ul>
+    </div>
+    <p class="copy">Đồ án môn học · Nhóm 5 · Thông tin liên hệ là dữ liệu minh họa.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const toast = (msg) => { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 3200); };
+  const pad = (n) => String(n).padStart(2, '0');
+  const iso = (d) => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const vnDate = (s) => { if (!s) return ''; const [y, m, d] = s.split('-'); return d + '/' + m + '/' + y; };
+  const code = (p) => p + '-' + Math.random().toString(36).slice(2, 6).toUpperCase();
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+
+  /* ---------- Quiz ---------- */
+  const QUESTIONS = [
+    ['Mỗi ngày bạn dùng điện thoại, máy tính cho việc ngoài học tập và công việc khoảng bao lâu?', ['Dưới 2 giờ', '2 – 4 giờ', '4 – 6 giờ', 'Trên 6 giờ']],
+    ['Bạn có thức khuya hoặc khó ngủ vì lướt điện thoại trước khi ngủ không?', ['Không bao giờ', 'Thỉnh thoảng', 'Thường xuyên', 'Gần như mỗi đêm']],
+    ['Bạn thấy bồn chồn, khó chịu khi không có điện thoại bên cạnh?', ['Không', 'Hơi khó chịu', 'Khá khó chịu', 'Rất khó chịu']],
+    ['Việc đầu tiên khi thức dậy là kiểm tra điện thoại?', ['Hiếm khi', 'Thỉnh thoảng', 'Thường xuyên', 'Luôn luôn']],
+    ['Bạn từng bỏ bữa, bỏ học hoặc từ chối gặp bạn bè vì đang dùng thiết bị?', ['Chưa từng', 'Một vài lần', 'Khá thường', 'Rất thường']],
+    ['Bạn đã thử tự giảm thời gian dùng thiết bị nhưng không làm được?', ['Chưa cần thử', 'Có, và làm được', 'Có, được vài ngày', 'Có, nhưng thất bại']]
+  ];
+  const TIERS = {
+    light: { name: 'Mức nhẹ', color: 'var(--tier-light)', id: 't-light', text: 'Thói quen dùng thiết bị chưa ảnh hưởng nhiều. Bạn có thể bắt đầu bằng một buổi tư vấn từ xa và chương trình lưu trú ngắn ngày.' },
+    mid: { name: 'Mức trung bình', color: 'var(--tier-mid)', id: 't-mid', text: 'Thiết bị số đang ảnh hưởng tới giấc ngủ và sinh hoạt. Chương trình 21 ngày với phòng mức trung bình phù hợp với bạn.' },
+    heavy: { name: 'Mức nặng', color: 'var(--tier-heavy)', id: 't-heavy', text: 'Mức phụ thuộc cao. Bạn nên đặt lịch tư vấn với chuyên viên tâm lý trước, sau đó lưu trú phòng riêng có theo dõi sát.' }
+  };
+  const qs = $('#qs');
+  qs.innerHTML = QUESTIONS.map(([q, opts], i) => `
+    <div class="q"><fieldset><legend>${i + 1}. ${q}</legend>
+      <div class="opts">${opts.map((o, v) => `<label><input type="radio" name="q${i}" id="q${i}-${v}" value="${v}"><span>${o}</span></label>`).join('')}</div>
+    </fieldset></div>`).join('');
+
+  let currentTier = null;
+  function scoreQuiz() {
+    let total = 0, n = 0;
+    QUESTIONS.forEach((_, i) => { const c = $(`input[name=q${i}]:checked`); if (c) { total += +c.value; n++; } });
+    $('#answered').textContent = `Đã trả lời ${n}/6 câu · ${total} điểm`;
+    $('#needle').style.left = (total / 18 * 100) + '%';
+    if (n < QUESTIONS.length) {
+      currentTier = null;
+      $('#tierName').textContent = 'Chưa đủ câu trả lời';
+      $('#tierName').style.color = 'var(--ink)';
+      $('#tierText').textContent = `Còn ${QUESTIONS.length - n} câu nữa để xem mức độ gợi ý.`;
+      $('#useResult').disabled = true;
+      return;
+    }
+    currentTier = total <= 6 ? 'light' : total <= 12 ? 'mid' : 'heavy';
+    const t = TIERS[currentTier];
+    $('#tierName').textContent = t.name + ' · ' + total + '/18';
+    $('#tierName').style.color = t.color;
+    $('#tierText').textContent = t.text;
+    $('#useResult').disabled = false;
+  }
+  qs.addEventListener('change', scoreQuiz);
+  // Mẫu minh họa: điền sẵn vài câu để khách xem thấy cách chấm điểm
+  [2, 1, 2, 3].forEach((v, i) => { $(`#q${i}-${v}`).checked = true; });
+  scoreQuiz();
+
+  $('#useResult').addEventListener('click', () => {
+    if (!currentTier) return;
+    $('#' + TIERS[currentTier].id).checked = true;
+    $('#dang-ky').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => $('#r-name').focus({ preventScroll: true }), 500);
+    toast('Đã điền mức độ "' + TIERS[currentTier].name.replace('Mức ', '') + '" vào phiếu đăng ký');
+  });
+
+  /* ---------- Shared validation ---------- */
+  const PHONE = /^(0|\+84)(3|5|7|8|9)\d{8}$/;
+  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+  function setErr(input, msg) {
+    const f = input.closest('.field'); const e = f && f.querySelector('.err');
+    if (f) f.classList.toggle('bad', !!msg);
+    if (e) e.textContent = msg || '';
+    return !msg;
+  }
+  const cleanPhone = (v) => v.replace(/[\s.\-]/g, '');
+
+  /* ---------- Registration ---------- */
+  const dob = $('#r-dob'), rDate = $('#r-date');
+  dob.max = iso(today);
+  rDate.min = iso(tomorrow);
+  function age() {
+    if (!dob.value) return null;
+    const b = new Date(dob.value); let a = today.getFullYear() - b.getFullYear();
+    const m = today.getMonth() - b.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < b.getDate())) a--;
+    return a;
+  }
+  dob.addEventListener('change', () => { const a = age(); $('#guardianRow').hidden = !(a !== null && a < 18); });
+
+  $('#regForm').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    let ok = true;
+    const name = $('#r-name'), phone = $('#r-phone'), email = $('#r-email');
+    ok = setErr(name, name.value.trim().length < 2 ? 'Vui lòng nhập họ và tên.' : '') && ok;
+    const a = age();
+    ok = setErr(dob, !dob.value ? 'Vui lòng chọn ngày sinh.' : (a < 10 ? 'Chương trình nhận học viên từ 10 tuổi.' : '')) && ok;
+    ok = setErr(phone, !PHONE.test(cleanPhone(phone.value)) ? 'Số điện thoại gồm 10 số, bắt đầu bằng 03, 05, 07, 08 hoặc 09.' : '') && ok;
+    ok = setErr(email, email.value && !EMAIL.test(email.value) ? 'Email chưa đúng định dạng.' : '') && ok;
+    if (a !== null && a < 18) {
+      const gn = $('#r-gname'), gp = $('#r-gphone');
+      ok = setErr(gn, gn.value.trim().length < 2 ? 'Học viên dưới 18 tuổi cần thông tin người giám hộ.' : '') && ok;
+      ok = setErr(gp, !PHONE.test(cleanPhone(gp.value)) ? 'Số điện thoại người giám hộ chưa hợp lệ.' : '') && ok;
+    }
+    const tier = $('input[name=tier]:checked');
+    $('#tierErr').textContent = tier ? '' : 'Chọn mức độ, hoặc chọn "Chưa rõ" nếu bạn chưa làm bài tự đánh giá.';
+    ok = !!tier && ok;
+    ok = setErr(rDate, !rDate.value ? 'Vui lòng chọn ngày nhận phòng.' : (new Date(rDate.value) < tomorrow ? 'Ngày nhận phòng phải từ ngày mai trở đi.' : '')) && ok;
+    const agree = $('#r-agree').checked;
+    $('#agreeErr').textContent = agree ? '' : 'Bạn cần đồng ý với nội quy để gửi phiếu.';
+    ok = agree && ok;
+    if (!ok) { const bad = $('#regForm .bad input, #regForm .bad select'); (bad || $('#regForm')).focus(); toast('Phiếu còn thông tin chưa hợp lệ'); return; }
+
+    const end = new Date(rDate.value); end.setDate(end.getDate() + 20);
+    const id = code('TX');
+    $('#regCard').innerHTML = `
+      <div class="success" tabindex="-1" id="regDone">
+        <p class="eyebrow">Đã nhận phiếu đăng ký</p>
+        <p class="code">${id}</p>
+        <p style="color:var(--ink-soft)">Trung tâm sẽ gọi số <b>${phone.value.trim()}</b> trong vòng 24 giờ để xác nhận. Hãy giữ lại mã đăng ký này.</p>
+        <dl>
+          <dt>Học viên</dt><dd>${escapeHtml(name.value.trim())}</dd>
+          <dt>Mức độ</dt><dd>${tier.value}</dd>
+          <dt>Lưu trú</dt><dd>${vnDate(rDate.value)} – ${vnDate(iso(end))} (21 ngày)</dd>
+        </dl>
+        <div class="btns" style="margin-top:6px"><a class="btn btn-ghost" href="#tu-van">Đặt thêm lịch tư vấn</a></div>
+      </div>`;
+    $('#regDone').focus();
+    toast('Đã gửi phiếu đăng ký ' + id);
+  });
+
+  /* ---------- Consultation ---------- */
+  const SLOTS = ['08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30'];
+  const cDate = $('#c-date');
+  cDate.min = iso(tomorrow);
+  const maxD = new Date(today); maxD.setDate(today.getDate() + 30); cDate.max = iso(maxD);
+  let chosenSlot = null;
+  function hash(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; }
+  function renderSlots() {
+    const box = $('#slots'); chosenSlot = null; box.innerHTML = '';
+    if (!cDate.value) { $('#slotHint').textContent = 'Chọn ngày để xem khung giờ còn trống.'; return; }
+    const d = new Date(cDate.value + 'T00:00:00');
+    if (d.getDay() === 0) { $('#slotHint').textContent = 'Chủ nhật trung tâm không nhận tư vấn từ xa. Vui lòng chọn ngày khác.'; return; }
+    const taken = (store.get('tx-consults') || []).filter(b => b.date === cDate.value).map(b => b.slot);
+    let free = 0;
+    SLOTS.forEach((s, i) => {
+      const busy = (hash(cDate.value + s) % 10) < 3 || taken.includes(s) || (d.getDay() === 6 && i > 5);
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'slot'; b.textContent = s; b.disabled = busy;
+      b.setAttribute('aria-pressed', 'false');
+      if (busy) b.title = 'Đã có người đặt'; else free++;
+      b.addEventListener('click', () => { $$('.slot', box).forEach(x => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); chosenSlot = s; $('#slotErr').textContent = ''; });
+      box.appendChild(b);
+    });
+    $('#slotHint').textContent = `Còn ${free} khung giờ trống ngày ${vnDate(cDate.value)}. Mỗi buổi khoảng 30 phút.`;
+  }
+  cDate.addEventListener('change', renderSlots);
+  // Mặc định: ngày làm việc gần nhất
+  const firstDay = new Date(tomorrow); if (firstDay.getDay() === 0) firstDay.setDate(firstDay.getDate() + 1);
+  cDate.value = iso(firstDay); renderSlots();
+
+  function renderMine() {
+    const list = store.get('tx-consults') || [];
+    $('#mine').hidden = list.length === 0;
+    $('#mineList').innerHTML = list.slice(-4).reverse().map(b => `<li><span><b>${b.id}</b> · ${escapeHtml(b.mode)}</span><span class="meta">${b.slot} · ${vnDate(b.date)}</span></li>`).join('');
+  }
+  renderMine();
+
+  $('#conForm').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    let ok = true;
+    const name = $('#c-name'), phone = $('#c-phone');
+    ok = setErr(name, name.value.trim().length < 2 ? 'Vui lòng nhập họ và tên.' : '') && ok;
+    ok = setErr(phone, !PHONE.test(cleanPhone(phone.value)) ? 'Số điện thoại gồm 10 số, bắt đầu bằng 03, 05, 07, 08 hoặc 09.' : '') && ok;
+    ok = setErr(cDate, !cDate.value ? 'Vui lòng chọn ngày tư vấn.' : '') && ok;
+    $('#slotErr').textContent = chosenSlot ? '' : 'Vui lòng chọn một khung giờ còn trống.';
+    ok = !!chosenSlot && ok;
+    if (!ok) { toast('Lịch hẹn còn thông tin chưa hợp lệ'); return; }
+
+    const mode = $('input[name=mode]:checked').value;
+    const booking = { id: code('TV'), name: name.value.trim(), mode, date: cDate.value, slot: chosenSlot, staff: $('#c-staff').value };
+    const list = store.get('tx-consults') || []; list.push(booking); store.set('tx-consults', list);
+    const how = mode === 'Gọi video' ? 'Đường dẫn cuộc gọi video sẽ được gửi qua tin nhắn SMS 15 phút trước giờ hẹn.' : mode === 'Gọi điện thoại' ? 'Chuyên viên sẽ gọi đến số của bạn đúng giờ hẹn.' : 'Chuyên viên sẽ nhắn tin cho bạn qua Zalo theo số điện thoại đã đăng ký.';
+    $('#conCard').innerHTML = `
+      <div class="success" tabindex="-1" id="conDone">
+        <p class="eyebrow">Đã đặt lịch tư vấn</p>
+        <p class="code">${booking.id}</p>
+        <dl>
+          <dt>Thời gian</dt><dd>${booking.slot}, ${vnDate(booking.date)}</dd>
+          <dt>Hình thức</dt><dd>${mode}</dd>
+          <dt>Chuyên viên</dt><dd>${escapeHtml(booking.staff)}</dd>
+          <dt>Người đặt</dt><dd>${escapeHtml(booking.name)}</dd>
+        </dl>
+        <p style="color:var(--ink-soft)">${how}</p>
+        <div class="btns" style="margin-top:6px"><button class="btn btn-ghost" type="button" id="again">Đặt lịch khác</button></div>
+      </div>`;
+    $('#conDone').focus();
+    $('#again').addEventListener('click', () => location.reload());
+    renderMine();
+    toast('Đã đặt lịch ' + booking.slot + ' ngày ' + vnDate(booking.date));
+  });
+
+  // Mở từ mã QR (đường dẫn có #dang-ky, #tu-van…) thì cuộn tới đúng phần
+  const jump = () => { const id = (location.hash || '').slice(1); const el = id && /^[\w-]+$/.test(id) && document.getElementById(id); if (el) el.scrollIntoView(); };
+  window.addEventListener('load', () => setTimeout(jump, 150));
+  window.addEventListener('hashchange', jump);
+
+  function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+})();
+</script>
+
+</body>
+</html>
