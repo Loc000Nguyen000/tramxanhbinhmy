@@ -3,122 +3,368 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Trạm Xanh Bình Mỹ – đăng ký lưu trú và đặt lịch tư vấn từ xa">
+<meta name="description" content="Trạm Xanh Bình Mỹ – sổ nhiệm vụ, thẻ rau móp, đăng ký lưu trú và đặt lịch tư vấn từ xa">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Trạm Xanh Bình Mỹ</title>
+<script>try { var t = localStorage.getItem('tx-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,600;0,700;1,500;1,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Dancing+Script:wght@600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* Layout: một trang dài, căn trái; hành trình 5 khu là một đường đi ngang (dọc trên điện thoại); hai biểu mẫu đặt cạnh phần giải thích */
+/* Bố cục theo hướng nongsinhdonghanh.vercel.app:
+   hero ảnh nền phủ màu + thẻ nổi, thanh số liệu đè lên hero, tiêu đề mục căn giữa có chấm,
+   thẻ quy trình có mũi tên, banner kêu gọi cuối trang, chân trang tối. */
 :root {
-  --bg: #f3f6f1;
+  --bg: #f6f9f3;
   --surface: #ffffff;
-  --surface-2: #e6eee3;
-  --ink: #18291f;
-  --ink-soft: #4b5d51;
-  --line: #cfdcca;
-  --forest: #1f5b3a;
+  --surface-2: #edf4e8;
+  --paper: #fbf8ee;
+  --ink: #1a2b20;
+  --ink-soft: #55665a;
+  --line: #dfe8da;
+  --forest: #2f6b3a;
+  --forest-deep: #1d4527;
   --forest-ink: #ffffff;
-  --leaf: #4f9a4a;
-  --ember: #c7782a;
+  --leaf: #5aa346;
+  --leaf-pale: #e5f2dd;
+  --gold: #d4a72c;
+  --ember: #e07b2a;
   --tier-light: #3f9a55;
   --tier-mid: #d9a21f;
   --tier-heavy: #c2463a;
   --danger: #b23a2e;
-  --shadow: 0 1px 2px rgba(24,41,31,.06), 0 8px 24px rgba(24,41,31,.06);
-  --f-display: "Lora", Georgia, "Times New Roman", serif;
+  --g-gs: #2e6b5e; --g-cx: #4f9a4a; --g-dt: #c98a2b; --g-dta: #2f7f7a; --g-kt: #3d6f3a;
+  --night: #10221a; --night-2: #183428;
+  --shadow-sm: 0 2px 8px rgba(26,43,32,.07);
+  --shadow: 0 6px 22px rgba(26,43,32,.10);
+  --shadow-lg: 0 14px 40px rgba(26,43,32,.16);
   --f-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --r: 14px;
+  --f-hand: "Dancing Script", "Segoe Script", cursive;
+  --r: 16px;
+  --head-h: 68px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1a14; --surface: #16251c; --surface-2: #1d3025; --ink: #e5eee6; --ink-soft: #a7b9ac;
-    --line: #2b4234; --forest: #6cc08a; --forest-ink: #0d1a12; --leaf: #7fc77a; --ember: #e39a4f;
-    --tier-light: #62bf78; --tier-mid: #e8b947; --tier-heavy: #e06a5c; --danger: #ef7d70;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    --bg: #0f1a14; --surface: #16251c; --surface-2: #1c2f23; --paper: #1a291f; --ink: #e6efe7; --ink-soft: #a6b8ab;
+    --line: #2b4234; --forest: #74c48f; --forest-deep: #0f2417; --forest-ink: #0d1a12; --leaf: #86cc7c; --leaf-pale: #1f3a27;
+    --gold: #e6bf4f; --ember: #eb9a52; --tier-light: #62bf78; --tier-mid: #e8b947; --tier-heavy: #e06a5c; --danger: #ef7d70;
+    --g-gs: #5fb3a1; --g-cx: #7fc77a; --g-dt: #e3ad55; --g-dta: #5dbab3; --g-kt: #86c27f;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.3); --shadow: 0 6px 22px rgba(0,0,0,.35); --shadow-lg: 0 14px 40px rgba(0,0,0,.45);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1a14; --surface: #16251c; --surface-2: #1d3025; --ink: #e5eee6; --ink-soft: #a7b9ac;
-  --line: #2b4234; --forest: #6cc08a; --forest-ink: #0d1a12; --leaf: #7fc77a; --ember: #e39a4f;
-  --tier-light: #62bf78; --tier-mid: #e8b947; --tier-heavy: #e06a5c; --danger: #ef7d70;
-  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  --bg: #0f1a14; --surface: #16251c; --surface-2: #1c2f23; --paper: #1a291f; --ink: #e6efe7; --ink-soft: #a6b8ab;
+  --line: #2b4234; --forest: #74c48f; --forest-deep: #0f2417; --forest-ink: #0d1a12; --leaf: #86cc7c; --leaf-pale: #1f3a27;
+  --gold: #e6bf4f; --ember: #eb9a52; --tier-light: #62bf78; --tier-mid: #e8b947; --tier-heavy: #e06a5c; --danger: #ef7d70;
+  --g-gs: #5fb3a1; --g-cx: #7fc77a; --g-dt: #e3ad55; --g-dta: #5dbab3; --g-kt: #86c27f;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.3); --shadow: 0 6px 22px rgba(0,0,0,.35); --shadow-lg: 0 14px 40px rgba(0,0,0,.45);
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--head-h) + 12px); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
-body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
-h1, h2, h3 { font-family: var(--f-display); line-height: 1.2; text-wrap: balance; margin: 0; }
-h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
-h3 { font-size: 1.2rem; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { font-family: var(--f-body); font-weight: 800; line-height: 1.25; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.08rem; font-weight: 700; }
 p { margin: 0; }
 a { color: var(--forest); }
 :focus-visible { outline: 3px solid var(--ember); outline-offset: 2px; border-radius: 6px; }
-.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--leaf); }
-.lead { color: var(--ink-soft); max-width: 62ch; }
+.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--leaf); }
+.lead { color: var(--ink-soft); max-width: 64ch; }
 
 /* Header */
-.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-.brand b { font-family: var(--f-display); font-size: 1.15rem; }
-.brand svg { width: 34px; height: 34px; flex: none; }
-nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-nav a { display: block; padding: 6px 12px; border-radius: 999px; text-decoration: none; color: var(--ink-soft); font-size: .92rem; font-weight: 500; }
-nav a:hover { background: var(--surface-2); color: var(--ink); }
-nav a.cta { background: var(--forest); color: var(--forest-ink); }
-@media (max-width: 860px) { nav li:not(.keep) { display: none; } }
+.site-head { position: sticky; top: 0; z-index: 30; background: var(--surface); box-shadow: var(--shadow-sm); }
+.site-head .wrap { display: flex; align-items: center; gap: 10px; min-height: var(--head-h); }
+.site-head .brand { margin-right: auto; }
+.site-head .nav { order: 1; } .site-head .theme-btn { order: 2; } .site-head .burger { order: 3; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); flex: none; }
+.brand svg { width: 42px; height: 42px; flex: none; }
+.brand span { display: grid; line-height: 1.2; }
+.brand b { font-size: 1.02rem; font-weight: 800; color: var(--forest); }
+.brand small { font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--leaf); }
+.nav > ul { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+.nav a { display: block; padding: 7px 11px; border-radius: 8px; text-decoration: none; color: var(--ink-soft); font-size: .87rem; font-weight: 500; white-space: nowrap; transition: background .2s, color .2s; }
+.nav a:hover { background: var(--leaf-pale); color: var(--forest); }
+.nav a.cta { background: var(--forest); color: var(--forest-ink); font-weight: 700; margin-left: 6px; }
+.nav a.cta:hover { background: var(--forest-deep); color: #fff; }
+.has-sub { position: relative; }
+.sub-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-soft); font: 500 .87rem var(--f-body); cursor: pointer; white-space: nowrap; }
+.sub-toggle i { font-size: .7rem; transition: transform .2s; }
+.has-sub:hover > .sub-toggle, .has-sub.open > .sub-toggle { background: var(--leaf-pale); color: var(--forest); }
+.has-sub:hover > .sub-toggle i, .has-sub.open > .sub-toggle i { transform: rotate(180deg); }
+.sub-toggle.cur { background: var(--forest); color: var(--forest-ink); font-weight: 700; }
+/* top: 100% + padding-top tạo "cầu nối" để chuột đi từ nút xuống danh sách không bị tắt */
+.sub { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); z-index: 45; list-style: none; margin: 0; padding: 10px 0 0; min-width: 320px; }
+.sub::before { content: ""; position: absolute; inset: 10px 0 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg); z-index: -1; }
+.sub li:first-child { padding-top: 8px; } .sub li:last-child { padding-bottom: 8px; }
+.sub li { padding-inline: 8px; }
+.has-sub:hover > .sub, .has-sub.open > .sub { display: grid; animation: subIn .18s ease; }
+@keyframes subIn { from { opacity: 0; margin-top: -6px; } to { opacity: 1; margin-top: 0; } }
+.sub a { white-space: normal; display: grid; grid-template-columns: 38px 1fr; column-gap: 12px; align-items: center; padding: 9px 10px; border-radius: 10px; text-decoration: none; color: var(--ink); text-align: left; }
+.sub a:hover, .sub a[aria-current="page"] { background: var(--leaf-pale); }
+.sub a i { grid-row: span 2; width: 38px; height: 38px; border-radius: 10px; background: var(--leaf-pale); color: var(--forest); display: grid; place-items: center; font-size: .95rem; }
+.sub a:hover i, .sub a[aria-current="page"] i { background: var(--forest); color: var(--forest-ink); }
+.sub a b { font-size: .9rem; font-weight: 700; line-height: 1.3; }
+.sub a small { font-size: .78rem; color: var(--ink-soft); line-height: 1.35; font-weight: 400; }
+.burger { display: none; width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); font-size: 1.3rem; border-radius: 10px; cursor: pointer; }
+@media (max-width: 1080px) {
+  .burger { display: grid; place-items: center; }
+  .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--surface); box-shadow: var(--shadow); display: none; }
+  .nav.open { display: block; }
+  .nav > ul { flex-direction: column; align-items: stretch; padding: 10px 16px 16px; }
+  .nav a { padding: 11px 12px; font-size: .95rem; }
+  .nav a.cta { margin: 6px 0 0; text-align: center; }
+  .nav .sub-toggle { width: 100%; padding: 11px 12px; font-size: .95rem; pointer-events: none; }
+  .nav .sub-toggle i { display: none; }
+  .nav .sub { display: grid; position: static; transform: none; min-width: 0; padding: 0 0 4px 10px; animation: none; }
+  .nav .sub::before { content: none; }
+  .nav .sub li, .nav .sub li:first-child, .nav .sub li:last-child { padding: 0; }
+  .nav .sub a { padding: 7px 10px; }
+  .nav .sub a i { width: 32px; height: 32px; }
+  .site-head { max-height: 100vh; }
+  .nav.open { max-height: calc(100vh - var(--head-h) - 30px); overflow-y: auto; }
+}
+
+/* Buttons */
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid transparent; border-radius: 10px; padding: 11px 22px; font: 700 .95rem var(--f-body); cursor: pointer; text-decoration: none; transition: transform .2s, background .2s, box-shadow .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.btn-primary { background: var(--forest); color: var(--forest-ink); }
+.btn-primary:hover:not(:disabled) { box-shadow: 0 6px 18px color-mix(in srgb, var(--forest) 35%, transparent); }
+.btn-ghost { background: transparent; color: var(--forest); border-color: var(--forest); }
+.btn-ember { background: var(--ember); color: #fff; }
+.btn-gold { background: var(--gold); color: #1a2b20; }
+.btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,.75); }
+.btn-outline-white:hover { background: rgba(255,255,255,.14); }
+.btn-sm { padding: 7px 14px; font-size: .85rem; }
 
 /* Hero */
-.hero { padding-block: 56px 40px; }
-.hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
-.hero h1 { font-size: clamp(2.3rem, 6vw, 3.9rem); color: var(--forest); letter-spacing: -.01em; }
-.hero .slogan { font-family: var(--f-display); font-style: italic; font-size: clamp(1.2rem, 2.4vw, 1.55rem); color: var(--ink); margin-top: 8px; }
-.hero .lead { margin-top: 18px; }
-.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 12px 22px; font: 600 1rem var(--f-body); cursor: pointer; text-decoration: none; transition: transform .15s, background .15s; }
-.btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--forest); color: var(--forest-ink); }
-.btn-ghost { background: transparent; color: var(--forest); box-shadow: inset 0 0 0 1.5px var(--forest); }
-.btn-ember { background: var(--ember); color: #fff; }
-.hero-art { position: relative; aspect-ratio: 1 / 1; max-width: 100%; }
-.hero-art svg { width: 100%; height: 100%; }
-.facts { display: flex; flex-wrap: wrap; gap: 24px 36px; margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); }
-.facts div { display: grid; }
-.facts strong { font-family: var(--f-display); font-size: 1.7rem; color: var(--forest); font-variant-numeric: tabular-nums; }
-.facts span { font-size: .88rem; color: var(--ink-soft); }
-@media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; } .hero-art { max-width: 300px; } }
+.hero { position: relative; overflow: hidden; color: #fff; padding-block: 84px 132px; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(20,52,30,.92) 0%, rgba(38,92,48,.78) 48%, rgba(212,167,44,.30) 100%), url("images/mo-hinh.webp") center/cover no-repeat; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 56px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.14); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.28); padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 500; }
+.hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); margin-top: 20px; letter-spacing: -.01em; }
+.hero h1 em { font-style: normal; color: #f1cf62; }
+.hero .lead { color: rgba(255,255,255,.88); margin-top: 18px; max-width: 560px; }
+.hero-cards { display: grid; gap: 14px; }
+.hero-card { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.94); color: #1a2b20; border-radius: 14px; padding: 14px 18px; box-shadow: var(--shadow-lg); text-decoration: none; transition: transform .25s; }
+.hero-card:hover { transform: translateX(6px); }
+.hero-card i { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 1.2rem; flex: none; background: #e5f2dd; color: #2f6b3a; }
+.hero-card:nth-child(2) i { background: #fdf1d4; color: #a87b12; }
+.hero-card:nth-child(3) i { background: #fde6d3; color: #c0601a; }
+.hero-card b { display: block; font-size: .95rem; }
+.hero-card small { font-size: .8rem; color: #5c6b60; }
+@media (max-width: 900px) { .hero { padding-block: 56px 120px; } .hero .wrap { grid-template-columns: 1fr; gap: 32px; } }
 
-section.block { padding-block: 64px; }
-.sec-head { display: grid; gap: 10px; margin-bottom: 32px; }
+/* Stats đè lên hero */
+.stats { position: relative; z-index: 2; margin-top: -68px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow-lg); padding: 10px; }
+.stat { display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-right: 1px solid var(--line); min-width: 0; }
+.stat:last-child { border-right: 0; }
+.stat > i { font-size: 1.8rem; color: var(--leaf); flex: none; }
+.stat strong { display: block; font-size: 1.6rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: .82rem; color: var(--ink-soft); }
+@media (max-width: 860px) { .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stat:nth-child(2) { border-right: 0; } .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+@media (max-width: 420px) { .stat { padding: 14px 12px; gap: 10px; } .stat > i { font-size: 1.4rem; } .stat strong { font-size: 1.3rem; } }
 
-/* Journey */
-.journey { background: var(--surface); border-block: 1px solid var(--line); }
+/* Section */
+section.block { padding-block: 84px; }
+.alt { background: var(--surface); }
+.sec-head { display: grid; gap: 10px; margin-bottom: 40px; }
+.sec-head.center { justify-items: center; text-align: center; }
+.sec-head.center .lead { margin-inline: auto; }
+.dots { display: inline-flex; gap: 6px; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--leaf); opacity: .4; }
+.dots i:nth-child(2) { opacity: .7; } .dots i:nth-child(3) { opacity: 1; }
+.zoom-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9rem; color: var(--forest); background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit; }
+.zoom-link:hover { text-decoration: underline; }
+
+/* Giới thiệu */
+.intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; }
+.intro-img { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); cursor: zoom-in; border: 0; padding: 0; background: none; display: block; width: 100%; }
+.intro-img img { display: block; width: 100%; height: auto; transition: transform .5s; }
+.intro-img:hover img { transform: scale(1.03); }
+.intro-img span { position: absolute; right: 14px; bottom: 14px; background: rgba(16,34,26,.78); color: #fff; font-size: .8rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; display: inline-flex; gap: 6px; align-items: center; }
+.intro-text { display: grid; gap: 16px; }
+.intro-text .k { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; background: var(--surface-2); border-radius: 14px; padding: 16px; }
+.intro-text .k b { width: 44px; height: 44px; border-radius: 12px; background: var(--forest); color: var(--forest-ink); display: grid; place-items: center; font-size: .82rem; }
+.intro-text .k p { color: var(--ink-soft); font-size: .94rem; }
+.intro-text .k h3 { margin-bottom: 4px; font-size: 1rem; }
+@media (max-width: 900px) { .intro { grid-template-columns: 1fr; gap: 28px; } }
+
+.spaces { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 44px; }
+.space { background: var(--bg); border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px 20px; display: grid; gap: 8px; align-content: start; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.space:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--leaf); }
+.space > i { width: 54px; height: 54px; border-radius: 50%; background: var(--leaf-pale); color: var(--forest); display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 6px; }
+.space .sub { font-size: .82rem; font-weight: 600; color: var(--ember); }
+.space ul { margin: 4px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: .88rem; display: grid; gap: 3px; }
+@media (max-width: 960px) { .spaces { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .spaces { grid-template-columns: 1fr; } }
+
+/* Cơ chế hoạt động: 8 bước, 4 cột có mũi tên */
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 34px; counter-reset: step; }
+.step { position: relative; background: var(--bg); border: 1.5px solid var(--line); border-radius: var(--r); padding: 26px 20px 22px; text-align: center; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.step:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--leaf); }
+.step .ic { width: 58px; height: 58px; margin: 0 auto 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--leaf); color: var(--forest); display: grid; place-items: center; font-size: 1.3rem; box-shadow: 0 4px 12px color-mix(in srgb, var(--leaf) 25%, transparent); }
+.step .no { font-size: .72rem; font-weight: 800; letter-spacing: .12em; color: var(--leaf); margin-bottom: 6px; }
+.step h3 { font-size: 1rem; margin-bottom: 6px; }
+.step p { font-size: .86rem; color: var(--ink-soft); line-height: 1.55; }
+.step.hl { background: linear-gradient(135deg, var(--leaf-pale), var(--surface)); border-color: var(--leaf); }
+.step.hl .ic { background: var(--forest); color: var(--forest-ink); border-color: var(--forest); }
+.step .go { display: inline-block; margin-top: 10px; font-size: .84rem; font-weight: 700; text-decoration: none; }
+.step::after { content: "\f054"; font: 900 .9rem "Font Awesome 6 Free"; color: var(--leaf); position: absolute; right: -23px; top: 50px; }
+.step:nth-child(4n)::after, .step:last-child::after { content: none; }
+.flow-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-top: 30px; padding: 16px 20px; border-radius: 14px; background: var(--surface-2); font-size: .92rem; color: var(--ink-soft); }
+.flow-foot b { color: var(--forest); }
+@media (max-width: 960px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } .step::after { content: none; } }
+@media (max-width: 520px) { .flow { grid-template-columns: 1fr; gap: 14px; } .step { text-align: left; display: grid; grid-template-columns: 52px 1fr; column-gap: 14px; padding: 18px; } .step .ic { width: 52px; height: 52px; margin: 0; grid-row: span 4; } }
+
+/* Lộ trình 5 khu (giữ nội dung cũ) */
 .path { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; position: relative; }
 .path::before { content: ""; position: absolute; left: 6%; right: 6%; top: 27px; height: 2px; background: repeating-linear-gradient(90deg, var(--leaf) 0 10px, transparent 10px 18px); }
 .zone { position: relative; display: grid; gap: 10px; align-content: start; min-width: 0; }
-.zone .num { width: 56px; height: 56px; border-radius: 50%; background: var(--forest); color: var(--forest-ink); display: grid; place-items: center; font-family: var(--f-display); font-size: 1.5rem; font-weight: 700; box-shadow: 0 0 0 6px var(--surface); }
-.zone h3 { font-size: 1.08rem; }
-.zone ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: .92rem; display: grid; gap: 4px; }
-.zone .tag { font-size: .78rem; font-weight: 600; color: var(--ember); }
+.zone .num { width: 56px; height: 56px; border-radius: 50%; background: var(--forest); color: var(--forest-ink); display: grid; place-items: center; font-size: 1.4rem; font-weight: 800; box-shadow: 0 0 0 6px var(--bg); }
+.zone h3 { font-size: 1.02rem; }
+.zone ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: .9rem; display: grid; gap: 4px; }
+.zone .tag { font-size: .78rem; font-weight: 700; color: var(--ember); }
 @media (max-width: 900px) {
   .path { grid-template-columns: 1fr; gap: 26px; }
   .path::before { left: 27px; right: auto; top: 10px; bottom: 10px; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--leaf) 0 10px, transparent 10px 18px); }
   .zone { grid-template-columns: 56px 1fr; column-gap: 16px; }
   .zone .num { grid-row: span 3; }
 }
-.steps-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; align-items: center; font-size: .88rem; font-weight: 600; color: var(--forest); }
-.steps-bar span { background: var(--surface-2); padding: 6px 14px; border-radius: 999px; }
-.steps-bar i { font-style: normal; color: var(--ink-soft); }
 
-/* Tiers */
-.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.tier { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; }
+/* Sổ nhiệm vụ */
+.book-bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px 28px; align-items: center; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r); padding: 18px 22px; margin-bottom: 22px; box-shadow: var(--shadow-sm); }
+.book-bar .bar { height: 10px; border-radius: 999px; background: var(--surface-2); overflow: hidden; margin-top: 10px; position: relative; }
+.book-bar .bar i { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, var(--leaf), var(--forest)); border-radius: inherit; transition: width .4s; }
+.book-bar .bar::after { content: ""; position: absolute; left: 70%; top: -3px; bottom: -3px; width: 2px; background: var(--gold); }
+.book-bar p { font-size: .92rem; color: var(--ink-soft); }
+.book-bar p b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.book-bar .lvl { font-weight: 700; color: var(--forest); }
+@media (max-width: 640px) { .book-bar { grid-template-columns: 1fr; } }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.filters button { font: 600 .88rem var(--f-body); padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink-soft); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.filters button i { color: var(--c, var(--leaf)); }
+.filters button[aria-pressed="true"] { background: var(--forest); border-color: var(--forest); color: var(--forest-ink); }
+.filters button[aria-pressed="true"] i { color: inherit; }
+.missions { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+.mcard { --c: var(--leaf); position: relative; background: var(--paper); border: 1px solid color-mix(in srgb, var(--c) 25%, var(--line)); border-radius: 18px; padding: 18px 18px 26px; display: grid; gap: 10px; align-content: start; box-shadow: var(--shadow-sm); overflow: hidden; transition: transform .25s, box-shadow .25s; }
+.mcard:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.mcard::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26px; background: radial-gradient(120% 100% at 30% 100%, color-mix(in srgb, var(--c) 22%, transparent) 0 60%, transparent 61%), radial-gradient(90% 90% at 85% 100%, color-mix(in srgb, var(--c) 14%, transparent) 0 60%, transparent 61%); pointer-events: none; }
+.mcard header { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid color-mix(in srgb, var(--c) 20%, transparent); }
+.mcard header > i { width: 42px; height: 42px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center; font-size: 1.05rem; flex: none; }
+.mcard header b { display: block; font-size: .86rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--c); }
+.mcard header small { font-size: .74rem; color: var(--ink-soft); }
+.mcard .code { justify-self: start; background: var(--c); color: #fff; font-size: .72rem; font-weight: 700; padding: 2px 10px; border-radius: 6px; letter-spacing: .04em; }
+.mcard h3 { font-size: 1.05rem; color: var(--ink); }
+.mcard .desc { font-size: .87rem; color: var(--ink-soft); }
+.mcard dl { margin: 0; display: grid; gap: 6px; font-size: .82rem; }
+.mcard dl div { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: start; }
+.mcard dl i { color: var(--c); margin-top: 3px; }
+.mcard dt { color: var(--ink-soft); display: inline; }
+.mcard dd { margin: 0; display: inline; font-weight: 600; }
+.mcard .foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-top: 4px; position: relative; z-index: 1; }
+.mcard .quote { font-family: var(--f-hand); font-size: 1.12rem; line-height: 1.2; color: var(--c); max-width: 60%; }
+.stamp { width: 82px; height: 82px; border-radius: 50%; border: 2px dashed color-mix(in srgb, var(--c) 45%, var(--line)); background: transparent; color: var(--ink-soft); font: 600 .7rem/1.25 var(--f-body); cursor: pointer; display: grid; place-items: center; text-align: center; padding: 6px; flex: none; transition: background .2s, transform .2s; }
+.stamp:hover { background: color-mix(in srgb, var(--c) 8%, transparent); }
+.stamp[aria-pressed="true"] { border: 3px double var(--c); color: var(--c); transform: rotate(-12deg); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; background: color-mix(in srgb, var(--c) 10%, transparent); }
+.stamp[aria-pressed="true"] .s-off, .stamp[aria-pressed="false"] .s-on { display: none; }
+.stamp .s-on i { display: block; font-size: 1.15rem; margin-bottom: 2px; }
+
+.mvp-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; margin: 64px 0 24px; }
+.mvp-head h3 { font-size: clamp(1.25rem, 2.4vw, 1.55rem); padding-left: 16px; position: relative; }
+.mvp-head h3::before { content: ""; position: absolute; left: 0; top: 15%; bottom: 15%; width: 4px; border-radius: 4px; background: var(--leaf); }
+.mvp { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.mvp article { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: grid; gap: 10px; align-content: start; transition: transform .25s, box-shadow .25s; }
+.mvp article:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.mvp .top { display: flex; align-items: center; gap: 12px; }
+.mvp .top i { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--c); color: var(--c); display: grid; place-items: center; font-size: 1.15rem; flex: none; }
+.mvp .top h4 { margin: 0; font-family: var(--f-hand); font-size: 1.35rem; line-height: 1.1; color: var(--ink); }
+.mvp .goal { font-size: .86rem; color: var(--ink-soft); }
+.mvp .goal b { color: var(--ink); font-size: .8rem; display: block; }
+.mvp .time { font-size: .82rem; font-weight: 600; display: flex; gap: 8px; align-items: center; }
+.mvp .time i { color: var(--c); }
+.mvp .note { font-size: .8rem; color: var(--ink-soft); background: color-mix(in srgb, var(--c) 9%, var(--surface)); border-radius: 10px; padding: 8px 10px; display: flex; gap: 8px; }
+.mvp .note i { color: var(--c); margin-top: 3px; }
+@media (max-width: 1000px) { .mvp { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .mvp { grid-template-columns: 1fr; } }
+
+/* Thẻ rau móp – không gian buổi tối */
+.night { position: relative; color: #eaf3ec; background: radial-gradient(circle at 12% 8%, rgba(241,207,98,.18) 0 2px, transparent 3px) 0 0/46px 46px, radial-gradient(1000px 420px at 85% 0%, rgba(224,123,42,.22), transparent 70%), linear-gradient(180deg, var(--night), var(--night-2)); }
+.night .eyebrow { color: #f1cf62; }
+.night .lead { color: rgba(234,243,236,.8); }
+.night .dots i { background: #f1cf62; }
+.night-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+.wheel-box { display: grid; justify-items: center; gap: 18px; }
+.wheel-wrap { position: relative; width: min(340px, 100%); aspect-ratio: 1; }
+.wheel-wrap::before { content: ""; position: absolute; left: 50%; top: -10px; transform: translateX(-50%); border: 14px solid transparent; border-top: 24px solid #f1cf62; border-bottom: 0; z-index: 2; filter: drop-shadow(0 2px 2px rgba(0,0,0,.35)); }
+.wheel { position: absolute; inset: 0; border-radius: 50%; border: 8px solid #6b4a2b; box-shadow: 0 0 0 4px #3e2a17, 0 18px 40px rgba(0,0,0,.45); background: conic-gradient(#e7c443 0 72deg, #3b7fb5 72deg 144deg, #e57a2e 144deg 216deg, #a8432f 216deg 288deg, #3f8a4a 288deg 360deg); transition: transform 4.2s cubic-bezier(.17,.67,.16,1); }
+.wheel .lbl { position: absolute; inset: 0; transform: rotate(var(--a)); pointer-events: none; }
+.wheel .lbl b { position: absolute; left: 50%; top: 9%; transform: translateX(-50%); width: 32%; text-align: center; font-size: clamp(.62rem, 2.4vw, .78rem); font-weight: 800; line-height: 1.2; text-transform: uppercase; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+.wheel .lbl:first-child b { color: #3a2a08; text-shadow: none; }
+.wheel .lbl.flip b { transform: translateX(-50%) rotate(180deg); }
+.wheel-hub { position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, #b98a4f, #6b4a2b); border: 4px solid #3e2a17; z-index: 1; display: grid; place-items: center; color: #f1cf62; font-size: 1.3rem; }
+.wheel-result { min-height: 3.2em; text-align: center; font-size: .95rem; color: rgba(234,243,236,.9); max-width: 380px; }
+.wheel-result b { color: #f1cf62; }
+.night-text { display: grid; gap: 18px; }
+.board { background: #1f3a2b; border: 6px solid #6b4a2b; border-radius: 14px; padding: 18px 20px; box-shadow: inset 0 0 30px rgba(0,0,0,.35); }
+.board h3 { font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; color: #f1cf62; margin-bottom: 10px; }
+.board ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; }
+.board li { display: flex; align-items: center; gap: 10px; font-family: var(--f-hand); font-size: 1.4rem; color: #fff; }
+.board li i { color: #8fcf7f; font-size: 1rem; }
+.board p { margin-top: 10px; font-size: .82rem; color: rgba(234,243,236,.7); }
+.miles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 52px; }
+.mile { background: #f6eedb; color: #2d2414; border-radius: 16px; padding: 20px 18px; display: grid; gap: 10px; align-content: start; box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+.mile header { display: flex; gap: 12px; align-items: center; }
+.mile header span { width: 46px; height: 46px; border-radius: 50%; background: #7a5a33; color: #f6eedb; display: grid; place-items: center; font-weight: 800; flex: none; }
+.mile h3 { font-size: .95rem; color: #2f4a22; }
+.mile ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .84rem; color: #4a3e28; }
+.mile li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
+.mile li i { color: #3f8a4a; margin-top: 4px; }
+.mile .hand { font-family: var(--f-hand); font-size: 1.2rem; color: #7a5a33; margin-top: auto; }
+@media (max-width: 960px) { .night-grid { grid-template-columns: 1fr; } .miles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .miles { grid-template-columns: 1fr; } .board ul { grid-template-columns: 1fr; } }
+
+/* Phần thưởng */
+.rewards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.reward { --c: var(--g-gs); position: relative; border-radius: 20px; padding: 24px; display: grid; gap: 14px; align-content: start; background: color-mix(in srgb, var(--c) 9%, var(--surface)); border: 2px solid transparent; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.reward:nth-child(2) { --c: var(--gold); }
+.reward:nth-child(3) { --c: var(--forest); }
+.reward:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.reward.current { border-color: var(--c); box-shadow: var(--shadow-lg); }
+.reward .you { position: absolute; top: -12px; right: 18px; background: var(--c); color: #fff; font-size: .75rem; font-weight: 700; padding: 3px 12px; border-radius: 999px; display: none; }
+.reward.current .you { display: block; }
+.reward header { display: flex; gap: 14px; align-items: center; }
+.reward header span { width: 54px; height: 54px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center; font-size: 1.3rem; font-weight: 800; flex: none; }
+.reward header b { display: block; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; color: var(--c); }
+.reward header small { font-size: .88rem; color: var(--ink-soft); }
+.reward .gift { display: flex; gap: 10px; flex-wrap: wrap; }
+.reward .gift i { width: 46px; height: 46px; border-radius: 12px; background: var(--surface); color: var(--c); display: grid; place-items: center; font-size: 1.15rem; box-shadow: var(--shadow-sm); }
+.reward ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: .92rem; display: grid; gap: 4px; }
+.reward h4 { margin: 0; font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink); }
+.rule { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: 28px; align-items: center; margin-top: 26px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 18px; padding: 22px 24px; }
+.rule p { color: var(--ink-soft); font-size: .93rem; }
+.rule h3 { display: flex; gap: 10px; align-items: center; margin-bottom: 6px; }
+.rule h3 i { color: var(--leaf); }
+.tbl { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.tbl th { text-align: left; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); background: var(--surface-2); padding: 9px 12px; }
+.tbl td { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl td:first-child { font-weight: 700; white-space: nowrap; }
+@media (max-width: 900px) { .rewards { grid-template-columns: 1fr; } .rule { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .tbl th:nth-child(2), .tbl td:nth-child(2) { display: none; } }
+
+/* Phòng phân tầng */
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.tier { background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; transition: transform .25s, box-shadow .25s; }
+.tier:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .tier header { display: flex; align-items: center; gap: 10px; }
 .dot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
 .dot.light { background: var(--tier-light); } .dot.mid { background: var(--tier-mid); } .dot.heavy { background: var(--tier-heavy); }
@@ -127,8 +373,8 @@ section.block { padding-block: 64px; }
 @media (max-width: 820px) { .tiers { grid-template-columns: 1fr; } }
 
 /* Quiz */
-.quiz-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
-.q { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; display: grid; gap: 12px; }
+.quiz-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 28px; align-items: start; }
+.q { background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r); padding: 18px 20px; display: grid; gap: 12px; }
 .q + .q { margin-top: 12px; }
 .q legend { font-weight: 600; padding: 0; }
 .q fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
@@ -138,11 +384,11 @@ section.block { padding-block: 64px; }
 .opts span { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1.5px solid var(--line); font-size: .9rem; cursor: pointer; color: var(--ink-soft); }
 .opts input:checked + span { background: var(--forest); border-color: var(--forest); color: var(--forest-ink); }
 .opts input:focus-visible + span { outline: 3px solid var(--ember); outline-offset: 2px; }
-.result { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; box-shadow: var(--shadow); display: grid; gap: 14px; }
+.result { position: sticky; top: 80px; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px; box-shadow: var(--shadow); display: grid; gap: 14px; }
 .meter { height: 12px; border-radius: 999px; background: linear-gradient(90deg, var(--tier-light) 0 33.3%, var(--tier-mid) 33.3% 66.6%, var(--tier-heavy) 66.6%); position: relative; }
 .meter i { position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%; background: var(--surface); border: 3px solid var(--ink); transform: translate(-50%, -50%); transition: left .35s; }
 .meter-scale { display: flex; justify-content: space-between; font-size: .75rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.result .big { font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; }
+.result .big { font-size: 1.45rem; font-weight: 800; }
 .result small { color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
 .answered { font-size: .85rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 @media (max-width: 900px) { .quiz-grid { grid-template-columns: 1fr; } .result { position: static; } }
@@ -183,34 +429,99 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--f
 .check { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--ink-soft); }
 .check input { margin-top: 4px; accent-color: var(--forest); }
 .success { display: grid; gap: 12px; text-align: left; }
-.success .code { font-family: var(--f-display); font-size: 1.9rem; color: var(--forest); letter-spacing: .04em; }
+.success .code { font-size: 1.9rem; font-weight: 800; color: var(--forest); letter-spacing: .04em; }
 .success dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; font-size: .94rem; }
 .success dt { color: var(--ink-soft); }
 .success dd { margin: 0; font-weight: 500; min-width: 0; overflow-wrap: anywhere; }
-
-/* Bookings list */
 .mine { margin-top: 18px; display: grid; gap: 8px; }
-.mine h3 { font-size: 1rem; font-family: var(--f-body); font-weight: 600; }
+.mine h3 { font-size: 1rem; font-weight: 600; }
 .mine li { list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font-size: .9rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .mine ul { margin: 0; padding: 0; display: grid; gap: 8px; }
 .mine .meta { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 
-/* FAQ + footer */
+/* FAQ */
 details { border-bottom: 1px solid var(--line); padding-block: 16px; }
 details summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+details summary::-webkit-details-marker { display: none; }
 details summary::after { content: "+"; font-size: 1.3rem; line-height: 1; color: var(--leaf); }
 details[open] summary::after { content: "–"; }
 details p { margin-top: 10px; color: var(--ink-soft); max-width: 70ch; }
-footer { background: var(--forest); color: var(--forest-ink); padding-block: 44px 32px; }
-footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 28px; }
-footer h3 { font-size: 1.1rem; margin-bottom: 8px; }
-footer p, footer li { opacity: .88; font-size: .93rem; }
-footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
-footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var(--forest-ink) 25%, transparent); padding-top: 16px; font-size: .82rem; opacity: .75; }
-@media (max-width: 760px) { footer .wrap { grid-template-columns: 1fr; } }
 
-.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 140%); background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 12px; font-weight: 500; transition: transform .3s; z-index: 40; max-width: calc(100% - 32px); }
-.toast.show { transform: translate(-50%, 0); }
+/* CTA banner + footer */
+.cta-banner { background: linear-gradient(135deg, #2f6b3a 0%, #1d4527 100%); color: #fff; padding-block: 64px; }
+.cta-banner .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px; }
+.cta-banner h2 { font-size: clamp(1.35rem, 3vw, 1.9rem); }
+.cta-banner p { color: rgba(255,255,255,.82); margin-top: 8px; }
+.cta-banner .btns { margin-top: 0; }
+footer { background: #132017; color: rgba(255,255,255,.88); padding-block: 56px 28px; }
+footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr .8fr; gap: 36px; }
+footer a { color: inherit; text-decoration: none; }
+footer ul a:hover { color: #fff; text-decoration: underline; }
+footer h3 { font-size: 1rem; margin-bottom: 12px; color: #f1cf62; }
+footer p, footer li { font-size: .9rem; color: rgba(255,255,255,.65); }
+footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+footer li i { width: 18px; color: #86cc7c; margin-right: 6px; }
+footer .brand b { color: #f1cf62; } footer .brand small { color: #86cc7c; }
+footer .brand { margin-bottom: 14px; }
+footer .copy { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; font-size: .82rem; color: rgba(255,255,255,.5); }
+@media (max-width: 960px) { footer .wrap { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { footer .wrap { grid-template-columns: 1fr; } }
+
+/* Mỗi mục là một trang riêng, bật lên phủ toàn màn hình */
+.page { display: none; }
+.page.open { display: block; position: fixed; inset: 0; z-index: 50; overflow-y: auto; overscroll-behavior: contain; padding-top: 0; padding-bottom: 0; animation: pageIn .32s ease; }
+.page.open:not(.night):not(.alt):not(.forms) { background: var(--bg); }
+@keyframes pageIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+body.page-open { overflow: hidden; }
+.page-bar { position: sticky; top: 0; z-index: 5; background: var(--surface); box-shadow: var(--shadow-sm); margin-bottom: 52px; padding-top: env(safe-area-inset-top, 0px); }
+.page-bar .wrap { display: flex; align-items: center; gap: 12px; min-height: 60px; }
+.page-bar .home { display: inline-flex; align-items: center; gap: 8px; font: 700 .9rem var(--f-body); color: var(--forest); background: var(--leaf-pale); border: 0; border-radius: 10px; padding: 9px 14px; cursor: pointer; flex: none; text-decoration: none; }
+.page-tabs { display: flex; align-items: center; justify-content: center; gap: 4px; flex: 1; min-width: 0; list-style: none; margin: 0; padding: 0; }
+.pb-title { display: none; flex: 1; min-width: 0; font-weight: 800; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 760px) { .page-tabs { display: none; } .pb-title { display: block; } }
+.page-tabs > li > a { display: block; padding: 7px 12px; border-radius: 8px; font-size: .86rem; font-weight: 500; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+.page-tabs > li > a:hover { background: var(--surface-2); color: var(--ink); }
+.page-tabs > li > a[aria-current="page"] { background: var(--forest); color: var(--forest-ink); font-weight: 700; }
+.page-bar .x { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--surface-2); color: var(--ink); font-size: 1.05rem; cursor: pointer; flex: none; }
+@media (max-width: 560px) { .page-bar .home span { display: none; } }
+.page-next { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 56px; padding-block: 24px 40px; border-top: 1px solid var(--line); }
+.night .page-next { border-color: rgba(255,255,255,.15); }
+.page-next a { display: grid; gap: 2px; text-decoration: none; padding: 12px 18px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--line); color: var(--ink); min-width: 0; }
+.page-next a:hover { border-color: var(--leaf); }
+.page-next a small { font-size: .78rem; color: var(--ink-soft); }
+.page-next a b { color: var(--forest); }
+.page-next a.nx { margin-left: auto; text-align: right; }
+.tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+.tiles > .has-sub { display: grid; }
+.tile.tile-hd { font: inherit; text-align: left; cursor: pointer; width: 100%; }
+.tiles .has-sub:hover > .tile, .tiles .has-sub.open > .tile { border-color: var(--leaf); box-shadow: var(--shadow); }
+.tiles .sub { left: 0; right: 0; transform: none; min-width: 300px; }
+@media (max-width: 1100px) { .tiles .has-sub:nth-child(n+3) .sub { left: auto; right: 0; } }
+.tile { display: grid; gap: 8px; align-content: start; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px 20px; text-decoration: none; color: var(--ink); transition: transform .25s, box-shadow .25s, border-color .25s; }
+.tile:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--leaf); }
+.tile > i { width: 52px; height: 52px; border-radius: 14px; background: var(--leaf-pale); color: var(--forest); display: grid; place-items: center; font-size: 1.25rem; margin-bottom: 4px; }
+.tile b { font-size: 1.02rem; }
+.tile small { font-size: .86rem; color: var(--ink-soft); }
+.tile span { font-size: .84rem; font-weight: 700; color: var(--forest); margin-top: 4px; }
+.tile.hot { background: linear-gradient(135deg, #2f6b3a, #1d4527); border-color: transparent; color: #fff; }
+.tile.hot > i { background: rgba(255,255,255,.16); color: #f1cf62; }
+.tile.hot small { color: rgba(255,255,255,.8); } .tile.hot span { color: #f1cf62; }
+@media (max-width: 1100px) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .tiles { grid-template-columns: 1fr; } .tiles .sub { min-width: 0; } }
+
+/* Lightbox + toast */
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(1200px, 96vw); max-height: 92vh; }
+dialog.lb::backdrop { background: rgba(8,16,11,.86); }
+dialog.lb figure { margin: 0; display: grid; gap: 10px; }
+dialog.lb img { max-height: 82vh; width: auto; margin: 0 auto; border-radius: 12px; display: block; }
+dialog.lb figcaption { color: #fff; text-align: center; font-size: .92rem; }
+dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.16); color: #fff; font-size: 1.2rem; cursor: pointer; }
+.theme-btn { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); color: var(--forest); font-size: 1rem; cursor: pointer; display: grid; place-items: center; transition: transform .2s, background .2s; }
+.theme-btn:hover { transform: rotate(-15deg); background: var(--leaf-pale); }
+.theme-btn i { pointer-events: none; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, calc(100% + 40px)); visibility: hidden; background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 12px; font-weight: 500; transition: transform .3s, visibility .3s; z-index: 80; max-width: calc(100% - 32px); }
+.toast.show { transform: translate(-50%, 0); visibility: visible; }
 </style>
 </head>
 <body>
@@ -219,63 +530,143 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Trạm Xanh Bình Mỹ – về đầu trang">
       <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="var(--forest)"/><path d="M12 28c0-9 6-15 17-16-1 10-7 16-17 16z" fill="var(--forest-ink)"/><path d="M12 28c4-5 8-8 13-11" stroke="var(--forest)" stroke-width="1.6" fill="none"/></svg>
-      <b>Trạm Xanh Bình Mỹ</b>
+      <span><b>Trạm Xanh Bình Mỹ</b><small>Gác sóng số · Dưỡng nhịp lành</small></span>
     </a>
-    <nav aria-label="Điều hướng chính">
+    <button class="burger" id="burger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="nav"><i class="fa-solid fa-bars"></i></button>
+    <nav class="nav" id="nav" aria-label="Điều hướng chính">
       <ul>
-        <li><a href="#hanh-trinh">Hành trình</a></li>
+        <li><a href="#gioi-thieu">Giới thiệu</a></li>
+        <li class="has-sub"><button class="sub-toggle" type="button" aria-expanded="false">Hoạt động <i class="fa-solid fa-chevron-down"></i></button><ul class="sub" data-sub></ul></li>
         <li><a href="#tu-danh-gia">Tự đánh giá</a></li>
-        <li><a href="#tu-van">Tư vấn từ xa</a></li>
-        <li><a href="#hoi-dap">Hỏi đáp</a></li>
-        <li class="keep"><a class="cta" href="#dang-ky">Đăng ký</a></li>
+        <li><a href="#tu-van">Tư vấn</a></li>
+        <li><a class="cta" href="#dang-ky">Đăng ký</a></li>
       </ul>
     </nav>
+    <button class="theme-btn" type="button" aria-label="Chuyển nền tối" title="Chuyển nền tối"><i class="fa-solid fa-moon"></i></button>
   </div>
 </header>
 
 <main id="top">
+  <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div>
-        <p class="eyebrow">Trung tâm cân bằng số tại Bình Mỹ</p>
-        <h1>Trạm Xanh Bình Mỹ</h1>
-        <p class="slogan">Gác sóng số, dưỡng nhịp lành.</p>
-        <p class="lead">Chương trình lưu trú 21 ngày giúp bạn giảm phụ thuộc vào điện thoại và mạng xã hội: ngủ lại đúng giờ, vận động ngoài trời, làm vườn cùng bà con và tự đặt lại thói quen dùng thiết bị trước khi trở về cuộc sống thường ngày.</p>
+        <span class="pill"><i class="fa-solid fa-leaf"></i> Trung tâm cân bằng số tại Bình Mỹ</span>
+        <h1>Gác sóng số,<br><em>dưỡng nhịp lành</em></h1>
+        <p class="lead">Chương trình lưu trú giúp bạn giảm phụ thuộc vào điện thoại và mạng xã hội. Mỗi người nhận một sổ nhiệm vụ riêng, cùng làm vườn, vận động, chơi trò chơi buổi tối và mang về giấy chứng nhận khi kết thúc hành trình.</p>
         <div class="btns">
-          <a class="btn btn-primary" href="#tu-danh-gia">Làm bài tự đánh giá</a>
-          <a class="btn btn-ghost" href="#tu-van">Đặt lịch tư vấn từ xa</a>
-        </div>
-        <div class="facts">
-          <div><strong>21ngày</strong><span>Ký ước tự quản lý</span></div>
-          <div><strong>5khu</strong><span>Từ tiếp nhận đến kết nối</span></div>
-          <div><strong>3mức</strong><span>Phòng lưu trú phân tầng</span></div>
+          <a class="btn btn-gold" href="#dang-ky"><i class="fa-solid fa-pen-to-square"></i> Đăng ký từ xa</a>
+          <a class="btn btn-outline-white" href="#so-nhiem-vu">Xem sổ nhiệm vụ</a>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 300 300">
-          <circle cx="150" cy="150" r="140" fill="var(--surface-2)"/>
-          <!-- sóng wifi mờ dần -->
-          <g fill="none" stroke-linecap="round" stroke-width="10">
-            <path d="M70 120a112 112 0 0 1 160 0" stroke="var(--line)"/>
-            <path d="M95 145a78 78 0 0 1 110 0" stroke="var(--line)" opacity=".85"/>
-            <path d="M120 170a42 42 0 0 1 60 0" stroke="var(--ink-soft)" opacity=".35"/>
-          </g>
-          <!-- mầm lá mọc từ điểm sóng -->
-          <path d="M150 250V188" stroke="var(--forest)" stroke-width="6" stroke-linecap="round"/>
-          <path d="M150 205c-4-26-24-38-48-36 2 24 20 38 48 36z" fill="var(--leaf)"/>
-          <path d="M150 196c6-30 30-44 58-40-4 28-26 44-58 40z" fill="var(--forest)"/>
-          <ellipse cx="150" cy="252" rx="58" ry="9" fill="var(--line)"/>
-          <circle cx="224" cy="86" r="16" fill="var(--ember)" opacity=".9"/>
-        </svg>
+      <div class="hero-cards">
+        <a class="hero-card" href="#so-nhiem-vu"><i class="fa-solid fa-book-open"></i><span><b>Sổ nhiệm vụ riêng</b><small>15 nhiệm vụ · 5 nhóm · tích dấu mộc</small></span></a>
+        <a class="hero-card" href="#the-rau-mop"><i class="fa-solid fa-seedling"></i><span><b>Thẻ rau móp</b><small>Chơi buổi tối, đổi thời gian dùng điện thoại</small></span></a>
+        <a class="hero-card" href="#phan-thuong"><i class="fa-solid fa-award"></i><span><b>Giấy chứng nhận &amp; quà</b><small>Nâng cấp theo mức độ hoàn thành</small></span></a>
       </div>
     </div>
   </section>
 
-  <section class="block journey" id="hanh-trinh">
+  <div class="stats">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Hành trình cân bằng số – sống thật</p>
-        <h2>5 khu, đi lần lượt trong suốt thời gian lưu trú</h2>
+      <div class="stats-grid">
+        <div class="stat"><i class="fa-regular fa-calendar-check"></i><div><strong>21 ngày</strong><span>Ký ước tự quản lý</span></div></div>
+        <div class="stat"><i class="fa-solid fa-list-check"></i><div><strong>15</strong><span>Nhiệm vụ trong sổ</span></div></div>
+        <div class="stat"><i class="fa-solid fa-person-hiking"></i><div><strong>8</strong><span>Trải nghiệm MVP</span></div></div>
+        <div class="stat"><i class="fa-solid fa-medal"></i><div><strong>3 mức</strong><span>Phần thưởng cuối hành trình</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANG CHỦ: chọn mục để mở trang riêng -->
+  <section class="block" id="kham-pha">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h2>Khám phá Trạm Xanh Bình Mỹ</h2>
+        <p class="lead">Chọn một mục để mở trang chi tiết.</p>
+      </div>
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </section>
+
+  <!-- GIỚI THIỆU -->
+  <section class="block page" id="gioi-thieu" data-title="Giới thiệu" data-icon="fa-house-chimney-window" data-desc="Mô hình trạm và 4 không gian chính">
+    <div class="wrap">
+      <div class="intro">
+        <button class="intro-img" type="button" data-zoom="images/mo-hinh.webp" data-cap="Mô hình Trạm Xanh Bình Mỹ">
+          <img src="images/mo-hinh.webp" width="1377" height="775" alt="Sơ đồ mô hình Trạm Xanh Bình Mỹ với khu lễ tân, nhà nghỉ, nhà ăn, khu sinh hoạt cộng đồng và sổ nhiệm vụ">
+          <span><i class="fa-solid fa-magnifying-glass-plus"></i> Phóng to</span>
+        </button>
+        <div class="intro-text">
+          <p class="eyebrow">Giới thiệu</p>
+          <h2>Mô hình Trạm Xanh Bình Mỹ</h2>
+          <div class="k"><b>Khu 1</b><div><h3>Tiếp nhận &amp; chẩn đoán sức khỏe</h3><p>Tiếp nhận, chẩn đoán sức khỏe và có thêm hệ thống web đăng ký từ xa. Sau đó mỗi người được phát sổ nhiệm vụ để bắt đầu chuyến trải nghiệm tại Trạm Xanh Bình Mỹ.</p></div></div>
+          <div class="k"><b>Khu 2</b><div><h3>Nhà lưu trú cải tiến</h3><p>Nhà lưu trú được cải tiến, hiện đại hơn, phù hợp cho mọi người nghỉ ngơi và ăn uống.</p></div></div>
+        </div>
+      </div>
+
+      <div class="spaces">
+        <article class="space">
+          <i class="fa-solid fa-bell-concierge"></i>
+          <h3>Khu lễ tân &amp; đón tiếp</h3>
+          <p class="sub">Điểm khởi đầu hành trình</p>
+          <ul><li>Đón tiếp, hướng dẫn chương trình</li><li>Đăng ký và nhận sổ nhiệm vụ riêng</li><li>Gửi thiết bị (tự nguyện)</li><li>Giới thiệu tổng quan khu du lịch</li></ul>
+        </article>
+        <article class="space">
+          <i class="fa-solid fa-bed"></i>
+          <h3>Khu nhà nghỉ</h3>
+          <p class="sub">Nghỉ ngơi gần gũi thiên nhiên</p>
+          <ul><li>Phòng đơn, phòng đôi, phòng gia đình</li><li>Thiết kế tối giản, mộc mạc</li><li>Đầy đủ tiện nghi</li><li>Tầm nhìn vườn cây, hồ sen</li></ul>
+        </article>
+        <article class="space">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>Khu nhà ăn</h3>
+          <p class="sub">Ẩm thực địa phương, tốt cho sức khỏe</p>
+          <ul><li>Nguyên liệu tươi từ nông sản Bình Mỹ</li><li>Thực đơn lành mạnh, cân bằng</li><li>Không gian mở, rộng rãi</li><li>Gắn kết cộng đồng qua mỗi bữa ăn</li></ul>
+        </article>
+        <article class="space">
+          <i class="fa-solid fa-fire"></i>
+          <h3>Khu sinh hoạt cộng đồng</h3>
+          <p class="sub">Giao lưu · Kết nối · Chia sẻ</p>
+          <ul><li>Không gian lửa trại, trò chơi tập thể</li><li>Kể chuyện, giao lưu với người dân</li><li>Hoạt động sáng tạo, thư giãn</li><li>Lưu giữ những khoảnh khắc đáng nhớ</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CƠ CHẾ HOẠT ĐỘNG -->
+  <section class="block alt page" id="co-che" data-title="Cơ chế hoạt động" data-icon="fa-arrows-spin" data-desc="8 bước từ đăng ký đến phản hồi">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h2>Cơ chế hoạt động</h2>
+        <p class="lead">Hành trình Trạm Xanh Bình Mỹ gồm 8 bước, từ lúc đăng ký trực tuyến đến khi ban tổ chức tổng hợp phản hồi để cải tiến chương trình.</p>
+      </div>
+      <div class="flow">
+        <article class="step hl"><div class="ic"><i class="fa-solid fa-bullhorn"></i></div><p class="no">BƯỚC 01</p><h3>Truyền thông &amp; đăng ký</h3><p>Người tham gia tìm hiểu chương trình, chọn gói phù hợp và đăng ký trực tuyến.</p><a class="go" href="#dang-ky">Đăng ký ngay →</a></article>
+        <article class="step"><div class="ic"><i class="fa-solid fa-handshake"></i></div><p class="no">BƯỚC 02</p><h3>Đón tiếp tại Trạm Xanh</h3><p>Check-in, giới thiệu không gian, giới thiệu bộ sổ và tham gia hành trình gác sóng.</p></article>
+        <article class="step"><div class="ic"><i class="fa-solid fa-book-open"></i></div><p class="no">BƯỚC 03</p><h3>Nhận sổ nhiệm vụ</h3><p>Phát sổ nhiệm vụ, giải thích cách tích lũy dấu mộc và xác nhận hoàn thành.</p></article>
+        <article class="step"><div class="ic"><i class="fa-solid fa-map-location-dot"></i></div><p class="no">BƯỚC 04</p><h3>Chọn hành trình</h3><p>Phân nhóm hoặc tự chọn lộ trình theo 5 nhóm nhiệm vụ chính.</p></article>
+        <article class="step"><div class="ic"><i class="fa-solid fa-person-hiking"></i></div><p class="no">BƯỚC 05</p><h3>Thực hiện nhiệm vụ</h3><p>Trải nghiệm nhiệm vụ và tích lũy dấu mộc qua các hoạt động đã phân hạng.</p></article>
+        <article class="step"><div class="ic"><i class="fa-solid fa-stamp"></i></div><p class="no">BƯỚC 06</p><h3>Xác nhận &amp; tích lũy dấu mộc</h3><p>Mỗi nhiệm vụ hoàn thành được xác nhận trực tiếp bằng dấu mộc hoặc chữ ký.</p></article>
+        <article class="step"><div class="ic"><i class="fa-solid fa-pen-to-square"></i></div><p class="no">BƯỚC 07</p><h3>Tổng kết trải nghiệm</h3><p>Ghi nhận cảm nhận, nhìn lại hành trình và nhận gợi ý nhiệm vụ tiếp theo.</p></article>
+        <article class="step"><div class="ic"><i class="fa-solid fa-comments"></i></div><p class="no">BƯỚC 08</p><h3>Phản hồi &amp; cải tiến</h3><p>Ban tổ chức tổng hợp dữ liệu, phản hồi người tham gia và cải tiến chương trình.</p></article>
+      </div>
+      <div class="flow-foot">
+        <span><b>Sống xanh · Trải nghiệm thật · Kết nối cộng đồng</b></span>
+        <button class="zoom-link" type="button" data-zoom="images/co-che-hoat-dong.webp" data-cap="Hành trình Trạm Xanh Bình Mỹ – 8 bước"><i class="fa-regular fa-image"></i> Xem sơ đồ gốc</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LỘ TRÌNH 5 KHU (nội dung cũ) -->
+  <section class="block page" id="hanh-trinh" data-title="Lộ trình 5 khu" data-icon="fa-route" data-desc="Đi lần lượt trong thời gian lưu trú">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h2>Lộ trình 5 khu trong thời gian lưu trú</h2>
         <p class="lead">Mỗi học viên bắt đầu ở Khu 1 và kết thúc ở Khu 5. Lịch sinh hoạt cụ thể được điều chỉnh theo mức độ đánh giá ban đầu.</p>
       </div>
       <div class="path">
@@ -284,7 +675,7 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
           <h3>Tiếp nhận &amp; cắt cơn kỹ thuật số</h3>
           <ul>
             <li>Đánh giá chỉ số sức khỏe, thể trạng</li>
-            <li>Gửi thiết bị, theo dõi và hỗ trợ cắt cơn</li>
+            <li>Gửi thiết bị, nhận sổ nhiệm vụ</li>
             <li>Cấp đồng phục, đồng hồ GPS theo dõi sức khỏe</li>
           </ul>
         </article>
@@ -292,8 +683,8 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
           <div class="num">2</div>
           <h3>Khu lưu trú</h3>
           <ul>
-            <li>Phòng ngủ phân tầng: nhẹ, trung bình, nặng</li>
-            <li>Nhiều cây xanh, ánh sáng tự nhiên</li>
+            <li>Nhà lưu trú cải tiến, hiện đại hơn</li>
+            <li>Phòng phân tầng: nhẹ, trung bình, nặng</li>
             <li>Tái tạo chu kỳ giấc ngủ tự nhiên</li>
           </ul>
         </article>
@@ -322,19 +713,189 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
           <ul>
             <li>Tự cài Focus Mode, màn hình xám</li>
             <li>Viết Ký ước 21 ngày cùng bạn đồng hành</li>
-            <li>Ăn tối, trà thảo mộc, ngủ trong tĩnh lặng</li>
+            <li>Trò chơi buổi tối, tích thẻ rau móp</li>
           </ul>
         </article>
-      </div>
-      <div class="steps-bar" aria-label="Các bước của chương trình">
-        <span>Tiếp nhận</span><i>›</i><span>Chẩn đoán</span><i>›</i><span>Điều trị</span><i>›</i><span>Vận động</span><i>›</i><span>Kết nối cộng đồng</span><i>›</i><span>Trở lại cuộc sống thật</span>
       </div>
     </div>
   </section>
 
-  <section class="block" id="phong">
+  <!-- SỔ NHIỆM VỤ -->
+  <section class="block alt page" id="so-nhiem-vu" data-title="Sổ nhiệm vụ" data-icon="fa-book-open" data-desc="15 nhiệm vụ, 5 nhóm, tích dấu mộc">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head center">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p class="eyebrow">Sổ nhiệm vụ · Chạm vào Bình Mỹ</p>
+        <h2>Mỗi nhiệm vụ hoàn thành là một dấu mộc</h2>
+        <p class="lead">Sổ nhiệm vụ được thiết kế để học viên có năng lượng hơn, tích cực hơn. Sổ dùng để tham gia các tua trải nghiệm trò chơi và khu sản xuất của người dân; mỗi lượt hoàn thành sẽ nhận giấy chứng nhận và phần thưởng từ Trạm Xanh Bình Mỹ.</p>
+      </div>
+
+      <div class="book-bar" aria-live="polite">
+        <div>
+          <p><b id="bookCount">0/15</b> dấu mộc · <b id="bookPct">0%</b> · Mức phần thưởng: <span class="lvl" id="bookLvl">Chưa hoàn thành</span></p>
+          <div class="bar" title="Vạch vàng: mốc 70%"><i id="bookFill"></i></div>
+        </div>
+        <div class="btns" style="margin:0">
+          <button class="btn btn-ghost btn-sm" type="button" id="bookReset">Xóa dấu</button>
+          <a class="btn btn-primary btn-sm" href="#phan-thuong">Xem phần thưởng</a>
+        </div>
+      </div>
+      <p class="hint" style="margin:-10px 0 18px">Thử bấm vào ô “Đóng dấu tại đây” trên từng thẻ để xem cách tích lũy dấu mộc.</p>
+
+      <div class="filters" id="filters" role="group" aria-label="Lọc theo nhóm nhiệm vụ"></div>
+      <div class="missions" id="missions"></div>
+
+      <div class="mvp-head">
+        <div>
+          <p class="eyebrow">Trải nghiệm nổi bật</p>
+          <h3>Các nhiệm vụ MVP</h3>
+        </div>
+        <button class="zoom-link" type="button" data-zoom="images/nhiem-vu-mvp.webp" data-cap="Các nhiệm vụ MVP"><i class="fa-regular fa-image"></i> Xem ảnh gốc</button>
+      </div>
+      <div class="mvp" id="mvp"></div>
+      <div class="flow-foot">
+        <span>Bộ 15 thẻ nhiệm vụ đầy đủ theo 5 nhóm: Gác sóng, Chạm xanh, Dưỡng thân, Dưỡng tâm, Kết nối thật.</span>
+        <button class="zoom-link" type="button" data-zoom="images/so-nhiem-vu.webp" data-cap="Bộ thẻ sổ nhiệm vụ"><i class="fa-regular fa-image"></i> Xem bộ thẻ gốc</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- THẺ RAU MÓP -->
+  <section class="block night page" id="the-rau-mop" data-title="Thẻ rau móp" data-icon="fa-seedling" data-desc="Trò chơi buổi tối, đổi giờ dùng điện thoại">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p class="eyebrow">Trạm đổi quà bằng thẻ rau móp</p>
+        <h2>Chơi hết mình · Tích thẻ xanh · Đổi thời gian số</h2>
+        <p class="lead">Buổi tối có các trò chơi gắn kết mọi người, cùng đồng hành, lan tỏa, chia sẻ, hỗ trợ và lập nhóm để giành “thẻ rau móp”, dùng để đổi quyền sử dụng điện thoại trong một khoảng thời gian cố định.</p>
+      </div>
+      <div class="night-grid">
+        <div class="wheel-box">
+          <div class="wheel-wrap">
+            <div class="wheel" id="wheel">
+              <span class="lbl" style="--a:36deg"><b>Khởi động phá băng</b></span>
+              <span class="lbl" style="--a:108deg"><b>Hội làng dân gian</b></span>
+              <span class="lbl flip" style="--a:180deg"><b>Xé bảng tên</b></span>
+              <span class="lbl" style="--a:252deg"><b>Tiệc nướng sân vườn</b></span>
+              <span class="lbl" style="--a:324deg"><b>Khám phá tự nhiên</b></span>
+            </div>
+            <div class="wheel-hub" aria-hidden="true"><i class="fa-solid fa-leaf"></i></div>
+          </div>
+          <button class="btn btn-gold" type="button" id="spin"><i class="fa-solid fa-rotate"></i> Quay chọn trò tối nay</button>
+          <p class="wheel-result" id="wheelResult" aria-live="polite">5 trò ngẫu nhiên cho các đêm sự kiện. Bấm quay để xem tối nay chơi gì.</p>
+        </div>
+        <div class="night-text">
+          <div class="board">
+            <h3><i class="fa-solid fa-mobile-screen"></i> Đổi thẻ lấy thời gian dùng điện thoại</h3>
+            <ul>
+              <li><i class="fa-solid fa-seedling"></i>10 thẻ = 10 phút</li>
+              <li><i class="fa-solid fa-seedling"></i>15 thẻ = 15 phút</li>
+              <li><i class="fa-solid fa-seedling"></i>30 thẻ = 30 phút</li>
+              <li><i class="fa-solid fa-seedling"></i>60 thẻ = 60 phút</li>
+            </ul>
+            <p>1 thẻ rau móp = 1 phút dùng điện thoại, đổi tại trạm theo khung giờ quy định.</p>
+          </div>
+          <div class="btns" style="margin:0">
+            <button class="zoom-link" type="button" data-zoom="images/the-rau-mop.webp" data-cap="Trạm đổi quà bằng thẻ rau móp" style="color:#f1cf62"><i class="fa-regular fa-image"></i> Xem ảnh gốc</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-head center" style="margin:64px 0 0">
+        <h2 style="font-size:clamp(1.25rem,2.4vw,1.6rem)">Các mốc nhận thẻ rau móp</h2>
+      </div>
+      <div class="miles">
+        <article class="mile">
+          <header><span>01</span><h3>Thử thách cá nhân &amp; chuyên cần cơ bản</h3></header>
+          <ul>
+            <li><i class="fa-solid fa-check"></i><span>Tham gia trọn vẹn, tích cực từ đầu đến cuối một đêm sự kiện (ví dụ Đêm 1 Lửa trại, Đêm 2 Hội làng dân gian), không bỏ cuộc.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Hoàn thành xuất sắc “nhiệm vụ ngầm” cá nhân do Mentor giao trong ngày (dọn dẹp khu sinh hoạt chung, hỗ trợ bạn bè).</span></li>
+          </ul>
+          <p class="hand">Tích cực là ảo quá!</p>
+        </article>
+        <article class="mile">
+          <header><span>02</span><h3>Chiến thắng đồng đội &amp; trò chơi dân gian</h3></header>
+          <ul>
+            <li><i class="fa-solid fa-check"></i><span>Đội giành chiến thắng trong các trò chơi tập thể như kéo co, nhảy bao (Đêm 2 Hội làng dân gian).</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Là thành viên cốt lõi trong thử thách nhóm tại Tiệc nướng sân vườn (Đêm 4), hoặc tự thu hoạch và chế biến nông sản sạch cùng nhóm.</span></li>
+          </ul>
+          <p class="hand">Cùng nhau vượt thử thách!</p>
+        </article>
+        <article class="mile">
+          <header><span>03</span><h3>Chinh phục đêm điểm nhấn</h3></header>
+          <ul>
+            <li><i class="fa-solid fa-check"></i><span>Đội chiến thắng các đêm cần chiến thuật và vận động mạnh: Đêm 3 (Xé bảng tên kiểu Running Man) hoặc Đêm 5 (Mật thư văn hóa Bình Mỹ).</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Tích lũy điểm tổng kết dành cho khách ngắn hạn khi hoàn thành tốt toàn bộ lịch trình tại trạm.</span></li>
+          </ul>
+          <p class="hand">Thử thách lớn – thành tựu lớn!</p>
+        </article>
+        <article class="mile">
+          <header><span>04</span><h3>Thủ lĩnh &amp; thành tích dài hạn <small style="font-weight:600;color:#7a5a33">(khách 1 tháng)</small></h3></header>
+          <ul>
+            <li><i class="fa-solid fa-check"></i><span>Được bầu làm Đội trưởng / Thủ lĩnh, dẫn dắt và hỗ trợ các nhóm khách ngắn hạn đến vào cuối tuần.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Hoặc đạt chuỗi thành tích liên tục nhiều tuần, giữ kỷ luật bản thân và giúp bạn mới hòa nhập.</span></li>
+          </ul>
+          <p class="hand">Lãnh đạo hôm nay, trưởng thành ngày mai!</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHẦN THƯỞNG -->
+  <section class="block page" id="phan-thuong" data-title="Phần thưởng" data-icon="fa-award" data-desc="3 mức theo mức độ hoàn thành sổ">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p class="eyebrow">Cơ cấu phần thưởng</p>
+        <h2>Mỗi bước đi là một giá trị</h2>
+        <p class="lead">Sau mỗi chuyến đi đều có phần thưởng khi kết thúc trải nghiệm. Tất cả người tham gia đều nhận giấy chứng nhận (GCN); phần thưởng được nâng cấp theo mức độ hoàn thành sổ nhiệm vụ.</p>
+      </div>
+      <div class="rewards" id="rewards">
+        <article class="reward" data-lv="1">
+          <span class="you">Sổ của bạn</span>
+          <header><span>01</span><div><b>Chưa hoàn thành</b><small>Dưới 70% nhiệm vụ</small></div></header>
+          <div class="gift" aria-hidden="true"><i class="fa-solid fa-scroll"></i><i class="fa-solid fa-note-sticky"></i></div>
+          <h4>Phần thưởng</h4>
+          <ul><li>Giấy chứng nhận tham gia chương trình</li><li>Sticker lưu niệm “Trạm gác sóng xanh”</li><li>Ghi nhận sự tham gia và khuyến khích quay lại</li></ul>
+        </article>
+        <article class="reward" data-lv="2">
+          <span class="you">Sổ của bạn</span>
+          <header><span>02</span><div><b>Hoàn thành khá</b><small>Từ 70% đến dưới 100% nhiệm vụ</small></div></header>
+          <div class="gift" aria-hidden="true"><i class="fa-solid fa-scroll"></i><i class="fa-solid fa-note-sticky"></i><i class="fa-solid fa-bag-shopping"></i></div>
+          <h4>Phần thưởng</h4>
+          <ul><li>Giấy chứng nhận tham gia chương trình</li><li>Sticker lưu niệm</li><li>Một phần quà nông sản địa phương hoặc túi vải thân thiện môi trường</li></ul>
+        </article>
+        <article class="reward" data-lv="3">
+          <span class="you">Sổ của bạn</span>
+          <header><span>03</span><div><b>Hoàn thành</b><small>Hoàn thành 100% nhiệm vụ</small></div></header>
+          <div class="gift" aria-hidden="true"><i class="fa-solid fa-scroll"></i><i class="fa-solid fa-medal"></i><i class="fa-solid fa-bottle-water"></i><i class="fa-solid fa-gift"></i></div>
+          <h4>Phần thưởng</h4>
+          <ul><li>Giấy chứng nhận hoàn thành hành trình</li><li>Huy hiệu “Nhà chinh phục xanh”</li><li>Bộ quà gồm bình nước tái sử dụng và đặc sản địa phương</li></ul>
+        </article>
+      </div>
+      <div class="rule">
+        <div>
+          <h3><i class="fa-solid fa-gift"></i> Quy định chung</h3>
+          <p>Mỗi người tham gia đều được cấp GCN. Phần thưởng tăng dần theo mức độ hoàn thành. Hoàn thành không chỉ là đích đến mà còn là hành trình sống xanh!</p>
+          <p style="margin-top:10px"><button class="zoom-link" type="button" data-zoom="images/phan-thuong.webp" data-cap="Cơ cấu phần thưởng"><i class="fa-regular fa-image"></i> Xem ảnh gốc</button></p>
+        </div>
+        <table class="tbl">
+          <thead><tr><th>Mức độ</th><th>Giấy chứng nhận</th><th>Phần thưởng</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--g-gs)">01 · Chưa hoàn thành</td><td>GCN tham gia</td><td>Sticker lưu niệm</td></tr>
+            <tr><td style="color:var(--gold)">02 · Hoàn thành khá</td><td>GCN tham gia</td><td>Sticker + quà địa phương</td></tr>
+            <tr><td style="color:var(--forest)">03 · Hoàn thành</td><td>GCN hoàn thành hành trình</td><td>Huy hiệu + bộ quà tặng</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHÒNG PHÂN TẦNG -->
+  <section class="block alt page" id="phong" data-title="Phòng lưu trú" data-icon="fa-bed" data-desc="Ba mức độ, ba cách sắp xếp phòng">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <p class="eyebrow">Phòng lưu trú phân tầng</p>
         <h2>Ba mức độ, ba cách sắp xếp phòng</h2>
       </div>
@@ -358,7 +919,8 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
     </div>
   </section>
 
-  <section class="block" id="tu-danh-gia" style="padding-top:0">
+  <!-- TỰ ĐÁNH GIÁ -->
+  <section class="block page" id="tu-danh-gia" data-title="Tự đánh giá" data-icon="fa-clipboard-question" data-desc="6 câu, khoảng 2 phút">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Tự đánh giá · 6 câu · khoảng 2 phút</p>
@@ -387,17 +949,18 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
     </div>
   </section>
 
-  <section class="block forms">
+  <!-- BIỂU MẪU -->
+  <section class="block forms page" id="dang-ky" data-title="Đăng ký" data-icon="fa-pen-to-square" data-desc="Đăng ký lưu trú từ xa">
     <div class="wrap">
-      <div class="form-grid" id="dang-ky">
+      <div class="form-grid">
         <div class="side">
-          <p class="eyebrow">Đăng ký lưu trú</p>
+          <p class="eyebrow">Đăng ký lưu trú từ xa</p>
           <h2>Giữ chỗ cho chương trình 21 ngày</h2>
           <p class="lead">Sau khi gửi phiếu, trung tâm sẽ gọi lại trong vòng 24 giờ để xác nhận lịch nhận phòng.</p>
           <ol>
             <li>Gửi phiếu đăng ký</li>
             <li>Nhận cuộc gọi xác nhận</li>
-            <li>Đến Khu 1 làm thủ tục và đánh giá sức khỏe</li>
+            <li>Đến Khu 1 làm thủ tục, đánh giá sức khỏe và nhận sổ nhiệm vụ</li>
           </ol>
           <p class="hint">Học viên dưới 18 tuổi cần có thông tin người giám hộ.</p>
         </div>
@@ -438,8 +1001,12 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
           </form>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="form-grid" id="tu-van">
+  <section class="block forms page" id="tu-van" data-title="Tư vấn từ xa" data-icon="fa-headset" data-desc="Đặt lịch nói chuyện với chuyên viên">
+    <div class="wrap">
+      <div class="form-grid">
         <div class="side">
           <p class="eyebrow">Tư vấn từ xa · miễn phí</p>
           <h2>Nói chuyện với chuyên viên trước khi quyết định</h2>
@@ -491,14 +1058,30 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
     </div>
   </section>
 
-  <section class="block" id="hoi-dap">
+  <!-- HỎI ĐÁP -->
+  <section class="block page" id="hoi-dap" data-title="Hỏi đáp" data-icon="fa-circle-question" data-desc="Câu hỏi thường gặp">
     <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Hỏi đáp</p><h2>Câu hỏi thường gặp</h2></div>
-      <div style="max-width:780px">
-        <details><summary>Tôi có bị thu điện thoại suốt 21 ngày không?</summary><p>Tùy mức độ. Mức nhẹ được dùng điện thoại theo khung giờ; mức trung bình và nặng gửi thiết bị tại quầy, liên lạc với gia đình qua điện thoại của trung tâm vào giờ cố định.</p></details>
+      <div class="sec-head center"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><h2>Câu hỏi thường gặp</h2></div>
+      <div style="max-width:800px;margin-inline:auto">
+        <details><summary>Tôi có bị thu điện thoại suốt 21 ngày không?</summary><p>Tùy mức độ. Mức nhẹ được dùng điện thoại theo khung giờ; mức trung bình và nặng gửi thiết bị tại quầy, liên lạc với gia đình qua điện thoại của trung tâm vào giờ cố định. Ngoài ra bạn có thể dùng thẻ rau móp để đổi thêm thời gian sử dụng điện thoại.</p></details>
+        <details><summary>Sổ nhiệm vụ dùng để làm gì?</summary><p>Mỗi người nhận một sổ riêng tại Khu 1. Sổ dùng để tham gia các tua trải nghiệm trò chơi và khu sản xuất của người dân; mỗi nhiệm vụ hoàn thành được đóng dấu mộc. Số dấu mộc quyết định mức phần thưởng cuối hành trình.</p></details>
+        <details><summary>Thẻ rau móp nhận ở đâu và đổi thế nào?</summary><p>Thẻ được trao khi đạt các mốc trong trò chơi buổi tối và nhiệm vụ cá nhân. Mang thẻ đến trạm đổi quà để đổi thời gian dùng điện thoại: 10 thẻ = 10 phút, 15 thẻ = 15 phút, 30 thẻ = 30 phút, 60 thẻ = 60 phút.</p></details>
         <details><summary>Gia đình liên lạc với học viên bằng cách nào?</summary><p>Mỗi học viên đeo đồng hồ GPS theo dõi sức khỏe và vị trí. Gia đình được cập nhật tình hình định kỳ và có thể gọi đến số tổng đài của trung tâm.</p></details>
         <details><summary>Ký ước 21 ngày là gì?</summary><p>Ở Khu 5, học viên tự viết cam kết cách dùng thiết bị sau khi về nhà, có một bạn đồng hành cùng theo dõi và nhắc nhở.</p></details>
         <details><summary>Tư vấn từ xa có mất phí không?</summary><p>Buổi tư vấn đầu tiên miễn phí. Bạn có thể đặt lịch ngay ở phần Tư vấn từ xa phía trên.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap">
+      <div>
+        <h2>Sẵn sàng gác sóng, chạm vào Bình Mỹ?</h2>
+        <p>Đăng ký từ xa, nhận sổ nhiệm vụ tại Khu 1 và bắt đầu hành trình sống thật.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-gold" href="#dang-ky">Đăng ký ngay</a>
+        <a class="btn btn-outline-white" href="#tu-van">Liên hệ tư vấn</a>
       </div>
     </div>
   </section>
@@ -507,27 +1090,43 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
 <footer>
   <div class="wrap">
     <div>
-      <h3>Trạm Xanh Bình Mỹ</h3>
-      <p>Hành trình cân bằng số – sống thật.</p>
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#74c48f"/><path d="M12 28c0-9 6-15 17-16-1 10-7 16-17 16z" fill="#132017"/><path d="M12 28c4-5 8-8 13-11" stroke="#74c48f" stroke-width="1.6" fill="none"/></svg>
+        <span><b>Trạm Xanh Bình Mỹ</b><small>Gác sóng số · Dưỡng nhịp lành</small></span>
+      </a>
+      <p>Hành trình cân bằng số – sống thật. Sống xanh, trải nghiệm thật, kết nối cộng đồng.</p>
     </div>
     <div>
       <h3>Liên hệ</h3>
       <ul>
-        <li>Xã Bình Mỹ, TP. Hồ Chí Minh</li>
-        <li>Tổng đài: 0900 000 000</li>
-        <li>Email: lienhe@tramxanhbinhmy.vn</li>
+        <li><i class="fa-solid fa-location-dot"></i>Xã Bình Mỹ, TP. Hồ Chí Minh</li>
+        <li><i class="fa-solid fa-phone"></i>Tổng đài: 0900 000 000</li>
+        <li><i class="fa-solid fa-envelope"></i>lienhe@tramxanhbinhmy.vn</li>
       </ul>
     </div>
     <div>
       <h3>Giờ làm việc</h3>
       <ul>
-        <li>Tư vấn từ xa: 8:00 – 17:00, thứ 2 – thứ 7</li>
-        <li>Tiếp nhận học viên: 7:30 – 16:00 hằng ngày</li>
+        <li><i class="fa-regular fa-clock"></i>Tư vấn từ xa: 8:00 – 17:00, thứ 2 – thứ 7</li>
+        <li><i class="fa-regular fa-clock"></i>Tiếp nhận học viên: 7:30 – 16:00 hằng ngày</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Hỗ trợ</h3>
+      <ul>
+        <li><a href="#hoi-dap"><i class="fa-solid fa-circle-question"></i>Hỏi đáp</a></li>
+        <li><a href="#tu-van"><i class="fa-solid fa-headset"></i>Tư vấn từ xa</a></li>
+        <li><a href="#dang-ky"><i class="fa-solid fa-pen-to-square"></i>Đăng ký</a></li>
       </ul>
     </div>
     <p class="copy">Đồ án môn học · Nhóm 5 · Thông tin liên hệ là dữ liệu minh họa.</p>
   </div>
 </footer>
+
+<dialog class="lb" id="lb" aria-label="Xem ảnh">
+  <button class="x" type="button" id="lbClose" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+</dialog>
 
 <div class="toast" id="toast" role="status"></div>
 
@@ -544,6 +1143,174 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
     get(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   };
+
+  /* ---------- Nền sáng / tối ---------- */
+  // Chưa chọn thì theo cài đặt của máy; đã chọn thì nhớ cho lần sau
+  // Nút nằm ở thanh đầu trang chủ và thanh trên cùng của mỗi trang con
+  const root = document.documentElement;
+  const sysDark = matchMedia('(prefers-color-scheme: dark)');
+  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : sysDark.matches;
+  function paintThemeBtn() {
+    const dark = isDark(), label = dark ? 'Chuyển nền sáng' : 'Chuyển nền tối';
+    $$('.theme-btn').forEach(b => {
+      b.innerHTML = `<i class="fa-solid ${dark ? 'fa-sun' : 'fa-moon'}"></i>`;
+      b.setAttribute('aria-label', label); b.title = label;
+    });
+  }
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.theme-btn')) return;
+    root.dataset.theme = isDark() ? 'light' : 'dark';
+    try { localStorage.setItem('tx-theme', root.dataset.theme); } catch (e) {}
+    paintThemeBtn();
+  });
+  sysDark.addEventListener('change', paintThemeBtn);
+  paintThemeBtn();
+
+  /* ---------- Menu điện thoại ---------- */
+  const nav = $('#nav'), burger = $('#burger');
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  });
+  $$('a', nav).forEach(a => a.addEventListener('click', () => { if (nav.classList.contains('open')) burger.click(); }));
+
+  /* ---------- Xem ảnh gốc ---------- */
+  const lb = $('#lb');
+  $$('[data-zoom]').forEach(b => b.addEventListener('click', () => {
+    $('#lbImg').src = b.dataset.zoom; $('#lbImg').alt = b.dataset.cap; $('#lbCap').textContent = b.dataset.cap;
+    lb.showModal();
+  }));
+  $('#lbClose').addEventListener('click', () => lb.close());
+  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+
+  /* ---------- Sổ nhiệm vụ ---------- */
+  const GROUPS = {
+    gs: { name: 'Gác sóng', sub: 'Tạm ngắt kết nối – Sống thật hơn', icon: 'fa-phone-slash', c: 'var(--g-gs)' },
+    cx: { name: 'Chạm xanh', sub: 'Kết nối với thiên nhiên', icon: 'fa-leaf', c: 'var(--g-cx)' },
+    dt: { name: 'Dưỡng thân', sub: 'Vận động – Chăm sóc cơ thể', icon: 'fa-person-running', c: 'var(--g-dt)' },
+    dta: { name: 'Dưỡng tâm', sub: 'Thư giãn – Lắng nghe bản thân', icon: 'fa-spa', c: 'var(--g-dta)' },
+    kt: { name: 'Kết nối thật', sub: 'Giao tiếp – Chia sẻ – Cùng nhau', icon: 'fa-people-group', c: 'var(--g-kt)' }
+  };
+  // [nhóm, mã, tên, mô tả, thời lượng, xác nhận, lời nhắn]
+  const MISSIONS = [
+    ['gs', 'GS-01', 'Cất sóng, mở trải nghiệm', 'Gửi điện thoại vào khu vực lưu giữ theo quy định của trung tâm và bắt đầu hành trình không sử dụng điện thoại.', 'Xuyên suốt chương trình', 'Nhân viên đóng dấu bắt đầu', 'Tạm dừng để cảm nhận'],
+    ['gs', 'GS-02', '30 phút hiện diện', 'Dành 30 phút cho một hoạt động ngoài đời thực mà không sử dụng thiết bị điện tử cá nhân.', '30 phút', 'Nhân viên tại trạm', 'Hiện diện là một dạng hạnh phúc'],
+    ['gs', 'GS-03', 'Một ngày không màn hình', 'Hoàn thành một ngày trải nghiệm theo quy định ngắt kết nối của trung tâm.', 'Theo lịch lưu trú', 'Nhân viên tổng hợp cuối ngày', 'Bớt online, nhiều hơn với cuộc sống thật'],
+    ['cx', 'CX-01', 'Bước chân giữa thiên nhiên', 'Đi bộ chậm trên tuyến đường được chỉ định, quan sát cây cối và cảnh quan xung quanh.', '10 – 15 phút', 'Người hướng dẫn', 'Thiên nhiên luôn ở đây, chỉ cần bạn chạm lại'],
+    ['cx', 'CX-02', 'Tìm kiếm sắc xanh', 'Tìm và ghi nhớ bằng lời 3 điều thú vị trong thiên nhiên: hình dáng lá, tiếng chim hoặc màu sắc của hoa.', '10 phút', 'Chia sẻ với người hướng dẫn', 'Quan sát nhỏ, thấy điều lớn'],
+    ['cx', 'CX-03', 'Gửi lại một mầm xanh', 'Tưới cây hoặc chăm sóc một góc vườn theo hướng dẫn.', '10 – 15 phút', 'Nhân viên đóng dấu', 'Gieo yêu thương cho thiên nhiên'],
+    ['dt', 'DT-01', 'Đánh thức cơ thể', 'Thực hiện các động tác khởi động và kéo giãn nhẹ theo hướng dẫn.', '5 – 10 phút', 'Người hướng dẫn', 'Khỏe hơn mỗi ngày'],
+    ['dt', 'DT-02', 'Chuyển động mỗi ngày', 'Tham gia một buổi đi bộ hoặc vận động nhẹ phù hợp với khả năng cá nhân.', '10 – 20 phút', 'Người hướng dẫn', 'Vận động nhẹ, tâm trí vui'],
+    ['dt', 'DT-03', 'Bữa ăn chú tâm', 'Thưởng thức một bữa ăn chậm rãi, nhận biết hương vị và không để màn hình làm gián đoạn.', 'Một bữa ăn', 'Hoàn thành hoạt động', 'Ăn chậm để cảm nhận trọn vẹn'],
+    ['dta', 'DTÂ-01', 'Ba phút tĩnh lặng', 'Ngồi ở nơi yên tĩnh, thả lỏng cơ thể và chú ý vào nhịp thở tự nhiên.', '3 phút', 'Tự đánh dấu sau hoạt động', 'Bình yên bắt đầu từ bên trong'],
+    ['dta', 'DTÂ-02', 'Viết điều biết ơn', 'Viết vào sổ một điều khiến mình vui hoặc biết ơn trong ngày.', '5 phút', 'Tự đánh dấu, không bắt buộc chia sẻ', 'Biết ơn là một dạng hạnh phúc'],
+    ['dta', 'DTÂ-03', 'Khoảng nghỉ của riêng mình', 'Chọn một khoảng nghỉ không màn hình để đọc sách giấy, nghe âm thanh thiên nhiên hoặc ngồi thư giãn.', '15 phút', 'Nhân viên tại khu vực', 'Cho bản thân một khoảng lặng'],
+    ['kt', 'KT-01', 'Lời chào đầu tiên', 'Chủ động làm quen và trò chuyện với một người tham gia khác.', '5 phút', 'Tự đánh dấu hoặc người hướng dẫn', 'Một lời chào mở ra nhiều điều tốt đẹp'],
+    ['kt', 'KT-02', 'Cùng nhau hoàn thành', 'Tham gia một trò chơi hoặc nhiệm vụ nhóm không sử dụng điện thoại.', '15 – 20 phút', 'Người hướng dẫn', 'Cùng nhau tạo nên khoảnh khắc đẹp'],
+    ['kt', 'KT-03', 'Bữa ăn sẻ chia', 'Dùng bữa cùng mọi người, trò chuyện trực tiếp và lắng nghe nhau.', 'Một bữa ăn', 'Nhân viên phụ trách', 'Kết nối bằng sự chân thành']
+  ];
+  let stamped = new Set(store.get('tx-stamps') || []);
+
+  $('#filters').innerHTML = `<button type="button" data-g="all" aria-pressed="true"><i class="fa-solid fa-layer-group"></i>Tất cả</button>` +
+    Object.entries(GROUPS).map(([k, g]) => `<button type="button" data-g="${k}" aria-pressed="false" style="--c:${g.c}"><i class="fa-solid ${g.icon}"></i>${g.name}</button>`).join('');
+
+  $('#missions').innerHTML = MISSIONS.map(([g, id, title, desc, time, by, quote]) => {
+    const G = GROUPS[g];
+    return `<article class="mcard" data-g="${g}" style="--c:${G.c}">
+      <header><i class="fa-solid ${G.icon}"></i><div><b>${G.name}</b><small>${G.sub}</small></div></header>
+      <span class="code">${id}</span>
+      <h3>${title}</h3>
+      <p class="desc">${desc}</p>
+      <dl>
+        <div><i class="fa-regular fa-clock"></i><span><dt>Thời lượng: </dt><dd>${time}</dd></span></div>
+        <div><i class="fa-solid fa-user-check"></i><span><dt>Xác nhận: </dt><dd>${by}</dd></span></div>
+      </dl>
+      <div class="foot">
+        <p class="quote">${quote}</p>
+        <button class="stamp" type="button" data-id="${id}" aria-pressed="${stamped.has(id)}" aria-label="Đóng dấu nhiệm vụ ${id}">
+          <span class="s-off">Đóng dấu<br>tại đây</span>
+          <span class="s-on"><i class="fa-solid fa-leaf"></i>Đã hoàn thành</span>
+        </button>
+      </div>
+    </article>`;
+  }).join('');
+
+  $('#filters').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    $$('#filters button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    $$('#missions .mcard').forEach(c => { c.hidden = b.dataset.g !== 'all' && c.dataset.g !== b.dataset.g; });
+  });
+
+  const LEVELS = ['Chưa hoàn thành', 'Hoàn thành khá', 'Hoàn thành'];
+  function renderBook() {
+    const n = stamped.size, pct = Math.round(n / MISSIONS.length * 100);
+    const lv = n === MISSIONS.length ? 3 : pct >= 70 ? 2 : 1;
+    $('#bookCount').textContent = `${n}/${MISSIONS.length}`;
+    $('#bookPct').textContent = pct + '%';
+    $('#bookLvl').textContent = LEVELS[lv - 1];
+    $('#bookFill').style.width = pct + '%';
+    $$('#rewards .reward').forEach(r => r.classList.toggle('current', n > 0 && +r.dataset.lv === lv));
+    store.set('tx-stamps', [...stamped]);
+    return lv;
+  }
+  $('#missions').addEventListener('click', (e) => {
+    const b = e.target.closest('.stamp'); if (!b) return;
+    const id = b.dataset.id, before = renderBook();
+    if (stamped.has(id)) stamped.delete(id); else stamped.add(id);
+    b.setAttribute('aria-pressed', stamped.has(id));
+    const after = renderBook();
+    if (after > before) toast('Lên mức phần thưởng: ' + LEVELS[after - 1]);
+  });
+  $('#bookReset').addEventListener('click', () => {
+    stamped.clear(); $$('#missions .stamp').forEach(s => s.setAttribute('aria-pressed', 'false')); renderBook();
+  });
+  renderBook();
+
+  /* ---------- Nhiệm vụ MVP ---------- */
+  // [biểu tượng, màu, tên, mục tiêu, thời lượng, lưu ý]
+  const MVP = [
+    ['fa-phone-slash', 'var(--g-gs)', '30 phút không màn hình', 'Tạm ngắt kết nối với thiết bị số, dành thời gian cho những điều thật.', '30 phút', 'Hãy đặt điện thoại vào khu vực lưu giữ của trung tâm.'],
+    ['fa-sailboat', '#3b7fb5', 'Chèo thuyền ven sông', 'Cảm nhận không gian sông nước, rèn luyện sự cân bằng và thư giãn.', '30 – 45 phút', 'Có hướng dẫn viên và áo phao an toàn. Tham gia theo thể trạng cá nhân.'],
+    ['fa-water', '#2f7f7a', 'Khám phá mặt nước', 'Trải nghiệm hoạt động dưới nước như chèo kayak, đạp vịt hoặc bơi (tùy điều kiện).', '30 – 60 phút', 'Có hướng dẫn viên, dụng cụ an toàn và khu vực phù hợp.'],
+    ['fa-fish', 'var(--g-dt)', 'Thử thách tát đìa', 'Trải nghiệm đời sống nông thôn, tăng sự dẻo dai và tinh thần đồng đội.', '45 – 60 phút', 'Làm theo hướng dẫn của nhân viên, đảm bảo an toàn và giữ vệ sinh chung.'],
+    ['fa-seedling', 'var(--g-cx)', 'Một giờ làm nông dân', 'Hiểu hơn về nông nghiệp sạch, trải nghiệm công việc làm vườn.', '45 – 60 phút', 'Có hướng dẫn viên. Dùng dụng cụ phù hợp và tuân thủ quy định an toàn.'],
+    ['fa-basket-shopping', 'var(--g-kt)', 'Thu hoạch rau xanh', 'Tận hưởng thành quả lao động, gắn kết với thiên nhiên.', '30 – 45 phút', 'Nhận rau sạch để sử dụng hoặc mang về (tùy quy định).'],
+    ['fa-people-group', '#7b5ea7', 'Cùng chơi – cùng cười', 'Tăng kết nối, gắn kết và mang lại niềm vui trong hành trình.', '30 – 60 phút', 'Tham gia cùng mọi người, tôn trọng tinh thần tập thể và luật chơi.'],
+    ['fa-spa', 'var(--g-dta)', 'Khoảng lặng bên sông', 'Thư giãn, lắng nghe bản thân và tận hưởng sự bình yên.', '15 – 30 phút', 'Chọn một góc yên tĩnh, nghỉ ngơi hoặc thiền nhẹ theo hướng dẫn.']
+  ];
+  $('#mvp').innerHTML = MVP.map(([ic, c, t, goal, time, note]) => `
+    <article style="--c:${c}">
+      <div class="top"><i class="fa-solid ${ic}"></i><h4>${t}</h4></div>
+      <p class="goal"><b>Mục tiêu</b>${goal}</p>
+      <p class="time"><i class="fa-regular fa-clock"></i>Thời lượng: ${time}</p>
+      <p class="note"><i class="fa-solid fa-feather"></i><span>${note}</span></p>
+    </article>`).join('');
+
+  /* ---------- Vòng quay trò chơi buổi tối ---------- */
+  const GAMES = [
+    ['Khởi động phá băng', 'Lửa trại, làm quen và trò chơi khởi động cho cả nhóm.'],
+    ['Hội làng dân gian', 'Kéo co, nhảy bao và các trò chơi dân gian theo đội.'],
+    ['Xé bảng tên', 'Đối kháng theo phong cách Running Man, cần chiến thuật và tốc độ.'],
+    ['Tiệc nướng sân vườn', 'Thử thách nhóm, tự thu hoạch và chế biến nông sản sạch.'],
+    ['Khám phá tự nhiên', 'Giải mật thư văn hóa Bình Mỹ trên đường khám phá.']
+  ];
+  let rot = 0, spinning = false;
+  const wheel = $('#wheel');
+  $('#spin').addEventListener('click', () => {
+    if (spinning) return;
+    spinning = true; $('#spin').disabled = true;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    rot += 360 * 5 + Math.floor(Math.random() * 360);
+    wheel.style.transform = `rotate(${rot}deg)`;
+    const done = () => {
+      spinning = false; $('#spin').disabled = false;
+      const at = (360 - (rot % 360)) % 360; // góc của vòng quay đang nằm dưới kim
+      const [name, desc] = GAMES[Math.floor(at / 72)];
+      $('#wheelResult').innerHTML = `Tối nay chơi: <b>${name}</b><br>${desc}`;
+    };
+    if (reduce) done(); else setTimeout(done, 4300);
+  });
 
   /* ---------- Quiz ---------- */
   const QUESTIONS = [
@@ -594,8 +1361,8 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
   $('#useResult').addEventListener('click', () => {
     if (!currentTier) return;
     $('#' + TIERS[currentTier].id).checked = true;
-    $('#dang-ky').scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => $('#r-name').focus({ preventScroll: true }), 500);
+    openPage('dang-ky');
+    setTimeout(() => $('#r-name').focus({ preventScroll: true }), 400);
     toast('Đã điền mức độ "' + TIERS[currentTier].name.replace('Mức ', '') + '" vào phiếu đăng ký');
   });
 
@@ -654,7 +1421,7 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
       <div class="success" tabindex="-1" id="regDone">
         <p class="eyebrow">Đã nhận phiếu đăng ký</p>
         <p class="code">${id}</p>
-        <p style="color:var(--ink-soft)">Trung tâm sẽ gọi số <b>${phone.value.trim()}</b> trong vòng 24 giờ để xác nhận. Hãy giữ lại mã đăng ký này.</p>
+        <p style="color:var(--ink-soft)">Trung tâm sẽ gọi số <b>${escapeHtml(phone.value.trim())}</b> trong vòng 24 giờ để xác nhận. Hãy giữ lại mã đăng ký này.</p>
         <dl>
           <dt>Học viên</dt><dd>${escapeHtml(name.value.trim())}</dd>
           <dt>Mức độ</dt><dd>${tier.value}</dd>
@@ -737,10 +1504,100 @@ footer .copy { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var
     toast('Đã đặt lịch ' + booking.slot + ' ngày ' + vnDate(booking.date));
   });
 
-  // Mở từ mã QR (đường dẫn có #dang-ky, #tu-van…) thì cuộn tới đúng phần
-  const jump = () => { const id = (location.hash || '').slice(1); const el = id && /^[\w-]+$/.test(id) && document.getElementById(id); if (el) el.scrollIntoView(); };
-  window.addEventListener('load', () => setTimeout(jump, 150));
-  window.addEventListener('hashchange', jump);
+  /* ---------- Mỗi mục là một trang riêng ----------
+     Đường dẫn #dang-ky, #so-nhiem-vu… (kể cả mở từ mã QR) sẽ bật đúng trang đó;
+     không có # (hoặc # không phải mục nào) thì về trang chủ. */
+  // Trang chủ chỉ có 5 mục; các mục còn lại gom vào "Hoạt động"
+  const HD = ['co-che', 'hanh-trinh', 'so-nhiem-vu', 'the-rau-mop', 'phan-thuong', 'phong'];
+  const ORDER = ['gioi-thieu', ...HD, 'tu-danh-gia', 'tu-van', 'dang-ky'];
+  // Hỏi đáp chỉ mở từ chân trang, không nằm trong chuỗi Mục trước / Mục tiếp theo
+  const PAGES = [...ORDER, 'hoi-dap'].map(id => document.getElementById(id));
+  const byId = (id) => PAGES.find(p => p.id === id);
+  const subItems = HD.map(id => { const p = byId(id); return `<li><a href="#${id}"><i class="fa-solid ${p.dataset.icon}"></i><b>${p.dataset.title}</b><small>${p.dataset.desc}</small></a></li>`; }).join('');
+  const hdToggle = (cls = 'sub-toggle') => `<button class="${cls}" type="button" aria-expanded="false">Hoạt động <i class="fa-solid fa-chevron-down"></i></button>`;
+  const tile = (id, hot) => { const p = byId(id); return `<a class="tile${hot ? ' hot' : ''}" href="#${id}"><i class="fa-solid ${p.dataset.icon}"></i><b>${p.dataset.title}</b><small>${p.dataset.desc}</small><span>Mở trang →</span></a>`; };
+  $('#tiles').innerHTML = tile('gioi-thieu') +
+    `<div class="has-sub"><button class="tile tile-hd sub-toggle-tile" type="button" aria-expanded="false"><i class="fa-solid fa-person-hiking"></i><b>Hoạt động</b><small>${HD.length} mục: sổ nhiệm vụ, thẻ rau móp, phần thưởng…</small><span>Xem danh sách ▾</span></button><ul class="sub">${subItems}</ul></div>` +
+    tile('tu-danh-gia') + tile('tu-van') + tile('dang-ky', true);
+  $$('[data-sub]').forEach(u => { u.innerHTML = subItems; });
+  const tabs = `<li><a href="#gioi-thieu">Giới thiệu</a></li><li class="has-sub">${hdToggle()}<ul class="sub">${subItems}</ul></li><li><a href="#tu-danh-gia">Tự đánh giá</a></li><li><a href="#tu-van">Tư vấn</a></li><li><a href="#dang-ky">Đăng ký</a></li>`;
+  PAGES.forEach((p, i) => {
+    p.insertAdjacentHTML('afterbegin', `<div class="page-bar"><div class="wrap">
+      <button class="home" type="button" data-close><i class="fa-solid fa-arrow-left"></i><span>Trang chủ</span></button>
+      <ul class="page-tabs" aria-label="Các mục">${tabs}</ul>
+      <span class="pb-title">${p.dataset.title}</span>
+      <button class="theme-btn" type="button" aria-label="Chuyển nền tối"><i class="fa-solid fa-moon"></i></button>
+      <button class="x" type="button" data-close aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+    </div></div>`);
+    if (p.id === 'hoi-dap') {
+      p.insertAdjacentHTML('beforeend', `<div class="wrap"><div class="page-next">
+        <a class="nx" href="#tu-van"><small>Chưa thấy câu trả lời? →</small><b>Đặt lịch tư vấn từ xa</b></a>
+      </div></div>`);
+      return;
+    }
+    const prev = PAGES[i - 1], next = i + 1 < ORDER.length ? PAGES[i + 1] : null;
+    p.insertAdjacentHTML('beforeend', `<div class="wrap"><div class="page-next">
+      ${prev ? `<a href="#${prev.id}"><small>← Mục trước</small><b>${prev.dataset.title}</b></a>` : ''}
+      ${next ? `<a class="nx" href="#${next.id}"><small>Mục tiếp theo →</small><b>${next.dataset.title}</b></a>` : ''}
+    </div></div>`);
+  });
+
+  // Danh sách thả xuống: rê chuột thì hiện (CSS :hover); bấm/chạm hoặc Enter thì bật/tắt
+  const closeSubs = (except) => $$('.has-sub.open').forEach(h => { if (h !== except) { h.classList.remove('open'); $('button', h).setAttribute('aria-expanded', 'false'); } });
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('.sub-toggle, .sub-toggle-tile');
+    if (t) { const h = t.closest('.has-sub'); closeSubs(h); t.setAttribute('aria-expanded', h.classList.toggle('open')); return; }
+    if (!e.target.closest('.sub')) closeSubs();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('.has-sub.open')) { e.stopImmediatePropagation(); closeSubs(); } }, true);
+
+  // Lịch sử trình duyệt chỉ giữ 1 bước: Trang chủ → mục. Chuyển giữa các mục thì thay thế,
+  // nên nút ✕ hay nút Back đều quay thẳng về trang chủ.
+  let fromHome = false;
+  let lastFocus = null;
+  const isOpen = () => document.body.classList.contains('page-open');
+  function route() {
+    const id = location.hash.slice(1);
+    const page = PAGES.find(p => p.id === id);
+    PAGES.forEach(p => p.classList.toggle('open', p === page));
+    document.body.classList.toggle('page-open', !!page);
+    if (page) {
+      page.scrollTop = 0;
+      closeSubs();
+      $$('.page-tabs a', page).forEach(a => {
+        if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+      $('.page-tabs .sub-toggle', page).classList.toggle('cur', HD.includes(id));
+      document.title = page.dataset.title + ' · Trạm Xanh Bình Mỹ';
+      $('.home', page).focus({ preventScroll: true });
+    } else {
+      fromHome = false;
+      document.title = 'Trạm Xanh Bình Mỹ';
+      if (lastFocus) { lastFocus.focus({ preventScroll: true }); lastFocus = null; }
+    }
+  }
+  function openPage(id) {
+    if (isOpen()) location.replace('#' + id);
+    else location.hash = id;
+  }
+  function closePage() {
+    if (fromHome) history.back();
+    else { history.replaceState(null, '', location.pathname + location.search); route(); }
+  }
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-close]')) { closePage(); return; }
+    const a = e.target.closest('a[href^="#"]');
+    const id = a && a.getAttribute('href').slice(1);
+    if (!id || !PAGES.some(p => p.id === id)) return;
+    e.preventDefault();
+    if (!isOpen()) { fromHome = true; const h = a.closest('.has-sub'); lastFocus = h ? $('button', h) : a; }
+    openPage(id);
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen() && !$('#lb').open) closePage(); });
+  window.addEventListener('hashchange', route);
+  paintThemeBtn(); // vẽ lại cho các nút vừa thêm vào thanh trang con
+  route();
 
   function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 })();
