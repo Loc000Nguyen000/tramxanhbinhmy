@@ -345,6 +345,9 @@ section.block { padding-block: 84px; }
 .reward header span { width: 54px; height: 54px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center; font-size: 1.3rem; font-weight: 800; flex: none; }
 .reward header b { display: block; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; color: var(--c); }
 .reward header small { font-size: .88rem; color: var(--ink-soft); }
+.reward .pic { display: block; width: 100%; padding: 0; border: 0; border-radius: 14px; overflow: hidden; background: none; cursor: zoom-in; aspect-ratio: 4 / 3; box-shadow: var(--shadow-sm); }
+.reward .pic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.reward .pic:hover img { transform: scale(1.04); }
 .reward .gift { display: flex; gap: 10px; flex-wrap: wrap; }
 .reward .gift i { width: 46px; height: 46px; border-radius: 12px; background: var(--surface); color: var(--c); display: grid; place-items: center; font-size: 1.15rem; box-shadow: var(--shadow-sm); }
 .reward ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: .92rem; display: grid; gap: 4px; }
@@ -571,7 +574,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   <div class="stats">
     <div class="wrap">
       <div class="stats-grid">
-        <div class="stat"><i class="fa-regular fa-calendar-check"></i><div><strong>21 ngày</strong><span>Ký ước tự quản lý</span></div></div>
+        <div class="stat"><i class="fa-regular fa-calendar-check"></i><div><strong>2 ngày</strong><span>Ký ước tự quản lý</span></div></div>
         <div class="stat"><i class="fa-solid fa-list-check"></i><div><strong>15</strong><span>Nhiệm vụ trong sổ</span></div></div>
         <div class="stat"><i class="fa-solid fa-person-hiking"></i><div><strong>8</strong><span>Trải nghiệm MVP</span></div></div>
         <div class="stat"><i class="fa-solid fa-medal"></i><div><strong>3 mức</strong><span>Phần thưởng cuối hành trình</span></div></div>
@@ -712,7 +715,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
           <h3>Bản lĩnh số &amp; gắn kết đêm</h3>
           <ul>
             <li>Tự cài Focus Mode, màn hình xám</li>
-            <li>Viết Ký ước 21 ngày cùng bạn đồng hành</li>
+            <li>Viết Ký ước 2 ngày cùng bạn đồng hành</li>
             <li>Trò chơi buổi tối, tích thẻ rau móp</li>
           </ul>
         </article>
@@ -854,6 +857,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <article class="reward" data-lv="1">
           <span class="you">Sổ của bạn</span>
           <header><span>01</span><div><b>Chưa hoàn thành</b><small>Dưới 70% nhiệm vụ</small></div></header>
+          <button class="pic" type="button" data-zoom="images/phan-thuong-muc-1.webp" data-cap="Phần thưởng mức 1 · Chưa hoàn thành"><img src="images/phan-thuong-muc-1.webp" alt="Phần thưởng mức 1: Chưa hoàn thành" loading="lazy"></button>
           <div class="gift" aria-hidden="true"><i class="fa-solid fa-scroll"></i><i class="fa-solid fa-note-sticky"></i></div>
           <h4>Phần thưởng</h4>
           <ul><li>Giấy chứng nhận tham gia chương trình</li><li>Sticker lưu niệm “Trạm gác sóng xanh”</li><li>Ghi nhận sự tham gia và khuyến khích quay lại</li></ul>
@@ -861,6 +865,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <article class="reward" data-lv="2">
           <span class="you">Sổ của bạn</span>
           <header><span>02</span><div><b>Hoàn thành khá</b><small>Từ 70% đến dưới 100% nhiệm vụ</small></div></header>
+          <button class="pic" type="button" data-zoom="images/phan-thuong-muc-2.webp" data-cap="Phần thưởng mức 2 · Hoàn thành khá"><img src="images/phan-thuong-muc-2.webp" alt="Phần thưởng mức 2: Hoàn thành khá" loading="lazy"></button>
           <div class="gift" aria-hidden="true"><i class="fa-solid fa-scroll"></i><i class="fa-solid fa-note-sticky"></i><i class="fa-solid fa-bag-shopping"></i></div>
           <h4>Phần thưởng</h4>
           <ul><li>Giấy chứng nhận tham gia chương trình</li><li>Sticker lưu niệm</li><li>Một phần quà nông sản địa phương hoặc túi vải thân thiện môi trường</li></ul>
@@ -868,6 +873,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <article class="reward" data-lv="3">
           <span class="you">Sổ của bạn</span>
           <header><span>03</span><div><b>Hoàn thành</b><small>Hoàn thành 100% nhiệm vụ</small></div></header>
+          <button class="pic" type="button" data-zoom="images/phan-thuong-muc-3.webp" data-cap="Phần thưởng mức 3 · Hoàn thành"><img src="images/phan-thuong-muc-3.webp" alt="Phần thưởng mức 3: Hoàn thành" loading="lazy"></button>
           <div class="gift" aria-hidden="true"><i class="fa-solid fa-scroll"></i><i class="fa-solid fa-medal"></i><i class="fa-solid fa-bottle-water"></i><i class="fa-solid fa-gift"></i></div>
           <h4>Phần thưởng</h4>
           <ul><li>Giấy chứng nhận hoàn thành hành trình</li><li>Huy hiệu “Nhà chinh phục xanh”</li><li>Bộ quà gồm bình nước tái sử dụng và đặc sản địa phương</li></ul>
@@ -955,7 +961,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
       <div class="form-grid">
         <div class="side">
           <p class="eyebrow">Đăng ký lưu trú từ xa</p>
-          <h2>Giữ chỗ cho chương trình 21 ngày</h2>
+          <h2>Giữ chỗ cho chương trình 2 ngày</h2>
           <p class="lead">Sau khi gửi phiếu, trung tâm sẽ gọi lại trong vòng 24 giờ để xác nhận lịch nhận phòng.</p>
           <ol>
             <li>Gửi phiếu đăng ký</li>
@@ -995,7 +1001,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
               </div>
             </div>
             <div class="field"><label for="r-note">Ghi chú sức khỏe, ăn uống</label><textarea id="r-note" placeholder="Ví dụ: dị ứng hải sản, đang dùng thuốc, cần ăn chay…"></textarea></div>
-            <label class="check"><input type="checkbox" id="r-agree"><span>Tôi đồng ý gửi thiết bị số theo quy định của từng khu và tuân thủ nội quy trung tâm trong 21 ngày.</span></label>
+            <label class="check"><input type="checkbox" id="r-agree"><span>Tôi đồng ý gửi thiết bị số theo quy định của từng khu và tuân thủ nội quy trung tâm trong 2 ngày.</span></label>
             <span class="err" id="agreeErr"></span>
             <button class="btn btn-primary" type="submit">Gửi phiếu đăng ký</button>
           </form>
@@ -1063,11 +1069,11 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
     <div class="wrap">
       <div class="sec-head center"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><h2>Câu hỏi thường gặp</h2></div>
       <div style="max-width:800px;margin-inline:auto">
-        <details><summary>Tôi có bị thu điện thoại suốt 21 ngày không?</summary><p>Tùy mức độ. Mức nhẹ được dùng điện thoại theo khung giờ; mức trung bình và nặng gửi thiết bị tại quầy, liên lạc với gia đình qua điện thoại của trung tâm vào giờ cố định. Ngoài ra bạn có thể dùng thẻ rau móp để đổi thêm thời gian sử dụng điện thoại.</p></details>
+        <details><summary>Tôi có bị thu điện thoại suốt 2 ngày không?</summary><p>Tùy mức độ. Mức nhẹ được dùng điện thoại theo khung giờ; mức trung bình và nặng gửi thiết bị tại quầy, liên lạc với gia đình qua điện thoại của trung tâm vào giờ cố định. Ngoài ra bạn có thể dùng thẻ rau móp để đổi thêm thời gian sử dụng điện thoại.</p></details>
         <details><summary>Sổ nhiệm vụ dùng để làm gì?</summary><p>Mỗi người nhận một sổ riêng tại Khu 1. Sổ dùng để tham gia các tua trải nghiệm trò chơi và khu sản xuất của người dân; mỗi nhiệm vụ hoàn thành được đóng dấu mộc. Số dấu mộc quyết định mức phần thưởng cuối hành trình.</p></details>
         <details><summary>Thẻ rau móp nhận ở đâu và đổi thế nào?</summary><p>Thẻ được trao khi đạt các mốc trong trò chơi buổi tối và nhiệm vụ cá nhân. Mang thẻ đến trạm đổi quà để đổi thời gian dùng điện thoại: 10 thẻ = 10 phút, 15 thẻ = 15 phút, 30 thẻ = 30 phút, 60 thẻ = 60 phút.</p></details>
         <details><summary>Gia đình liên lạc với học viên bằng cách nào?</summary><p>Mỗi học viên đeo đồng hồ GPS theo dõi sức khỏe và vị trí. Gia đình được cập nhật tình hình định kỳ và có thể gọi đến số tổng đài của trung tâm.</p></details>
-        <details><summary>Ký ước 21 ngày là gì?</summary><p>Ở Khu 5, học viên tự viết cam kết cách dùng thiết bị sau khi về nhà, có một bạn đồng hành cùng theo dõi và nhắc nhở.</p></details>
+        <details><summary>Ký ước 2 ngày là gì?</summary><p>Ở Khu 5, học viên tự viết cam kết cách dùng thiết bị sau khi về nhà, có một bạn đồng hành cùng theo dõi và nhắc nhở.</p></details>
         <details><summary>Tư vấn từ xa có mất phí không?</summary><p>Buổi tư vấn đầu tiên miễn phí. Bạn có thể đặt lịch ngay ở phần Tư vấn từ xa phía trên.</p></details>
       </div>
     </div>
@@ -1323,7 +1329,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   ];
   const TIERS = {
     light: { name: 'Mức nhẹ', color: 'var(--tier-light)', id: 't-light', text: 'Thói quen dùng thiết bị chưa ảnh hưởng nhiều. Bạn có thể bắt đầu bằng một buổi tư vấn từ xa và chương trình lưu trú ngắn ngày.' },
-    mid: { name: 'Mức trung bình', color: 'var(--tier-mid)', id: 't-mid', text: 'Thiết bị số đang ảnh hưởng tới giấc ngủ và sinh hoạt. Chương trình 21 ngày với phòng mức trung bình phù hợp với bạn.' },
+    mid: { name: 'Mức trung bình', color: 'var(--tier-mid)', id: 't-mid', text: 'Thiết bị số đang ảnh hưởng tới giấc ngủ và sinh hoạt. Chương trình 2 ngày với phòng mức trung bình phù hợp với bạn.' },
     heavy: { name: 'Mức nặng', color: 'var(--tier-heavy)', id: 't-heavy', text: 'Mức phụ thuộc cao. Bạn nên đặt lịch tư vấn với chuyên viên tâm lý trước, sau đó lưu trú phòng riêng có theo dõi sát.' }
   };
   const qs = $('#qs');
@@ -1415,7 +1421,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
     ok = agree && ok;
     if (!ok) { const bad = $('#regForm .bad input, #regForm .bad select'); (bad || $('#regForm')).focus(); toast('Phiếu còn thông tin chưa hợp lệ'); return; }
 
-    const end = new Date(rDate.value); end.setDate(end.getDate() + 20);
+    const end = new Date(rDate.value); end.setDate(end.getDate() + 1);
     const id = code('TX');
     $('#regCard').innerHTML = `
       <div class="success" tabindex="-1" id="regDone">
@@ -1425,7 +1431,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <dl>
           <dt>Học viên</dt><dd>${escapeHtml(name.value.trim())}</dd>
           <dt>Mức độ</dt><dd>${tier.value}</dd>
-          <dt>Lưu trú</dt><dd>${vnDate(rDate.value)} – ${vnDate(iso(end))} (21 ngày)</dd>
+          <dt>Lưu trú</dt><dd>${vnDate(rDate.value)} – ${vnDate(iso(end))} (2 ngày)</dd>
         </dl>
         <div class="btns" style="margin-top:6px"><a class="btn btn-ghost" href="#tu-van">Đặt thêm lịch tư vấn</a></div>
       </div>`;
