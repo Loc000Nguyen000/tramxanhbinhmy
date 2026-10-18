@@ -320,7 +320,7 @@ section.block { padding-block: 84px; }
 .board li { display: flex; align-items: center; gap: 10px; font-family: var(--f-hand); font-size: 1.4rem; color: #fff; }
 .board li i { color: #8fcf7f; font-size: 1rem; }
 .board p { margin-top: 10px; font-size: .82rem; color: rgba(234,243,236,.7); }
-.miles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 52px; }
+.miles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 52px; }
 .mile { background: #f6eedb; color: #2d2414; border-radius: 16px; padding: 20px 18px; display: grid; gap: 10px; align-content: start; box-shadow: 0 10px 26px rgba(0,0,0,.3); }
 .mile header { display: flex; gap: 12px; align-items: center; }
 .mile header span { width: 46px; height: 46px; border-radius: 50%; background: #7a5a33; color: #f6eedb; display: grid; place-items: center; font-weight: 800; flex: none; }
@@ -329,7 +329,7 @@ section.block { padding-block: 84px; }
 .mile li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
 .mile li i { color: #3f8a4a; margin-top: 4px; }
 .mile .hand { font-family: var(--f-hand); font-size: 1.2rem; color: #7a5a33; margin-top: auto; }
-@media (max-width: 960px) { .night-grid { grid-template-columns: 1fr; } .miles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 960px) { .night-grid { grid-template-columns: 1fr; } .miles { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .miles { grid-template-columns: 1fr; } .board ul { grid-template-columns: 1fr; } }
 
 /* Phần thưởng */
@@ -574,9 +574,9 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   <div class="stats">
     <div class="wrap">
       <div class="stats-grid">
-        <div class="stat"><i class="fa-regular fa-calendar-check"></i><div><strong>2 ngày</strong><span>Ký ước tự quản lý</span></div></div>
+        <div class="stat"><i class="fa-regular fa-calendar-check"></i><div><strong>2 ngày</strong><span>Lưu trú trọn gói</span></div></div>
         <div class="stat"><i class="fa-solid fa-list-check"></i><div><strong>15</strong><span>Nhiệm vụ trong sổ</span></div></div>
-        <div class="stat"><i class="fa-solid fa-person-hiking"></i><div><strong>8</strong><span>Trải nghiệm MVP</span></div></div>
+        <div class="stat"><i class="fa-solid fa-person-hiking"></i><div><strong>8</strong><span>Trải nghiệm nổi bật</span></div></div>
         <div class="stat"><i class="fa-solid fa-medal"></i><div><strong>3 mức</strong><span>Phần thưởng cuối hành trình</span></div></div>
       </div>
     </div>
@@ -600,13 +600,13 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
       <div class="intro">
         <button class="intro-img" type="button" data-zoom="images/mo-hinh.webp" data-cap="Mô hình Trạm Xanh Bình Mỹ">
           <img src="images/mo-hinh.webp" width="1377" height="775" alt="Sơ đồ mô hình Trạm Xanh Bình Mỹ với khu lễ tân, nhà nghỉ, nhà ăn, khu sinh hoạt cộng đồng và sổ nhiệm vụ">
-          <span><i class="fa-solid fa-magnifying-glass-plus"></i> Phóng to</span>
+          <span><i class="fa-solid fa-magnifying-glass-plus"></i> Phóng to · Ảnh minh họa</span>
         </button>
         <div class="intro-text">
           <p class="eyebrow">Giới thiệu</p>
           <h2>Mô hình Trạm Xanh Bình Mỹ</h2>
-          <div class="k"><b>Khu 1</b><div><h3>Tiếp nhận &amp; chẩn đoán sức khỏe</h3><p>Tiếp nhận, chẩn đoán sức khỏe và có thêm hệ thống web đăng ký từ xa. Sau đó mỗi người được phát sổ nhiệm vụ để bắt đầu chuyến trải nghiệm tại Trạm Xanh Bình Mỹ.</p></div></div>
-          <div class="k"><b>Khu 2</b><div><h3>Nhà lưu trú cải tiến</h3><p>Nhà lưu trú được cải tiến, hiện đại hơn, phù hợp cho mọi người nghỉ ngơi và ăn uống.</p></div></div>
+          <div class="k"><b>Khu 1</b><div><h3>Tiếp nhận &amp; chẩn đoán sức khỏe</h3><p>Tiếp nhận, đánh giá sức khỏe. Sau đó mỗi người được phát sổ nhiệm vụ để bắt đầu chuyến trải nghiệm tại Trạm Xanh Bình Mỹ.</p></div></div>
+          <div class="k"><b>Khu 2</b><div><h3>Nhà lưu trú gần thiên nhiên</h3><p>Phòng thoáng mát, nhìn ra vườn cây và hồ sen, phù hợp cho mọi người nghỉ ngơi và ăn uống.</p></div></div>
         </div>
       </div>
 
@@ -615,7 +615,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
           <i class="fa-solid fa-bell-concierge"></i>
           <h3>Khu lễ tân &amp; đón tiếp</h3>
           <p class="sub">Điểm khởi đầu hành trình</p>
-          <ul><li>Đón tiếp, hướng dẫn chương trình</li><li>Đăng ký và nhận sổ nhiệm vụ riêng</li><li>Gửi thiết bị (tự nguyện)</li><li>Giới thiệu tổng quan khu du lịch</li></ul>
+          <ul><li>Đón tiếp, hướng dẫn chương trình</li><li>Đăng ký và nhận sổ nhiệm vụ riêng</li><li>Gửi thiết bị theo quy định của từng mức</li><li>Giới thiệu tổng quan khu du lịch</li></ul>
         </article>
         <article class="space">
           <i class="fa-solid fa-bed"></i>
@@ -675,7 +675,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
       <div class="path">
         <article class="zone">
           <div class="num">1</div>
-          <h3>Tiếp nhận &amp; cắt cơn kỹ thuật số</h3>
+          <h3>Tiếp nhận &amp; tạm xa thiết bị</h3>
           <ul>
             <li>Đánh giá chỉ số sức khỏe, thể trạng</li>
             <li>Gửi thiết bị, nhận sổ nhiệm vụ</li>
@@ -686,7 +686,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
           <div class="num">2</div>
           <h3>Khu lưu trú</h3>
           <ul>
-            <li>Nhà lưu trú cải tiến, hiện đại hơn</li>
+            <li>Phòng thoáng, nhìn ra vườn</li>
             <li>Phòng phân tầng: nhẹ, trung bình, nặng</li>
             <li>Tái tạo chu kỳ giấc ngủ tự nhiên</li>
           </ul>
@@ -730,7 +730,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <p class="eyebrow">Sổ nhiệm vụ · Chạm vào Bình Mỹ</p>
         <h2>Mỗi nhiệm vụ hoàn thành là một dấu mộc</h2>
-        <p class="lead">Sổ nhiệm vụ được thiết kế để học viên có năng lượng hơn, tích cực hơn. Sổ dùng để tham gia các tua trải nghiệm trò chơi và khu sản xuất của người dân; mỗi lượt hoàn thành sẽ nhận giấy chứng nhận và phần thưởng từ Trạm Xanh Bình Mỹ.</p>
+        <p class="lead">Sổ nhiệm vụ được thiết kế để học viên có năng lượng hơn, tích cực hơn. Sổ dùng để tham gia các tua trải nghiệm trò chơi và khu sản xuất của người dân; mỗi nhiệm vụ hoàn thành được đóng một dấu mộc, và cuối hành trình số dấu mộc quyết định giấy chứng nhận, phần thưởng bạn nhận.</p>
       </div>
 
       <div class="book-bar" aria-live="polite">
@@ -751,9 +751,9 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
       <div class="mvp-head">
         <div>
           <p class="eyebrow">Trải nghiệm nổi bật</p>
-          <h3>Các nhiệm vụ MVP</h3>
+          <h3>8 trải nghiệm không nên bỏ lỡ</h3>
         </div>
-        <button class="zoom-link" type="button" data-zoom="images/nhiem-vu-mvp.webp" data-cap="Các nhiệm vụ MVP"><i class="fa-regular fa-image"></i> Xem ảnh gốc</button>
+        <button class="zoom-link" type="button" data-zoom="images/nhiem-vu-mvp.webp" data-cap="Trải nghiệm nổi bật"><i class="fa-regular fa-image"></i> Xem ảnh gốc</button>
       </div>
       <div class="mvp" id="mvp"></div>
       <div class="flow-foot">
@@ -785,7 +785,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
             <div class="wheel-hub" aria-hidden="true"><i class="fa-solid fa-leaf"></i></div>
           </div>
           <button class="btn btn-gold" type="button" id="spin"><i class="fa-solid fa-rotate"></i> Quay chọn trò tối nay</button>
-          <p class="wheel-result" id="wheelResult" aria-live="polite">5 trò ngẫu nhiên cho các đêm sự kiện. Bấm quay để xem tối nay chơi gì.</p>
+          <p class="wheel-result" id="wheelResult" aria-live="polite">5 trò cho đêm sinh hoạt tại trạm. Bấm quay để xem tối nay chơi gì.</p>
         </div>
         <div class="night-text">
           <div class="board">
@@ -798,9 +798,6 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
             </ul>
             <p>1 thẻ rau móp = 1 phút dùng điện thoại, đổi tại trạm theo khung giờ quy định.</p>
           </div>
-          <div class="btns" style="margin:0">
-            <button class="zoom-link" type="button" data-zoom="images/the-rau-mop.webp" data-cap="Trạm đổi quà bằng thẻ rau móp" style="color:#f1cf62"><i class="fa-regular fa-image"></i> Xem ảnh gốc</button>
-          </div>
         </div>
       </div>
 
@@ -809,36 +806,28 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
       </div>
       <div class="miles">
         <article class="mile">
-          <header><span>01</span><h3>Thử thách cá nhân &amp; chuyên cần cơ bản</h3></header>
+          <header><span>01</span><h3>Thử thách cá nhân &amp; chuyên cần</h3></header>
           <ul>
-            <li><i class="fa-solid fa-check"></i><span>Tham gia trọn vẹn, tích cực từ đầu đến cuối một đêm sự kiện (ví dụ Đêm 1 Lửa trại, Đêm 2 Hội làng dân gian), không bỏ cuộc.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Hoàn thành xuất sắc “nhiệm vụ ngầm” cá nhân do Mentor giao trong ngày (dọn dẹp khu sinh hoạt chung, hỗ trợ bạn bè).</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Tham gia trọn vẹn đêm sinh hoạt tại trạm, từ lửa trại đến trò chơi cuối, không bỏ cuộc.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Hoàn thành tốt “nhiệm vụ ngầm” cá nhân do người hướng dẫn giao trong ngày (dọn dẹp khu sinh hoạt chung, hỗ trợ bạn bè).</span></li>
           </ul>
-          <p class="hand">Tích cực là ảo quá!</p>
+          <p class="hand">Tích cực là có thưởng!</p>
         </article>
         <article class="mile">
-          <header><span>02</span><h3>Chiến thắng đồng đội &amp; trò chơi dân gian</h3></header>
+          <header><span>02</span><h3>Chiến thắng đồng đội</h3></header>
           <ul>
-            <li><i class="fa-solid fa-check"></i><span>Đội giành chiến thắng trong các trò chơi tập thể như kéo co, nhảy bao (Đêm 2 Hội làng dân gian).</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Là thành viên cốt lõi trong thử thách nhóm tại Tiệc nướng sân vườn (Đêm 4), hoặc tự thu hoạch và chế biến nông sản sạch cùng nhóm.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Đội giành chiến thắng trong các trò chơi tập thể như kéo co, nhảy bao hoặc xé bảng tên.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Là thành viên cốt lõi trong thử thách nhóm ở tiệc nướng sân vườn, hoặc cùng nhóm tự thu hoạch và chế biến nông sản sạch.</span></li>
           </ul>
           <p class="hand">Cùng nhau vượt thử thách!</p>
         </article>
         <article class="mile">
-          <header><span>03</span><h3>Chinh phục đêm điểm nhấn</h3></header>
+          <header><span>03</span><h3>Hoàn thành trọn hành trình</h3></header>
           <ul>
-            <li><i class="fa-solid fa-check"></i><span>Đội chiến thắng các đêm cần chiến thuật và vận động mạnh: Đêm 3 (Xé bảng tên kiểu Running Man) hoặc Đêm 5 (Mật thư văn hóa Bình Mỹ).</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Tích lũy điểm tổng kết dành cho khách ngắn hạn khi hoàn thành tốt toàn bộ lịch trình tại trạm.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Hoàn thành tốt toàn bộ lịch trình 2 ngày tại trạm.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Giúp bạn mới hòa nhập và được người hướng dẫn ghi nhận khi tổng kết.</span></li>
           </ul>
           <p class="hand">Thử thách lớn – thành tựu lớn!</p>
-        </article>
-        <article class="mile">
-          <header><span>04</span><h3>Thủ lĩnh &amp; thành tích dài hạn <small style="font-weight:600;color:#7a5a33">(khách 1 tháng)</small></h3></header>
-          <ul>
-            <li><i class="fa-solid fa-check"></i><span>Được bầu làm Đội trưởng / Thủ lĩnh, dẫn dắt và hỗ trợ các nhóm khách ngắn hạn đến vào cuối tuần.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Hoặc đạt chuỗi thành tích liên tục nhiều tuần, giữ kỷ luật bản thân và giúp bạn mới hòa nhập.</span></li>
-          </ul>
-          <p class="hand">Lãnh đạo hôm nay, trưởng thành ngày mai!</p>
         </article>
       </div>
     </div>
@@ -919,7 +908,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <article class="tier">
           <header><span class="dot heavy"></span><h3>Mức nặng</h3></header>
           <p class="score">Điểm tự đánh giá 13 – 18</p>
-          <p>Phòng riêng yên tĩnh. Cắt cơn có theo dõi sát, tư vấn cá nhân hằng ngày và lộ trình riêng trước khi vào sinh hoạt chung.</p>
+          <p>Phòng riêng yên tĩnh. Tạm xa thiết bị có chuyên viên đồng hành, trò chuyện riêng mỗi buổi và làm quen dần trước khi vào sinh hoạt chung.</p>
         </article>
       </div>
     </div>
@@ -1125,7 +1114,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <li><a href="#dang-ky"><i class="fa-solid fa-pen-to-square"></i>Đăng ký</a></li>
       </ul>
     </div>
-    <p class="copy">Đồ án môn học · Nhóm 5 · Thông tin liên hệ là dữ liệu minh họa.</p>
+    <p class="copy">Đồ án môn học · Nhóm 5 · Hình ảnh và thông tin liên hệ trên trang là minh họa.</p>
   </div>
 </footer>
 
@@ -1297,7 +1286,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   const GAMES = [
     ['Khởi động phá băng', 'Lửa trại, làm quen và trò chơi khởi động cho cả nhóm.'],
     ['Hội làng dân gian', 'Kéo co, nhảy bao và các trò chơi dân gian theo đội.'],
-    ['Xé bảng tên', 'Đối kháng theo phong cách Running Man, cần chiến thuật và tốc độ.'],
+    ['Xé bảng tên', 'Đối kháng theo đội, cần chiến thuật và tốc độ.'],
     ['Tiệc nướng sân vườn', 'Thử thách nhóm, tự thu hoạch và chế biến nông sản sạch.'],
     ['Khám phá tự nhiên', 'Giải mật thư văn hóa Bình Mỹ trên đường khám phá.']
   ];
@@ -1330,7 +1319,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   const TIERS = {
     light: { name: 'Mức nhẹ', color: 'var(--tier-light)', id: 't-light', text: 'Thói quen dùng thiết bị chưa ảnh hưởng nhiều. Bạn có thể bắt đầu bằng một buổi tư vấn từ xa và chương trình lưu trú ngắn ngày.' },
     mid: { name: 'Mức trung bình', color: 'var(--tier-mid)', id: 't-mid', text: 'Thiết bị số đang ảnh hưởng tới giấc ngủ và sinh hoạt. Chương trình 2 ngày với phòng mức trung bình phù hợp với bạn.' },
-    heavy: { name: 'Mức nặng', color: 'var(--tier-heavy)', id: 't-heavy', text: 'Mức phụ thuộc cao. Bạn nên đặt lịch tư vấn với chuyên viên tâm lý trước, sau đó lưu trú phòng riêng có theo dõi sát.' }
+    heavy: { name: 'Mức nặng', color: 'var(--tier-heavy)', id: 't-heavy', text: 'Mức phụ thuộc cao. Bạn nên đặt lịch tư vấn với chuyên viên tâm lý trước, sau đó lưu trú phòng riêng có chuyên viên đồng hành.' }
   };
   const qs = $('#qs');
   qs.innerHTML = QUESTIONS.map(([q, opts], i) => `
