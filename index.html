@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Trạm Xanh Bình Mỹ – sổ nhiệm vụ, thẻ rau móp, đăng ký lưu trú và đặt lịch tư vấn từ xa">
+<meta name="description" content="Trạm Xanh Bình Mỹ – sổ nhiệm vụ, thẻ rau móp, đăng ký tham gia và đặt lịch tư vấn từ xa">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Trạm Xanh Bình Mỹ</title>
 <script>try { var t = localStorage.getItem('tx-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
@@ -313,6 +313,10 @@ section.block { padding-block: 84px; }
 .wheel-hub { position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, #b98a4f, #6b4a2b); border: 4px solid #3e2a17; z-index: 1; display: grid; place-items: center; color: #f1cf62; font-size: 1.3rem; }
 .wheel-result { min-height: 3.2em; text-align: center; font-size: .95rem; color: rgba(234,243,236,.9); max-width: 380px; }
 .wheel-result b { color: #f1cf62; }
+.shift { display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(0,0,0,.25); border: 1px solid rgba(234,243,236,.2); }
+.shift button { border: 0; background: none; color: rgba(234,243,236,.85); font: inherit; font-size: .9rem; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer; }
+.shift button[aria-pressed="true"] { background: #f1cf62; color: #3a2a08; }
+.shift button:focus-visible { outline: 3px solid #f1cf62; outline-offset: 2px; }
 .night-text { display: grid; gap: 18px; }
 .board { background: #1f3a2b; border: 6px solid #6b4a2b; border-radius: 14px; padding: 18px 20px; box-shadow: inset 0 0 30px rgba(0,0,0,.35); }
 .board h3 { font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; color: #f1cf62; margin-bottom: 10px; }
@@ -557,7 +561,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
       <div>
         <span class="pill"><i class="fa-solid fa-leaf"></i> Trung tâm cân bằng số tại Bình Mỹ</span>
         <h1>Gác sóng số,<br><em>dưỡng nhịp lành</em></h1>
-        <p class="lead">Chương trình lưu trú giúp bạn giảm phụ thuộc vào điện thoại và mạng xã hội. Mỗi người nhận một sổ nhiệm vụ riêng, cùng làm vườn, vận động, chơi trò chơi buổi tối và mang về giấy chứng nhận khi kết thúc hành trình.</p>
+        <p class="lead">Chương trình trải nghiệm 1 ngày giúp bạn giảm phụ thuộc vào điện thoại và mạng xã hội. Mỗi người nhận một sổ nhiệm vụ riêng, cùng làm vườn, vận động, chơi trò chơi buổi tối và mang về giấy chứng nhận khi kết thúc hành trình.</p>
         <div class="btns">
           <a class="btn btn-gold" href="#dang-ky"><i class="fa-solid fa-pen-to-square"></i> Đăng ký từ xa</a>
           <a class="btn btn-outline-white" href="#so-nhiem-vu">Xem sổ nhiệm vụ</a>
@@ -574,7 +578,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   <div class="stats">
     <div class="wrap">
       <div class="stats-grid">
-        <div class="stat"><i class="fa-regular fa-calendar-check"></i><div><strong>2 ngày</strong><span>Lưu trú trọn gói</span></div></div>
+        <div class="stat"><i class="fa-regular fa-calendar-check"></i><div><strong>1 ngày</strong><span>Sáng – chiều hoặc buổi tối</span></div></div>
         <div class="stat"><i class="fa-solid fa-list-check"></i><div><strong>15</strong><span>Nhiệm vụ trong sổ</span></div></div>
         <div class="stat"><i class="fa-solid fa-person-hiking"></i><div><strong>8</strong><span>Trải nghiệm nổi bật</span></div></div>
         <div class="stat"><i class="fa-solid fa-medal"></i><div><strong>3 mức</strong><span>Phần thưởng cuối hành trình</span></div></div>
@@ -606,7 +610,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
           <p class="eyebrow">Giới thiệu</p>
           <h2>Mô hình Trạm Xanh Bình Mỹ</h2>
           <div class="k"><b>Khu 1</b><div><h3>Tiếp nhận &amp; chẩn đoán sức khỏe</h3><p>Tiếp nhận, đánh giá sức khỏe. Sau đó mỗi người được phát sổ nhiệm vụ để bắt đầu chuyến trải nghiệm tại Trạm Xanh Bình Mỹ.</p></div></div>
-          <div class="k"><b>Khu 2</b><div><h3>Nhà lưu trú gần thiên nhiên</h3><p>Phòng thoáng mát, nhìn ra vườn cây và hồ sen, phù hợp cho mọi người nghỉ ngơi và ăn uống.</p></div></div>
+          <div class="k"><b>Khu 2</b><div><h3>Nhà nghỉ gần thiên nhiên</h3><p>Phòng thoáng mát, nhìn ra vườn cây và hồ sen, phù hợp cho mọi người nghỉ ngơi và ăn uống.</p></div></div>
         </div>
       </div>
 
@@ -665,11 +669,11 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   </section>
 
   <!-- LỘ TRÌNH 5 KHU (nội dung cũ) -->
-  <section class="block page" id="hanh-trinh" data-title="Lộ trình 5 khu" data-icon="fa-route" data-desc="Đi lần lượt trong thời gian lưu trú">
+  <section class="block page" id="hanh-trinh" data-title="Lộ trình 5 khu" data-icon="fa-route" data-desc="Đi lần lượt trong ngày tham gia">
     <div class="wrap">
       <div class="sec-head center">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <h2>Lộ trình 5 khu trong thời gian lưu trú</h2>
+        <h2>Lộ trình 5 khu trong ngày tham gia</h2>
         <p class="lead">Mỗi học viên bắt đầu ở Khu 1 và kết thúc ở Khu 5. Lịch sinh hoạt cụ thể được điều chỉnh theo mức độ đánh giá ban đầu.</p>
       </div>
       <div class="path">
@@ -684,11 +688,11 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         </article>
         <article class="zone">
           <div class="num">2</div>
-          <h3>Khu lưu trú</h3>
+          <h3>Khu nghỉ ngơi</h3>
           <ul>
             <li>Phòng thoáng, nhìn ra vườn</li>
             <li>Phòng phân tầng: nhẹ, trung bình, nặng</li>
-            <li>Tái tạo chu kỳ giấc ngủ tự nhiên</li>
+            <li>Nghỉ ngơi, thư giãn không màn hình</li>
           </ul>
         </article>
         <article class="zone">
@@ -712,10 +716,10 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         </article>
         <article class="zone">
           <div class="num">5</div>
-          <h3>Bản lĩnh số &amp; gắn kết đêm</h3>
+          <h3>Bản lĩnh số &amp; gắn kết buổi tối</h3>
           <ul>
             <li>Tự cài Focus Mode, màn hình xám</li>
-            <li>Viết Ký ước 2 ngày cùng bạn đồng hành</li>
+            <li>Viết Ký ước 1 ngày cùng bạn đồng hành</li>
             <li>Trò chơi buổi tối, tích thẻ rau móp</li>
           </ul>
         </article>
@@ -764,16 +768,20 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   </section>
 
   <!-- THẺ RAU MÓP -->
-  <section class="block night page" id="the-rau-mop" data-title="Thẻ rau móp" data-icon="fa-seedling" data-desc="Trò chơi buổi tối, đổi giờ dùng điện thoại">
+  <section class="block night page" id="the-rau-mop" data-title="Thẻ rau móp" data-icon="fa-seedling" data-desc="Trò chơi tập thể, đổi giờ dùng điện thoại">
     <div class="wrap">
       <div class="sec-head center">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <p class="eyebrow">Trạm đổi quà bằng thẻ rau móp</p>
         <h2>Chơi hết mình · Tích thẻ xanh · Đổi thời gian số</h2>
-        <p class="lead">Buổi tối có các trò chơi gắn kết mọi người, cùng đồng hành, lan tỏa, chia sẻ, hỗ trợ và lập nhóm để giành “thẻ rau móp”, dùng để đổi quyền sử dụng điện thoại trong một khoảng thời gian cố định.</p>
+        <p class="lead">Cả khung sáng – chiều và buổi tối đều có các trò chơi gắn kết mọi người, cùng đồng hành, lan tỏa, chia sẻ, hỗ trợ và lập nhóm để giành “thẻ rau móp”, dùng để đổi quyền sử dụng điện thoại trong một khoảng thời gian cố định.</p>
       </div>
       <div class="night-grid">
         <div class="wheel-box">
+          <div class="shift" role="group" aria-label="Khung tham gia">
+            <button type="button" data-shift="day" aria-pressed="false">Sáng – chiều</button>
+            <button type="button" data-shift="night" aria-pressed="true">Buổi tối</button>
+          </div>
           <div class="wheel-wrap">
             <div class="wheel" id="wheel">
               <span class="lbl" style="--a:36deg"><b>Khởi động phá băng</b></span>
@@ -784,8 +792,8 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
             </div>
             <div class="wheel-hub" aria-hidden="true"><i class="fa-solid fa-leaf"></i></div>
           </div>
-          <button class="btn btn-gold" type="button" id="spin"><i class="fa-solid fa-rotate"></i> Quay chọn trò tối nay</button>
-          <p class="wheel-result" id="wheelResult" aria-live="polite">5 trò cho đêm sinh hoạt tại trạm. Bấm quay để xem tối nay chơi gì.</p>
+          <button class="btn btn-gold" type="button" id="spin"><i class="fa-solid fa-rotate"></i> <span id="spinLabel">Quay chọn trò tối nay</span></button>
+          <p class="wheel-result" id="wheelResult" aria-live="polite">5 trò cho buổi sinh hoạt tối tại trạm. Bấm quay để xem tối nay chơi gì.</p>
         </div>
         <div class="night-text">
           <div class="board">
@@ -797,6 +805,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
               <li><i class="fa-solid fa-seedling"></i>60 thẻ = 60 phút</li>
             </ul>
             <p>1 thẻ rau móp = 1 phút dùng điện thoại, đổi tại trạm theo khung giờ quy định.</p>
+            <p><b>Tham gia khung sáng – chiều?</b> Bạn vẫn tích thẻ qua trò chơi dân gian giữa buổi, thử thách thu hoạch và nấu bữa trưa cùng nhóm, cùng các nhiệm vụ trong sổ được đóng dấu mộc.</p>
           </div>
         </div>
       </div>
@@ -808,7 +817,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <article class="mile">
           <header><span>01</span><h3>Thử thách cá nhân &amp; chuyên cần</h3></header>
           <ul>
-            <li><i class="fa-solid fa-check"></i><span>Tham gia trọn vẹn đêm sinh hoạt tại trạm, từ lửa trại đến trò chơi cuối, không bỏ cuộc.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Tham gia trọn vẹn khung đã chọn, không bỏ cuộc: buổi sinh hoạt tối từ lửa trại đến trò chơi cuối, hoặc các tua trải nghiệm sáng – chiều từ lúc nhận sổ đến buổi tổng kết.</span></li>
             <li><i class="fa-solid fa-check"></i><span>Hoàn thành tốt “nhiệm vụ ngầm” cá nhân do người hướng dẫn giao trong ngày (dọn dẹp khu sinh hoạt chung, hỗ trợ bạn bè).</span></li>
           </ul>
           <p class="hand">Tích cực là có thưởng!</p>
@@ -817,14 +826,14 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
           <header><span>02</span><h3>Chiến thắng đồng đội</h3></header>
           <ul>
             <li><i class="fa-solid fa-check"></i><span>Đội giành chiến thắng trong các trò chơi tập thể như kéo co, nhảy bao hoặc xé bảng tên.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Là thành viên cốt lõi trong thử thách nhóm ở tiệc nướng sân vườn, hoặc cùng nhóm tự thu hoạch và chế biến nông sản sạch.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Là thành viên cốt lõi trong thử thách nhóm ở tiệc nướng sân vườn (buổi tối), hoặc cùng nhóm tự thu hoạch và nấu bữa trưa từ nông sản sạch (sáng – chiều).</span></li>
           </ul>
           <p class="hand">Cùng nhau vượt thử thách!</p>
         </article>
         <article class="mile">
           <header><span>03</span><h3>Hoàn thành trọn hành trình</h3></header>
           <ul>
-            <li><i class="fa-solid fa-check"></i><span>Hoàn thành tốt toàn bộ lịch trình 2 ngày tại trạm.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Hoàn thành tốt toàn bộ lịch trình 1 ngày tại trạm (sáng – chiều hoặc buổi tối).</span></li>
             <li><i class="fa-solid fa-check"></i><span>Giúp bạn mới hòa nhập và được người hướng dẫn ghi nhận khi tổng kết.</span></li>
           </ul>
           <p class="hand">Thử thách lớn – thành tựu lớn!</p>
@@ -887,11 +896,11 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   </section>
 
   <!-- PHÒNG PHÂN TẦNG -->
-  <section class="block alt page" id="phong" data-title="Phòng lưu trú" data-icon="fa-bed" data-desc="Ba mức độ, ba cách sắp xếp phòng">
+  <section class="block alt page" id="phong" data-title="Phòng nghỉ" data-icon="fa-bed" data-desc="Ba mức độ, ba cách sắp xếp phòng">
     <div class="wrap">
       <div class="sec-head center">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <p class="eyebrow">Phòng lưu trú phân tầng</p>
+        <p class="eyebrow">Phòng nghỉ phân tầng</p>
         <h2>Ba mức độ, ba cách sắp xếp phòng</h2>
       </div>
       <div class="tiers">
@@ -903,7 +912,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <article class="tier">
           <header><span class="dot mid"></span><h3>Mức trung bình</h3></header>
           <p class="score">Điểm tự đánh giá 7 – 12</p>
-          <p>Phòng 2–4 người. Gửi thiết bị tại quầy, chuyên viên theo dõi giấc ngủ và có buổi trò chuyện nhóm mỗi tối.</p>
+          <p>Phòng 2–4 người. Gửi thiết bị tại quầy, chuyên viên theo dõi sức khỏe, nghỉ ngơi và có buổi trò chuyện nhóm trong ngày.</p>
         </article>
         <article class="tier">
           <header><span class="dot heavy"></span><h3>Mức nặng</h3></header>
@@ -945,13 +954,13 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   </section>
 
   <!-- BIỂU MẪU -->
-  <section class="block forms page" id="dang-ky" data-title="Đăng ký" data-icon="fa-pen-to-square" data-desc="Đăng ký lưu trú từ xa">
+  <section class="block forms page" id="dang-ky" data-title="Đăng ký" data-icon="fa-pen-to-square" data-desc="Đăng ký tham gia từ xa">
     <div class="wrap">
       <div class="form-grid">
         <div class="side">
-          <p class="eyebrow">Đăng ký lưu trú từ xa</p>
-          <h2>Giữ chỗ cho chương trình 2 ngày</h2>
-          <p class="lead">Sau khi gửi phiếu, trung tâm sẽ gọi lại trong vòng 24 giờ để xác nhận lịch nhận phòng.</p>
+          <p class="eyebrow">Đăng ký tham gia từ xa</p>
+          <h2>Giữ chỗ cho chương trình 1 ngày</h2>
+          <p class="lead">Chương trình diễn ra trong 1 ngày, bạn chọn tham gia khung sáng – chiều hoặc buổi tối. Sau khi gửi phiếu, trung tâm sẽ gọi lại trong vòng 24 giờ để xác nhận ngày và khung giờ tham gia.</p>
           <ol>
             <li>Gửi phiếu đăng ký</li>
             <li>Nhận cuộc gọi xác nhận</li>
@@ -984,13 +993,13 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
               <span class="err" id="tierErr"></span>
             </div>
             <div class="row">
-              <div class="field"><label for="r-date">Ngày dự kiến nhận phòng <em>*</em></label><input id="r-date" type="date"><span class="err"></span></div>
+              <div class="field"><label for="r-date">Ngày dự kiến tham gia <em>*</em></label><input id="r-date" type="date"><span class="err"></span></div>
               <div class="field"><label for="r-source">Bạn biết đến trung tâm qua</label>
                 <select id="r-source"><option>Trường học</option><option>Gia đình, bạn bè</option><option>Mạng xã hội</option><option>Bác sĩ, chuyên viên giới thiệu</option><option>Khác</option></select>
               </div>
             </div>
             <div class="field"><label for="r-note">Ghi chú sức khỏe, ăn uống</label><textarea id="r-note" placeholder="Ví dụ: dị ứng hải sản, đang dùng thuốc, cần ăn chay…"></textarea></div>
-            <label class="check"><input type="checkbox" id="r-agree"><span>Tôi đồng ý gửi thiết bị số theo quy định của từng khu và tuân thủ nội quy trung tâm trong 2 ngày.</span></label>
+            <label class="check"><input type="checkbox" id="r-agree"><span>Tôi đồng ý gửi thiết bị số theo quy định của từng khu và tuân thủ nội quy trung tâm trong ngày tham gia.</span></label>
             <span class="err" id="agreeErr"></span>
             <button class="btn btn-primary" type="submit">Gửi phiếu đăng ký</button>
           </form>
@@ -1009,7 +1018,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
           <ul>
             <li>Giải thích kết quả tự đánh giá</li>
             <li>Gợi ý thay đổi nhỏ có thể làm ngay tại nhà</li>
-            <li>Trả lời câu hỏi về lưu trú, chi phí, nội quy</li>
+            <li>Trả lời câu hỏi về chương trình, chi phí, nội quy</li>
           </ul>
           <div class="mine" id="mine" hidden>
             <h3>Lịch bạn đã đặt</h3>
@@ -1035,7 +1044,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
                 <select id="c-who"><option>Bản thân tôi</option><option>Con em tôi</option><option>Học sinh, sinh viên tôi phụ trách</option><option>Người thân khác</option></select>
               </div>
               <div class="field"><label for="c-staff">Chuyên viên</label>
-                <select id="c-staff"><option>Bất kỳ chuyên viên nào</option><option>Chuyên viên tâm lý</option><option>Chuyên viên giấc ngủ, sức khỏe</option><option>Tư vấn thủ tục lưu trú</option></select>
+                <select id="c-staff"><option>Bất kỳ chuyên viên nào</option><option>Chuyên viên tâm lý</option><option>Chuyên viên giấc ngủ, sức khỏe</option><option>Tư vấn thủ tục tham gia</option></select>
               </div>
             </div>
             <div class="field"><label for="c-date">Ngày tư vấn <em>*</em></label><input id="c-date" type="date"><span class="err"></span></div>
@@ -1058,11 +1067,11 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
     <div class="wrap">
       <div class="sec-head center"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><h2>Câu hỏi thường gặp</h2></div>
       <div style="max-width:800px;margin-inline:auto">
-        <details><summary>Tôi có bị thu điện thoại suốt 2 ngày không?</summary><p>Tùy mức độ. Mức nhẹ được dùng điện thoại theo khung giờ; mức trung bình và nặng gửi thiết bị tại quầy, liên lạc với gia đình qua điện thoại của trung tâm vào giờ cố định. Ngoài ra bạn có thể dùng thẻ rau móp để đổi thêm thời gian sử dụng điện thoại.</p></details>
+        <details><summary>Tôi có bị thu điện thoại suốt ngày tham gia không?</summary><p>Tùy mức độ. Mức nhẹ được dùng điện thoại theo khung giờ; mức trung bình và nặng gửi thiết bị tại quầy, liên lạc với gia đình qua điện thoại của trung tâm vào giờ cố định. Ngoài ra bạn có thể dùng thẻ rau móp để đổi thêm thời gian sử dụng điện thoại.</p></details>
         <details><summary>Sổ nhiệm vụ dùng để làm gì?</summary><p>Mỗi người nhận một sổ riêng tại Khu 1. Sổ dùng để tham gia các tua trải nghiệm trò chơi và khu sản xuất của người dân; mỗi nhiệm vụ hoàn thành được đóng dấu mộc. Số dấu mộc quyết định mức phần thưởng cuối hành trình.</p></details>
-        <details><summary>Thẻ rau móp nhận ở đâu và đổi thế nào?</summary><p>Thẻ được trao khi đạt các mốc trong trò chơi buổi tối và nhiệm vụ cá nhân. Mang thẻ đến trạm đổi quà để đổi thời gian dùng điện thoại: 10 thẻ = 10 phút, 15 thẻ = 15 phút, 30 thẻ = 30 phút, 60 thẻ = 60 phút.</p></details>
+        <details><summary>Thẻ rau móp nhận ở đâu và đổi thế nào?</summary><p>Thẻ được trao khi đạt các mốc trong trò chơi tập thể và nhiệm vụ cá nhân. Khung buổi tối tích thẻ qua lửa trại và các trò chơi tối; khung sáng – chiều tích thẻ qua trò chơi dân gian giữa buổi, thử thách thu hoạch, nấu bữa trưa cùng nhóm và các nhiệm vụ trong sổ. Mang thẻ đến trạm đổi quà để đổi thời gian dùng điện thoại: 10 thẻ = 10 phút, 15 thẻ = 15 phút, 30 thẻ = 30 phút, 60 thẻ = 60 phút.</p></details>
         <details><summary>Gia đình liên lạc với học viên bằng cách nào?</summary><p>Mỗi học viên đeo đồng hồ GPS theo dõi sức khỏe và vị trí. Gia đình được cập nhật tình hình định kỳ và có thể gọi đến số tổng đài của trung tâm.</p></details>
-        <details><summary>Ký ước 2 ngày là gì?</summary><p>Ở Khu 5, học viên tự viết cam kết cách dùng thiết bị sau khi về nhà, có một bạn đồng hành cùng theo dõi và nhắc nhở.</p></details>
+        <details><summary>Ký ước 1 ngày là gì?</summary><p>Ở Khu 5, học viên tự viết cam kết cách dùng thiết bị sau khi về nhà, có một bạn đồng hành cùng theo dõi và nhắc nhở.</p></details>
         <details><summary>Tư vấn từ xa có mất phí không?</summary><p>Buổi tư vấn đầu tiên miễn phí. Bạn có thể đặt lịch ngay ở phần Tư vấn từ xa phía trên.</p></details>
       </div>
     </div>
@@ -1191,7 +1200,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
   const MISSIONS = [
     ['gs', 'GS-01', 'Cất sóng, mở trải nghiệm', 'Gửi điện thoại vào khu vực lưu giữ theo quy định của trung tâm và bắt đầu hành trình không sử dụng điện thoại.', 'Xuyên suốt chương trình', 'Nhân viên đóng dấu bắt đầu', 'Tạm dừng để cảm nhận'],
     ['gs', 'GS-02', '30 phút hiện diện', 'Dành 30 phút cho một hoạt động ngoài đời thực mà không sử dụng thiết bị điện tử cá nhân.', '30 phút', 'Nhân viên tại trạm', 'Hiện diện là một dạng hạnh phúc'],
-    ['gs', 'GS-03', 'Một ngày không màn hình', 'Hoàn thành một ngày trải nghiệm theo quy định ngắt kết nối của trung tâm.', 'Theo lịch lưu trú', 'Nhân viên tổng hợp cuối ngày', 'Bớt online, nhiều hơn với cuộc sống thật'],
+    ['gs', 'GS-03', 'Một ngày không màn hình', 'Hoàn thành một ngày trải nghiệm theo quy định ngắt kết nối của trung tâm.', 'Theo lịch trong ngày', 'Nhân viên tổng hợp cuối ngày', 'Bớt online, nhiều hơn với cuộc sống thật'],
     ['cx', 'CX-01', 'Bước chân giữa thiên nhiên', 'Đi bộ chậm trên tuyến đường được chỉ định, quan sát cây cối và cảnh quan xung quanh.', '10 – 15 phút', 'Người hướng dẫn', 'Thiên nhiên luôn ở đây, chỉ cần bạn chạm lại'],
     ['cx', 'CX-02', 'Tìm kiếm sắc xanh', 'Tìm và ghi nhớ bằng lời 3 điều thú vị trong thiên nhiên: hình dáng lá, tiếng chim hoặc màu sắc của hoa.', '10 phút', 'Chia sẻ với người hướng dẫn', 'Quan sát nhỏ, thấy điều lớn'],
     ['cx', 'CX-03', 'Gửi lại một mầm xanh', 'Tưới cây hoặc chăm sóc một góc vườn theo hướng dẫn.', '10 – 15 phút', 'Nhân viên đóng dấu', 'Gieo yêu thương cho thiên nhiên'],
@@ -1282,14 +1291,38 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
       <p class="note"><i class="fa-solid fa-feather"></i><span>${note}</span></p>
     </article>`).join('');
 
-  /* ---------- Vòng quay trò chơi buổi tối ---------- */
-  const GAMES = [
-    ['Khởi động phá băng', 'Lửa trại, làm quen và trò chơi khởi động cho cả nhóm.'],
-    ['Hội làng dân gian', 'Kéo co, nhảy bao và các trò chơi dân gian theo đội.'],
-    ['Xé bảng tên', 'Đối kháng theo đội, cần chiến thuật và tốc độ.'],
-    ['Tiệc nướng sân vườn', 'Thử thách nhóm, tự thu hoạch và chế biến nông sản sạch.'],
-    ['Khám phá tự nhiên', 'Giải mật thư văn hóa Bình Mỹ trên đường khám phá.']
-  ];
+  /* ---------- Vòng quay trò chơi theo khung tham gia ---------- */
+  const SHIFTS = {
+    day: {
+      when: 'hôm nay', intro: '5 trò cho khung sáng – chiều tại trạm. Bấm quay để xem hôm nay chơi gì.',
+      games: [
+        ['Hội làng dân gian', 'Kéo co, nhảy bao và các trò chơi dân gian theo đội.'],
+        ['Khám phá tự nhiên', 'Giải mật thư văn hóa Bình Mỹ trên đường khám phá.'],
+        ['Xé bảng tên', 'Đối kháng theo đội, cần chiến thuật và tốc độ.'],
+        ['Thu hoạch tốc độ', 'Các đội thi hái rau, củ trong vườn theo danh sách được giao.'],
+        ['Bếp trưa đồng đội', 'Cùng nhóm chế biến bữa trưa từ nông sản vừa thu hoạch.']
+      ]
+    },
+    night: {
+      when: 'tối nay', intro: '5 trò cho buổi sinh hoạt tối tại trạm. Bấm quay để xem tối nay chơi gì.',
+      games: [
+        ['Khởi động phá băng', 'Lửa trại, làm quen và trò chơi khởi động cho cả nhóm.'],
+        ['Hội làng dân gian', 'Kéo co, nhảy bao và các trò chơi dân gian theo đội.'],
+        ['Xé bảng tên', 'Đối kháng theo đội, cần chiến thuật và tốc độ.'],
+        ['Tiệc nướng sân vườn', 'Thử thách nhóm, tự thu hoạch và chế biến nông sản sạch.'],
+        ['Khám phá tự nhiên', 'Giải mật thư văn hóa Bình Mỹ trên đường khám phá.']
+      ]
+    }
+  };
+  let shift = SHIFTS.night;
+  $$('.shift button').forEach(btn => btn.addEventListener('click', () => {
+    if (spinning) return;
+    shift = SHIFTS[btn.dataset.shift];
+    $$('.shift button').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    $$('#wheel .lbl b').forEach((b, i) => { b.textContent = shift.games[i][0]; });
+    $('#spinLabel').textContent = 'Quay chọn trò ' + shift.when;
+    $('#wheelResult').textContent = shift.intro;
+  }));
   let rot = 0, spinning = false;
   const wheel = $('#wheel');
   $('#spin').addEventListener('click', () => {
@@ -1301,8 +1334,8 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
     const done = () => {
       spinning = false; $('#spin').disabled = false;
       const at = (360 - (rot % 360)) % 360; // góc của vòng quay đang nằm dưới kim
-      const [name, desc] = GAMES[Math.floor(at / 72)];
-      $('#wheelResult').innerHTML = `Tối nay chơi: <b>${name}</b><br>${desc}`;
+      const [name, desc] = shift.games[Math.floor(at / 72)];
+      $('#wheelResult').innerHTML = `${shift.when[0].toUpperCase() + shift.when.slice(1)} chơi: <b>${name}</b><br>${desc}`;
     };
     if (reduce) done(); else setTimeout(done, 4300);
   });
@@ -1317,9 +1350,9 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
     ['Bạn đã thử tự giảm thời gian dùng thiết bị nhưng không làm được?', ['Chưa cần thử', 'Có, và làm được', 'Có, được vài ngày', 'Có, nhưng thất bại']]
   ];
   const TIERS = {
-    light: { name: 'Mức nhẹ', color: 'var(--tier-light)', id: 't-light', text: 'Thói quen dùng thiết bị chưa ảnh hưởng nhiều. Bạn có thể bắt đầu bằng một buổi tư vấn từ xa và chương trình lưu trú ngắn ngày.' },
-    mid: { name: 'Mức trung bình', color: 'var(--tier-mid)', id: 't-mid', text: 'Thiết bị số đang ảnh hưởng tới giấc ngủ và sinh hoạt. Chương trình 2 ngày với phòng mức trung bình phù hợp với bạn.' },
-    heavy: { name: 'Mức nặng', color: 'var(--tier-heavy)', id: 't-heavy', text: 'Mức phụ thuộc cao. Bạn nên đặt lịch tư vấn với chuyên viên tâm lý trước, sau đó lưu trú phòng riêng có chuyên viên đồng hành.' }
+    light: { name: 'Mức nhẹ', color: 'var(--tier-light)', id: 't-light', text: 'Thói quen dùng thiết bị chưa ảnh hưởng nhiều. Bạn có thể bắt đầu bằng một buổi tư vấn từ xa và chương trình trải nghiệm 1 ngày.' },
+    mid: { name: 'Mức trung bình', color: 'var(--tier-mid)', id: 't-mid', text: 'Thiết bị số đang ảnh hưởng tới giấc ngủ và sinh hoạt. Chương trình 1 ngày (sáng – chiều hoặc buổi tối) với phòng mức trung bình phù hợp với bạn.' },
+    heavy: { name: 'Mức nặng', color: 'var(--tier-heavy)', id: 't-heavy', text: 'Mức phụ thuộc cao. Bạn nên đặt lịch tư vấn với chuyên viên tâm lý trước, sau đó tham gia chương trình với phòng riêng có chuyên viên đồng hành.' }
   };
   const qs = $('#qs');
   qs.innerHTML = QUESTIONS.map(([q, opts], i) => `
@@ -1404,13 +1437,12 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
     const tier = $('input[name=tier]:checked');
     $('#tierErr').textContent = tier ? '' : 'Chọn mức độ, hoặc chọn "Chưa rõ" nếu bạn chưa làm bài tự đánh giá.';
     ok = !!tier && ok;
-    ok = setErr(rDate, !rDate.value ? 'Vui lòng chọn ngày nhận phòng.' : (new Date(rDate.value) < tomorrow ? 'Ngày nhận phòng phải từ ngày mai trở đi.' : '')) && ok;
+    ok = setErr(rDate, !rDate.value ? 'Vui lòng chọn ngày tham gia.' : (new Date(rDate.value) < tomorrow ? 'Ngày tham gia phải từ ngày mai trở đi.' : '')) && ok;
     const agree = $('#r-agree').checked;
     $('#agreeErr').textContent = agree ? '' : 'Bạn cần đồng ý với nội quy để gửi phiếu.';
     ok = agree && ok;
     if (!ok) { const bad = $('#regForm .bad input, #regForm .bad select'); (bad || $('#regForm')).focus(); toast('Phiếu còn thông tin chưa hợp lệ'); return; }
 
-    const end = new Date(rDate.value); end.setDate(end.getDate() + 1);
     const id = code('TX');
     $('#regCard').innerHTML = `
       <div class="success" tabindex="-1" id="regDone">
@@ -1420,7 +1452,7 @@ dialog.lb .x { position: fixed; top: 14px; right: 16px; width: 44px; height: 44p
         <dl>
           <dt>Học viên</dt><dd>${escapeHtml(name.value.trim())}</dd>
           <dt>Mức độ</dt><dd>${tier.value}</dd>
-          <dt>Lưu trú</dt><dd>${vnDate(rDate.value)} – ${vnDate(iso(end))} (2 ngày)</dd>
+          <dt>Ngày tham gia</dt><dd>${vnDate(rDate.value)} (1 ngày · sáng – chiều hoặc buổi tối)</dd>
         </dl>
         <div class="btns" style="margin-top:6px"><a class="btn btn-ghost" href="#tu-van">Đặt thêm lịch tư vấn</a></div>
       </div>`;
